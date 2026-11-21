@@ -1,144 +1,159 @@
-# NESFIC-D-30 Official Proposal Submission Contents
+# NESFIC-D-27 Official Proposal Submission Contents
 
-**Problem Statement:** NESFIC-D-30 (Stream 1 — Government Track: Health Sector) — *TB Risk Stratification & Programme Decision Support*  
-**Challenge Owners:** National Health Mission (NHM) & State TB Cell, Department of Health & Family Welfare, Government of Assam  
+**Problem Statement:** NESFIC-D-27 (Stream 1 — Government Track: Health Sector) — *Earlier Identification of Congenital Deformities for Timely Care*  
+**Challenge Owners:** National Health Mission (NHM) Assam & Health & Family Welfare Department, Government of Assam  
 **Applicant / Innovator:** Ron Hatibaruah  
 **Application Platform:** Assam Startup Portal (NESFIC 2026)  
-**Proposed Solution Name:** NikshayDrishti (নিশ্চয় দৃষ্টি) — Assam TB Sentinel  
-**Live Working Prototype:** `https://nikshay-drishti.pages.dev/` (Demo Admin: `admin@nhm.assam.gov.in` / `dispur2026`)  
-**GitHub Repository:** `https://github.com/RonHatibaruah/nikshay-drishti-assam`  
+**Proposed Solution Name:** ShishuDrishti (শিশু দৃষ্টি) — Assam Congenital Sentinel & Early Intervention Network  
+**Live Working Prototype:** `https://shishu-drishti.pages.dev/` (Demo Admin: `admin@nhm.assam.gov.in` / `dispur2026`)  
+**GitHub Repository:** `https://github.com/RonHatibaruah/shishu-drishti-assam`  
 **Geographic Coverage (SEO & GEO):** Assam State (`IN-AS`, 26.1445° N, 91.7362° E, Dispur/Guwahati)  
 
 ---
 
 ## Field 1: Problem understanding & user workflow
-*(Word Count: 428 words / Limit: 500 words)*
+*(Word Count: 432 words / Limit: 500 words)*
 
 ### Operational Context & Clinical Reality in Assam
-Tuberculosis (TB) remains a severe public health challenge in Assam, where ~32,000 cases are notified annually under the National TB Elimination Programme (NTEP). While clinical notification data is diligently recorded in the central Ni-kshay portal, available information is predominantly utilized for lagging administrative reporting rather than prospective clinical triage or operational decision support. 
+Congenital anomalies account for 8–15% of neonatal deaths and constitute a major cause of lifelong childhood disability in Assam, where ~9.5 lakh births occur annually. While conditions such as cleft lip/palate, clubfoot (CTEV), neural tube defects (spina bifida), extra digits (polydactyly/syndactyly), and critical congenital heart diseases (CCHD) are surgically or medically remediable if treated early, current screening is predominantly manual, post-natal, and fragmented.
 
-Assam presents acute geographical and epidemiological vulnerabilities that exacerbate TB morbidity:
-1. **Tea Garden Communities (Upper Assam):** Over 800 tea estates in Dibrugarh, Tinsukia, and Sonitpur suffer from disproportionate malnutrition (BMI < 14 in >30% of cases), silica dust exposure, and alcohol abuse.
-2. **Riverine Sandbars (Char Areas in Lower Assam):** Flood-prone islands across Barpeta and Dhubri face severe geographic isolation, leading to prolonged diagnostic delays during monsoon inundations.
-3. **High Early Mortality:** Verbal autopsy records reveal that approximately 74% of TB deaths occur within the first 30 days of treatment initiation, predominantly driven by unrecognised severe undernutrition, diagnostic cascade lag (>14 days from cough onset to molecular test), and undetected drug resistance.
-4. **Diagnostic Referral & Logistics Gaps:** High patient attrition occurs between peripheral health institutions (Ayushman Arogya Mandirs) and molecular NAAT testing sites (Truenat/CBNAAT). Simultaneously, unexpected cartridge stock-outs disrupt continuous universal drug susceptibility testing (UDST).
+Assam faces severe geographical and socio-economic vulnerabilities that compound diagnostic delays:
+1. **Tea Garden Communities (Upper Assam):** High maternal anemia (>65%), pesticide exposures, and poor dietary diversity contribute to elevated congenital defect rates. However, tea estate hospitals lack specialist pediatric screening.
+2. **Riverine Sandbars (Char Areas in Lower Assam):** In flood-prone chars of Barpeta, Dhubri, and South Salmara, home deliveries remain prevalent (up to 30%). Newborns receive zero standardized morphological screening at birth.
+3. **Delayed Detection Cascade:** Most structural deformities are identified only when physical deformities severely impede walking or feeding (often at 6–24 months). Internal defects like CCHD remain undetected until sudden cardiovascular collapse occurs.
+4. **Referral Drop-Off to DEIC:** When frontline workers identify a defect, referral pathways to District Early Intervention Centres (DEIC) or tertiary hospitals (GMCH, AMC, SMC) lack tracking, appointment scheduling, and transport coordination, resulting in >60% loss-to-follow-up.
 
 ### Current User Workflow & Structural Gaps
-Currently, field staff (ASHAs, Senior Treatment Supervisors - STS) and Medical Officers treat notified TB patients with a standardized, uniform outpatient protocol regardless of underlying vulnerability. Peripheral sputum samples are dispatched without real-time tracking, resulting in untracked transit delays. District TB Officers (DTOs) schedule supervisory visits intuitively rather than algorithmically prioritizing failing facilities. Crucially, early deaths are reviewed post-mortem without pre-emptive risk alerts.
+Currently, delivery-point staff (ANMs, staff nurses) conduct hurried, unstructured visual checks without standardized digital photo-documentation. Frontline ASHAs on Home Based Newborn Care (HBNC) visits lack objective decision tools. Meanwhile, Rashtriya Bal Swasthya Karyakram (RBSK) mobile health teams primarily screen Anganwadi and school-going children (ages 3–18), routinely missing the crucial 0–6 week therapeutic window (e.g. the Ponseti casting window for clubfoot). Crucially, parental superstition, stigma, and financial anxiety prevent proactive hospital presentation.
 
-### Intended Users & Beneficiaries
-• **TB Patients:** Receive timely differentiated care, upfront inpatient admission, and prioritized Nikshay Poshan nutrition support (₹1,000/mo).  
-• **Medical Officers & STS/STLS:** Empowered with explainable risk scores and closed-loop specimen tracking.  
-• **District TB Officers (DTOs):** Gain automated Supervisory Priority Index (SPI) tour schedules and 14-day cartridge stockout forecasters.  
-• **State TB Cell & NHM Leadership:** Access statewide predictive mortality heatmaps and elimination trajectory indicators.
+### Intended Users & Operational Stakeholders
+• **Newborns & Parents:** Receive immediate at-birth identification, pre-booked DEIC slots, and full navigation under state schemes (Snehasparsh, RBSK, Smile Train).  
+• **Frontline Health Workers (ASHAs, ANMs, Delivery Staff):** Equipped with offline, smartphone-based AI-assisted image screening and guided CCHD pulse-oximetry protocols.  
+• **RBSK Mobile Health Teams & Medical Officers:** Gain verified suspect registries and streamlined digital referral triage.  
+• **DEIC Specialists & Pediatric Surgeons:** Access complete objective clinical evidence, pre-operative photos, and closed-loop follow-up tracking.  
+• **State NHM Leadership:** Command real-time district prevalence heatmaps, cluster alerts, and surgical backlog monitors.
 
-### Specific Gap Addressed & Mandated Consideration
-NikshayDrishti bridges the gap between passive Ni-kshay data and proactive field action. Addressing the department’s explicit statutory mandate, **all risk outputs are architected as clinical decision-support tools (CDSS) that assist, rather than replace, clinical diagnosis or authorized medical officer decisions.**
+### Specific Gap Addressed & Statutory Mandate
+ShishuDrishti bridges the chasm between birth-point screening and timely corrective intervention. In accordance with the department’s explicit statutory mandate, **all AI-powered risk scoring and image recognition outputs operate strictly as Clinical Decision Support Systems (CDSS) that assist, rather than replace, clinical evaluation by qualified medical officers and pediatric specialists.**
 
 ---
 
 ## Field 2: Proposed solution & key features
-*(Word Count: 412 words / Limit: 500 words)*
+*(Word Count: 442 words / Limit: 500 words)*
 
 ### Proposed Solution Overview
-**NikshayDrishti (Assam TB Sentinel)** is an AI-powered clinical decision support system (CDSS) and programmatic intelligence engine built specifically for NHM Assam and the State TB Cell. Directly ingesting Ni-kshay, Nikshay Aushadhi, and 99DOTS adherence telemetry within the secure Assam State Data Centre (ASDC), it transforms raw data into explainable clinical triage, geospatial Active Case Finding (ACF) routes, closed-loop specimen tracking, and predictive logistics.
+**ShishuDrishti (শিশু দৃষ্টি)** is an AI-powered congenital deformity screening, clinical decision support (CDSS), and closed-loop early intervention platform built specifically for the Government of Assam (NHM & Health & Family Welfare Department). Deployed within the secure Assam State Data Centre (ASDC), it equips frontline healthcare workers with edge AI screening on standard smartphones while providing DEIC teams with an end-to-end longitudinal care coordination engine.
 
 ### Main Modules & Core Capabilities
 
-1. **Multi-Dimensional Patient Mortality & Default Risk Stratifier:**
-Ingests baseline clinical biomarkers (BMI, smear grade, cavitary disease, rifampicin resistance, HIV, diabetes, substance use, age). An explainable XGBoost model computes a composite Risk Score (0–100) and triages patients into four actionable tiers:
-• *Critical (Score 90–100):* Triggers mandatory clinical evaluation for inpatient admission at District Hospital TB wards, high-protein nutrition kit dispatch, and bi-weekly Medical Officer visits.
-• *High Risk (Score 75–89):* Weekly home monitoring by STS and expedited Nikshay Poshan DBT.
-• *Moderate (Score 50–74):* Fortnightly ASHA review with MERM digital adherence monitoring.
-• *Standard (Score < 50):* Routine ambulatory DOTS.
-Includes an explicit SHAP (SHapley Additive exPlanations) attribution card detailing exactly why a patient is categorized as critical.
+1. **Multi-Defect Mobile Computer Vision Screener (Edge AI):**
+Runs lightweight, quantized on-device deep learning models (MobileNetV4/YOLOv8-nano) operating 100% offline in remote tea gardens and char areas. From standard smartphone photographs captured during birth checks or HBNC visits, the engine identifies and risk-flags visible structural anomalies:
+• *Cleft Lip & Palate:* Anatomical localization with severity classification (unilateral/bilateral).
+• *Clubfoot (CTEV):* Ankle angle assessment assisting Pirani scoring for early Ponseti casting.
+• *Polydactyly & Syndactyly:* Automated digit counting and limb extremity segmentation.
+• *Neural Tube Defects:* Meningocele, spina bifida, and encephalocele surface lesion recognition.
+• *Craniofacial Anomalies:* Microcephaly, hydrocephalus, and facial dysmorphism screening.
 
-2. **Geospatial Vulnerability & ACF Micro-Targeting Engine:**
-Interactive GIS heatmaps across all 35 Assam districts overlaid with 4 high-risk cluster typologies: Tea Garden Line Bastis, Riverine Char Areas, Urban Slums, and Brick Kilns. An optimization algorithm models past positivity yield and screening deficits to schedule daily routes for Mobile AI-Xray vans (equipped with handheld X-rays + qXR AI and portable battery-operated Truenat Quattro units).
+2. **Critical Congenital Heart Disease (CCHD) & Functional Triage Engine:**
+Standardizes the recommended dual-site pulse oximetry protocol (pre-ductal right hand vs. post-ductal foot SpO2 gradient). Interprets readings (>3% difference or <95% saturation flags CCHD risk) and supports digital phonocardiography auscultation triage to identify critical cardiac defects before ductal closure.
 
-3. **Closed-Loop Referral Cascade with 48-Hour SLA Tracking:**
-Barcodes and tracks sputum specimen courier transport from peripheral Ayushman Arogya Mandirs to molecular testing labs. Automated triggers identify samples exceeding 48-hour transit SLAs or patients diagnosed NAAT-positive without first-dose initiation, alerting the STLS and DTO to eliminate pre-treatment loss-to-follow-up.
+3. **Closed-Loop DEIC Referral Cascade with 48-Hour SLA Tracking:**
+Upon positive risk-flagging, ShishuDrishti generates an encrypted digital referral to the nearest District Early Intervention Centre (DEIC). It assigns a unique Child Tracking ID (linked with RCH/ABHA), pre-schedules a confirmatory clinical evaluation, and alerts the local RBSK team. The system enforces strict Service Level Agreements (48-hour DEIC confirmation SLA; 14-day corrective intervention SLA) with automated escalation alerts to District Nodal Officers.
 
-4. **Facility Supportive Supervision & Predictive Logistics:**
-Tracks real-time Truenat/CBNAAT utilization and models cartridge burn-rates to forecast stock-outs 14 days in advance. Generates an algorithmic Supervisory Priority Index (SPI) ranking peripheral health institutions by presumptive drop-off and conversion gaps to structure weekly DTO/STS inspection tours.
+4. **Explainable AI (XAI) Clinical Evidence Cards:**
+Ensures clinician trust by rendering bounding-box overlays, Grad-CAM heatmaps, and anatomical landmark measurements on the Medical Officer’s review console, documenting transparent visual evidence supporting every flagged case.
 
-5. **Fuzzy De-Duplication & 60-Day Early Mortality Verbal Autopsies:**
-Leverages Double Metaphone Assamese phonetic transliteration, phone number hashes, and GPS residence proximity to merge duplicate Ni-kshay registrations across private and public sectors. Visualizes 60-day early death audits to institutionalize corrective clinical protocols.
+5. **Culturally Resonant Parental Counseling (Assamese Voice/SMS):**
+Delivers automated, stigma-reducing voice and text guidance in Assamese, Bengali, Bodo, and Hindi directly to parents’ phones. Dispels harmful superstitions, explains that conditions like clubfoot and cleft are 100% treatable, provides DEIC clinic details, and confirms free transport/treatment under Assam's Snehasparsh and RBSK programs.
 
-6. **Administrative Management Console & Clinical Governance:**
-Provides State and District TB Officers with an authorized administrative cockpit:
-• *Patient Roster & Triage Manager:* Ingests new suspect profiles with instant CDSS risk scoring; supports authorized Clinical Triage Overrides with mandatory clinical justification and immutable SHA-256 audit logging.
-• *Diagnostic Buffer Logistics Dispatch:* Monitors inventory across 35 district stores, enabling one-click emergency reallocation from the Guwahati Central Buffer (4,800 CBNAAT / 2,400 Truenat reserve) to deficit facilities.
-• *CDSS Rule & AI Governance Engine:* Live configuration of risk cutoffs (>75 Critical, >50 High), clinical biomarker weight tuning (BMI, cavitation, HIV, diabetes), and model architecture toggles (XGBoost vs. deterministic clinical flowcharts).
-• *Audit & Regulatory Export:* Verifies DPDPA 2023 and ABDM compliance; exports tamper-proof CSV/JSON audit trails. Built with secure multi-persona demo access (`admin@nhm.assam.gov.in` / `dispur2026`).
+6. **Administrative & DEIC Specialist Cockpit:**
+Provides DEIC pediatricians and NHM administrators with an authorized command center (`admin@nhm.assam.gov.in` / `dispur2026`):
+• *Clinical Confirmation & Triage Manager:* Multi-specialist review workspace with mandatory clinical justification logs and immutable SHA-256 audit trails for every confirmed or refuted AI flag.
+• *Surgical & Orthotic Care Coordinator:* Tracks Ponseti casting schedules, cleft surgical queues (Smile Train), and cardiac referrals to AMC/GMCH.
+• *Statewide Congenital Surveillance Heatmap:* Real-time GIS cluster tracking across all 35 Assam districts.
 
 ---
 
 ## Field 3: Technology architecture & feasibility
-*(Word Count: 338 words / Limit: 400 words)*
+*(Word Count: 346 words / Limit: 400 words)*
 
 ### System Architecture & Technical Flow
-NikshayDrishti is architected as an enterprise, cloud-native GovTech platform engineered for containerized on-premise deployment within the **Assam State Data Centre (ASDC)**, ensuring complete data residency, zero-trust security, and DPDP Act 2023 compliance.
+ShishuDrishti is designed as an enterprise, cloud-native GovTech platform engineered for containerized on-premise deployment within the **Assam State Data Centre (ASDC)**, ensuring complete data residency, zero-trust security, and DPDP Act 2023 compliance.
 
-1. **Presentation & Action Layer:** High-performance responsive web dashboard built with React 18, TypeScript, and Tailwind CSS. Employs Leaflet 1.9.4 and GeoJSON vector renderers for sub-second spatial vulnerability mapping. Features four dedicated, role-based consoles: State TB Officer, District TB Officer, Medical Officer / Field Supervisor, and Audit Analyst.
-2. **Secure Ingestion & ABDM Gateway Layer:** Interfaces with national health systems via secure REST/FHIR connectors:
-• *Ni-kshay API (MoHFW):* Ingests clinical notifications, smear microscopy, molecular GeneXpert/Truenat results, and treatment outcomes.
-• *Nikshay Aushadhi:* Ingests 4FDC/3FDC drug stock balances and facility cartridge inventories.
-• *ABDM / ABHA M1–M3 Standards:* Tokenizes patient identities with Ayushman Bharat Health Accounts, maintaining privacy-preserving de-identified clinical features.
-3. **ASDC Analytics & Machine Learning Core:** Containerized microservices running on Kubernetes (K8s):
-• *XGBoost Risk Classifier:* Regularized gradient boosted decision tree trained on multi-cohort TB registry data, yielding an AUROC of 0.887 in predicting early mortality, with zero-leakage cross-validation.
-• *SHAP Clinical Attribution Engine:* Translates complex model weights into intuitive feature-attribution bars for frontline clinicians.
-• *Fuzzy Record Linkage Service:* Combines Double Metaphone phonetic indexing and Jaro-Winkler string distance with geospatial Haversine clustering to resolve duplicate records.
-• *Logistics Inventory Forecaster:* Time-series burn-rate model predicting cartridge stock depletion horizons.
-4. **Database & Persistence Tier:** PostgreSQL 16 relational database with PostGIS 3.4 spatial extensions for sub-second spatial querying and cluster geometry. Redis 7.2 cluster handles distributed session state and caching. Implements SHA-256 cryptographic audit logging for every decision-support query, guaranteeing complete clinical accountability.
+```
+[Mobile Field App - ASHA/ANM] ──(Offline TFLite Inference)──► [Edge Risk Flagging]
+               │ (Sync on connectivity)
+               ▼
+   [ASDC Secure API Gateway / Zero-Trust TLS 1.3]
+               │
+   ┌───────────┼────────────────────────────────────────┐
+   ▼           ▼                                        ▼
+[Computer Vision    [DEIC Longitudinal Care   [ABDM / ABHA Gateway &
+ Pipeline & XAI]     Coordinator & 48h SLA]    RCH Portal Connector]
+   │           │                                        │
+   └───────────┼────────────────────────────────────────┘
+               ▼
+[PostgreSQL 16 + PostGIS Spatial Database & Redis Distributed Cache]
+               │
+               ▼
+[DEIC Specialist Cockpit & State NHM Surveillance Command Center]
+```
+
+1. **Presentation & Action Layer:** High-performance responsive web and Progressive Web App (PWA) built with React 18, TypeScript, and Tailwind CSS. Employs Leaflet 1.9.4 with TopoJSON/GeoJSON vector renderers for sub-second spatial cluster mapping. Features role-based consoles for Frontline Screener, DEIC Specialist, RBSK Coordinator, and State NHM Nodal Officer.
+2. **Mobile Edge Inference Engine:** On-device computer vision execution via TensorFlow Lite / ONNX Web Runtime. Operates without active internet connectivity on low-cost Android hardware (Android 8.0+, 2GB RAM), ensuring uninterrupted screening in riverine chars and tea garden interiors.
+3. **ASDC Backend Microservices Layer:** Containerized Python (FastAPI) and Node.js microservices running on Kubernetes (K8s) within ASDC:
+• *Computer Vision Verification Pipeline:* High-precision multi-task CNN/Transformer ensemble validating uploaded field images and calculating Grad-CAM explainability heatmaps.
+• *CCHD Decision Engine:* Deterministic guideline-based triage algorithm implementing AAP/AHA pulse-oximetry screening logic.
+• *ABDM / ABHA & RCH Integration:* Encrypts and links screening records with Ayushman Bharat Health Accounts (ABHA M1–M3) and RCH maternal-child IDs.
+4. **Database & Audit Tier:** PostgreSQL 16 with PostGIS 3.4 spatial extensions for spatial clustering and village-level anomaly surveillance. Implements SHA-256 cryptographic chaining for every clinical triage override, guaranteeing non-repudiation and medico-legal accountability under DPDPA 2023.
 
 ### Technology Stack Feasibility
-Built entirely on battle-tested open-source enterprise standards without proprietary software licensing fees, ensuring complete long-term sustainability and effortless integration with existing NHM Assam digital infrastructure.
+Constructed entirely on battle-tested open-source enterprise standards without proprietary software licensing fees, ensuring complete long-term sustainability and seamless integration with existing NHM Assam digital public infrastructure.
 
 ---
 
 ## Field 4: Pilot proposal, KPIs, implementation plan, and budget
-*(Word Count: 352 words / Limit: 400 words)*
+*(Word Count: 368 words / Limit: 500 words)*
 
-### Pilot Context: Two-District Demonstrator (Kamrup Metro & Dibrugarh)
-To validate the solution across both urban migrant settlements and rural industrial agrarian populations, a 6-month dual-district pilot will be executed in:
-1. **Dibrugarh District:** Representing Upper Assam’s tea garden belt (>140 estates), high occupational vulnerability, and complex rural transportation networks.
-2. **Kamrup Metropolitan District:** Representing the state’s dense urban hub (Guwahati), transient migrant populations, multi-tier tertiary care centers (GMCH), and private diagnostic facilities.
+### Pilot Context: High-Volume Demonstrator in Kamrup Metropolitan & Barpeta
+To validate the platform across diverse clinical environments—tertiary medical hubs, rural primary centers, and vulnerable riverine chars—a 6-month demonstrator pilot will be executed across two complementary districts:
+1. **Kamrup Metropolitan District:** Covering high-volume institutional deliveries at Gauhati Medical College & Hospital (GMCH) and urban maternity centers, validating tertiary DEIC specialist workflows and high-speed digital triage.
+2. **Barpeta District:** Covering flood-prone riverine char communities and high home-delivery pockets, validating offline edge AI performance among ASHAs/ANMs and rural DEIC referral closure.
 
 ### Phased 12-Month Implementation Roadmap
-• **Months 1–2 (Baseline Integration & Security Configuration):** Provision ASDC cloud staging; configure read-only Ni-kshay and Nikshay Aushadhi mock connectors; conduct STQC vulnerability assessment (VAPT); establish de-identification pipelines and ABDM ABHA tokenization.  
-• **Months 3–4 (District Pilot Launch & Field Calibration):** Deploy NikshayDrishti in Dibrugarh and Kamrup Metro; train 2 DTOs, 14 Medical Officers, and 28 STS/STLS supervisors; operationalize closed-loop specimen courier tracking across 30 peripheral health institutions.  
-• **Months 5–8 (Differentiated Care & ACF Mobile Van Operations):** Activate real-time risk stratification and automated inpatient triage alerts; deploy Mobile AI-Xray van route optimizer targeting top 20 tea garden line bastis and urban slums; trigger automated 14-day cartridge re-supply indents.  
-• **Months 9–12 (Evaluation, Impact Audit & Statewide Expansion):** Validate 30-day mortality reduction and referral closure metrics; present pilot findings to State TB Cell; roll out containerized microservices across all 35 Assam districts.
+• **Months 1–2 (Baseline Integration & Model Calibration):** Provision ASDC cloud staging; calibrate mobile edge vision models on pediatric ethical datasets; conduct STQC-aligned vulnerability assessment (VAPT); configure ABDM ABHA tokenization and RCH data connectors.  
+• **Months 3–4 (District Pilot Launch & Frontline Training):** Deploy ShishuDrishti across 30 delivery points in Kamrup Metro and Barpeta; equip and train 400 ASHAs, 120 ANMs, 12 RBSK Mobile Health Teams, and 2 DEIC clinical units; operationalize pulse-oximetry CCHD kits.  
+• **Months 5–8 (Live Screening & Closed-Loop Referral Execution):** Screen targeted cohort of 30,000 newborns; activate automated 48-hour DEIC e-referral workflows and Assamese parental counseling SMS/IVR; monitor 14-day surgical and Ponseti intervention milestones.  
+• **Months 9–12 (Clinical Audit, Outcome Evaluation & Statewide Rollout):** Conduct clinical concordance audit with DEIC pediatric heads; evaluate reduction in referral lag and treatment compliance; present findings to Health & Family Welfare Department; roll out statewide across all 35 districts under NHM Assam.
 
 ### Measurable Key Performance Indicators (KPIs)
-• **≥ 25% Reduction in 30-Day TB Mortality:** Achieved through early identification and inpatient triage of patients with BMI < 14 and severe comorbidities.  
-• **≥ 90% Closed-Loop Diagnostic Referrals:** Sputum transit time reduced from >72h to <48h; pre-treatment loss-to-follow-up eliminated.  
-• **Zero Unplanned Truenat Cartridge Stockouts:** Requisitions automated 14 days prior to depletion.  
-• **≥ 95% De-Duplication Precision:** Consolidated master patient history across private/public notifications.
+• **≥ 92% Sensitivity & ≥ 95% Specificity** for target visible structural deformities (cleft, clubfoot, polydactyly, neural tube defects).  
+• **Reduction in Mean Age at DEIC Evaluation:** Reduced from 135 days (historical baseline) to **< 7 days** from birth.  
+• **≥ 85% Closed-Loop Referral Completion Rate:** Drastic reduction in loss-to-follow-up through automated tracking and ASHA alerts.  
+• **100% CCHD Pulse Oximetry Screening Compliance** across institutional pilot delivery points.
 
 ### Milestone-Based Grant Budget Utilization (Total: ₹40.00 Lakh)
-1. Core Software Engineering, ASDC Integration & ML Pipeline: ₹14.00 Lakh (35%)  
-2. Geospatial WebGIS Engine, Leaflet Tile Server & ACF Routing: ₹9.00 Lakh (22.5%)  
-3. Security Auditing, STQC VAPT, DPDP Compliance & ABDM Linking: ₹6.00 Lakh (15%)  
-4. Two-District Field Pilot, Clinician Training & STS Mobile Kits: ₹7.00 Lakh (17.5%)  
-5. Operational Contingency & Data Verification Buffer: ₹4.00 Lakh (10%)  
+1. Edge AI Mobile Screener & Computer Vision Core Pipeline: ₹13.50 Lakh (33.75%)  
+2. Closed-Loop DEIC Referral Engine, SLA Tracking & WebGIS: ₹9.50 Lakh (23.75%)  
+3. Security Auditing, STQC VAPT, DPDP Act & ABDM Gateway: ₹5.50 Lakh (13.75%)  
+4. Two-District Field Pilot, Frontline Training & CCHD Screening Kits: ₹7.50 Lakh (18.75%)  
+5. Clinical Validation Contingency & Longitudinal Cohort Follow-up: ₹4.00 Lakh (10.00%)
 
 ---
 
 ## Field 5: Team capabilities, commercialization & sustainability
-*(Word Count: 268 words / Limit: 300 words)*
+*(Word Count: 274 words / Limit: 300 words)*
 
 ### Lead Applicant & Technical Capability: Ron Hatibaruah
-• **Domain Expertise:** Full-stack GovTech architect, machine learning engineer, and public health software specialist with deep experience in building secure clinical decision-support systems, geospatial platforms (PostGIS), and national digital public infrastructure.  
-• **Contextual Mastery:** Comprehensive understanding of the National TB Elimination Programme (NTEP) operational guidelines, Ni-kshay data models, ICMR clinical protocols, and Assam’s district health topography (including tea garden welfare hospitals and riverine char boat clinics).  
-• **Execution Track Record:** Proven track record in designing, benchmarking, and shipping production-grade health-tech software, containerized microservices, and explainable AI pipelines. Collaborates with senior public health epidemiologists, chest physicians, and state health system administrators.
+• **Domain Expertise:** Full-stack GovTech architect, machine learning engineer, and health informatics specialist with extensive experience in building secure clinical decision-support systems, on-device edge AI, and geospatial tracking platforms (PostGIS).  
+• **Contextual Mastery:** Deep understanding of the National Health Mission (NHM) Assam operational architecture, Rashtriya Bal Swasthya Karyakram (RBSK) 4Ds screening protocols, District Early Intervention Centre (DEIC) guidelines, and Assam’s unique geographical terrain (tea garden line bastis and riverine char communities).  
+• **Execution Track Record:** Proven track record in designing, benchmarking, and shipping production-grade health software adhering to statutory CDSS principles, DPDP Act 2023, and ABDM health data standards. Collaborates with experienced pediatricians, orthopedic surgeons, and state public health epidemiologists.
 
 ### Deployment Model & Financial Sustainability
-NikshayDrishti is designed as a sustainable Digital Public Good (DPG) for the Government of Assam:  
-1. **Zero Recurring License Overhead:** Engineered completely on open-source frameworks (React, PostgreSQL, PostGIS, Python, XGBoost), avoiding proprietary vendor lock-in or recurring annual per-seat licensing fees.  
-2. **ASDC Infrastructure Synergy:** Deployed directly within existing state computing infrastructure (Assam State Data Centre), eliminating external commercial cloud costs.  
-3. **National Health Mission (NHM) Integration:** Post-pilot ongoing maintenance and field device support can be seamlessly sustained through standard National Health Mission (NHM) PIP (Program Implementation Plan) funding lines under NTEP technology innovations.  
+ShishuDrishti is designed as a sustainable Digital Public Good (DPG) for the Government of Assam:  
+1. **Zero Recurring License Overhead:** Engineered completely on open-source frameworks (React, Python, PyTorch/ONNX, PostgreSQL, PostGIS), eliminating proprietary vendor lock-in and per-seat license costs.  
+2. **ASDC Infrastructure Synergy:** Deployed directly within existing state computing infrastructure at the Assam State Data Centre, eliminating commercial cloud expenditures.  
+3. **National Health Mission (NHM) Integration:** Post-pilot operations, frontline worker training, and maintenance can be seamlessly institutionalized through standard National Health Mission (NHM) PIP (Program Implementation Plan) funding allocations under RBSK innovation and maternal-child health budget heads.
 
 ### Scalability Across North-East India
-While initiated for Assam’s 35 districts, the underlying Ni-kshay standard schema enables rapid, low-friction horizontal rollout across all seven sister states of North-East India (Meghalaya, Mizoram, Nagaland, Tripura, Arunachal Pradesh, Manipur, Sikkim), establishing regional leadership in AI-driven TB elimination.
+While tailored to Assam’s 35 districts, the standardized RBSK/DEIC operational framework enables rapid horizontal adoption across all eight North-Eastern states, establishing Assam as the regional benchmark in AI-driven early childhood disability prevention.

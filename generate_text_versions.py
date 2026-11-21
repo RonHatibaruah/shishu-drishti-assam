@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Generate clean, copy-paste-ready, textarea-compliant plain text files for NESFIC 2026:
-1. NESFIC_D30_Proposal_Ron_Hatibaruah.txt (Field-by-field copy-paste textarea blocks)
-2. NESFIC_D30_Proof_of_Work_Ron_Hatibaruah.txt (Full and modular copy-paste textarea blocks)
+1. NESFIC_D27_Proposal_Ron_Hatibaruah.txt (Field-by-field copy-paste textarea blocks)
+2. NESFIC_D27_Proof_of_Work_Ron_Hatibaruah.txt (Full and modular copy-paste textarea blocks)
 """
 
 import os
@@ -57,7 +57,7 @@ def clean_text_for_textarea(text):
 
 def generate_proposal_text():
     src_file = os.path.join(base_dir, 'proposal_contents.md')
-    out_file = os.path.join(base_dir, 'NESFIC_D30_Proposal_Ron_Hatibaruah.txt')
+    out_file = os.path.join(base_dir, 'NESFIC_D27_Proposal_Ron_Hatibaruah.txt')
     
     with open(src_file, 'r', encoding='utf-8') as f:
         raw = f.read()
@@ -67,12 +67,12 @@ def generate_proposal_text():
     
     header = "=" * 80 + "\n"
     header += "NESFIC 2026 - STREAM 1 (GOVERNMENT TRACK) - OFFICIAL PROPOSAL SUBMISSION\n"
-    header += "Problem Statement ID: NESFIC-D-30: TB Risk Stratification & Programme Decision Support\n"
-    header += "Sponsoring Department: National Health Mission & State TB Cell, Govt of Assam\n"
+    header += "Problem Statement ID: NESFIC-D-27: Earlier Identification of Congenital Deformities for Timely Care\n"
+    header += "Sponsoring Department: National Health Mission & Health & Family Welfare Dept, Govt of Assam\n"
     header += "Applicant / Innovator: Ron Hatibaruah\n"
-    header += "Proposed Solution: NikshayDrishti (নিশ্চয় দৃষ্টি) — Assam TB Sentinel\n"
-    header += "Live Working Prototype: https://nikshay-drishti.pages.dev/\n"
-    header += "GitHub Repository: https://github.com/RonHatibaruah/nikshay-drishti-assam\n"
+    header += "Proposed Solution: ShishuDrishti (শিশু দৃষ্টি) — Assam Congenital Sentinel & Early Care Network\n"
+    header += "Live Working Prototype: https://shishu-drishti.pages.dev/\n"
+    header += "GitHub Repository: https://github.com/RonHatibaruah/shishu-drishti-assam\n"
     header += "=" * 80 + "\n\n"
     header += "INSTRUCTIONS FOR APPLICANT:\n"
     header += "Each section below corresponds exactly to an official online form field on the\n"
@@ -95,7 +95,6 @@ def generate_proposal_text():
         wc_note = wc_match.group(1) if wc_match else ""
         
         cleaned_content = clean_text_for_textarea(field_content)
-        # Remove the word count line from textarea content
         cleaned_content = re.sub(r'\(Word Count:.*?\)', '', cleaned_content).strip()
         
         words = len(cleaned_content.split())
@@ -120,19 +119,19 @@ def generate_proposal_text():
 
 def generate_pow_text():
     src_file = os.path.join(base_dir, 'proof_of_work_dossier.md')
-    out_file = os.path.join(base_dir, 'NESFIC_D30_Proof_of_Work_Ron_Hatibaruah.txt')
+    out_file = os.path.join(base_dir, 'NESFIC_D27_Proof_of_Work_Ron_Hatibaruah.txt')
     
     with open(src_file, 'r', encoding='utf-8') as f:
         raw = f.read()
         
     header = "=" * 80 + "\n"
     header += "NESFIC 2026 - STREAM 1 - PROOF OF WORK & TECHNICAL EVIDENCE DOSSIER\n"
-    header += "Problem Statement ID: NESFIC-D-30: TB Risk Stratification & Programme Decision Support\n"
-    header += "Sponsoring Department: National Health Mission & State TB Cell, Govt of Assam\n"
+    header += "Problem Statement ID: NESFIC-D-27: Earlier Identification of Congenital Deformities for Timely Care\n"
+    header += "Sponsoring Department: National Health Mission & Health & Family Welfare Dept, Govt of Assam\n"
     header += "Applicant / Innovator: Ron Hatibaruah\n"
-    header += "Solution: NikshayDrishti (Assam TB Sentinel)\n"
-    header += "Live Prototype: https://nikshay-drishti.pages.dev/\n"
-    header += "GitHub Repository: https://github.com/RonHatibaruah/nikshay-drishti-assam\n"
+    header += "Solution: ShishuDrishti (Assam Congenital Sentinel)\n"
+    header += "Live Prototype: https://shishu-drishti.pages.dev/\n"
+    header += "GitHub Repository: https://github.com/RonHatibaruah/shishu-drishti-assam\n"
     header += "=" * 80 + "\n\n"
     
     cleaned = clean_text_for_textarea(raw)

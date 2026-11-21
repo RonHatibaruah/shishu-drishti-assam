@@ -1,14 +1,14 @@
 {
-  "name": "nikshay-drishti-assam",
+  "name": "shishu-drishti-assam",
   "private": true,
   "version": "1.0.0",
-  "description": "NikshayDrishti (নিশ্চয় দৃষ্টি) - AI-Powered TB Risk Stratification & Programme Decision Support System for NHM Assam (NESFIC-D-30)",
+  "description": "ShishuDrishti (শিশু দৃষ্টি) - AI-Powered Congenital Deformity Screening & DEIC Early Intervention Network for NHM Assam (NESFIC-D-27)",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "pages:build": "npm run build",
-    "deploy": "wrangler pages deploy dist --project-name=nikshay-drishti",
+    "deploy": "wrangler pages deploy dist --project-name=shishu-drishti",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -13,12 +13,10 @@ import {
   Stethoscope, 
   Activity, 
   HeartPulse, 
-  FileText,
-  Truck,
-  Cpu,
-  Clock,
-  ChevronRight,
-  Info
+  FileText, 
+  Clock, 
+  Baby, 
+  Sparkles 
 } from 'lucide-react';
 
 interface TutorialModalProps {
@@ -56,22 +54,22 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
       <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[92vh] flex flex-col border border-slate-200 overflow-hidden">
         
         {/* Header */}
-        <div className="bg-slate-900 text-white p-5 flex items-center justify-between border-b border-teal-800">
+        <div className="bg-slate-900 text-white p-5 flex items-center justify-between border-b border-emerald-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white shadow-lg">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg">
               <BookOpen className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-base sm:text-lg font-bold">
-                  Tutorial & System Guide: NikshayDrishti (নিশ্চয় দৃষ্টি)
+                  Tutorial & System Guide: ShishuDrishti (শিশু দৃষ্টি)
                 </h2>
-                <span className="text-[10px] font-mono bg-teal-800 text-teal-200 px-2 py-0.5 rounded border border-teal-600/40">
-                  NESFIC-D-30
+                <span className="text-[10px] font-mono bg-emerald-800 text-emerald-200 px-2 py-0.5 rounded border border-emerald-600/40">
+                  NESFIC-D-27
                 </span>
               </div>
               <p className="text-xs text-slate-300">
-                What the application is, how to use it, and how to test every departmental capability.
+                What the application is, how to use it, and how to verify every departmental capability.
               </p>
             </div>
           </div>
@@ -96,7 +94,7 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
               onClick={() => setActiveStep(s.step)}
               className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${
                 activeStep === s.step
-                  ? 'bg-teal-700 text-white shadow'
+                  ? 'bg-emerald-700 text-white shadow'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
               }`}
             >
@@ -116,16 +114,16 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
         {/* Content Body */}
         <div className="p-6 overflow-y-auto space-y-5 text-xs text-slate-700 leading-relaxed flex-1">
           
-          {/* STEP 1: What is NikshayDrishti? */}
+          {/* STEP 1: What is ShishuDrishti? */}
           {activeStep === 1 && (
             <div className="space-y-4">
-              <div className="bg-teal-50 border border-teal-200 p-4 rounded-xl text-teal-950">
-                <h3 className="text-sm font-bold text-teal-900 mb-1 flex items-center gap-1.5">
-                  <Activity className="w-4 h-4 text-teal-700" />
-                  What is NikshayDrishti?
+              <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-emerald-950">
+                <h3 className="text-sm font-bold text-emerald-900 mb-1 flex items-center gap-1.5">
+                  <Baby className="w-4 h-4 text-emerald-700" />
+                  What is ShishuDrishti?
                 </h3>
                 <p>
-                  <strong>NikshayDrishti (নিশ্চয় দৃষ্টি)</strong> is an artificial intelligence-powered clinical decision-support and programmatic decision-support system (CDSS) developed for the <strong>National Health Mission (NHM) and State TB Cell, Government of Assam</strong> under <strong>NESFIC-D-30 (Stream 1 — Government Track: Health Sector)</strong>.
+                  <strong>ShishuDrishti (শিশু দৃষ্টি)</strong> is an artificial intelligence-powered congenital deformity screening, clinical decision support (CDSS), and closed-loop early intervention platform built specifically for the <strong>National Health Mission (NHM) and Health & Family Welfare Department, Government of Assam</strong> under <strong>NESFIC-D-27 (Stream 1 — Government Track: Health Sector)</strong>.
                 </p>
               </div>
 
@@ -133,22 +131,22 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
                 <h4 className="font-bold text-slate-900 text-sm mb-2">The Real-World Challenge in Assam:</h4>
                 <ul className="space-y-2 pl-2">
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 flex-shrink-0"></span>
-                    <span><strong>High Early Mortality:</strong> Approximately 74% of patient deaths occur within the first 30 days of treatment initiation, predominantly driven by severe undernutrition (BMI &lt; 14), delayed presentation, and diagnostic lag.</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
+                    <span><strong>Delayed Detection Cascade:</strong> Many congenital anomalies (cleft lip/palate, clubfoot, polydactyly, neural tube defects, critical CHD) are detected only after birth or months later, causing missed critical therapeutic windows (e.g. Ponseti casting within 0-6 weeks).</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 flex-shrink-0"></span>
-                    <span><strong>Vulnerable Geographic Pockets:</strong> Tea garden line bastis in Upper Assam (Dibrugarh, Tinsukia) and riverine char sandbars in Lower Assam (Barpeta, Dhubri) face acute access barriers.</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
+                    <span><strong>Vulnerable Geography:</strong> Tea garden line bastis (Upper Assam) and flood-prone riverine char sandbars (Lower Assam) have high home-delivery rates and limited access to pediatric specialists.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 flex-shrink-0"></span>
-                    <span><strong>Diagnostic Referral Leakage:</strong> High dropout rates between cough screening at peripheral Ayushman Arogya Mandirs and molecular NAAT testing at distant labs.</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
+                    <span><strong>Referral Drop-Off:</strong> Over 60% of flagged infants drop out before specialist evaluation at District Early Intervention Centres (DEIC) due to absent digital appointment tracking, travel costs, and parental stigma.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="p-3 bg-amber-50 rounded-xl border border-amber-300 text-amber-900">
-                <strong>Mandatory Statutory Guardrail:</strong> In strict compliance with the challenge mandate, all risk outputs and recommendations are <em>decision-support only</em> and do not replace clinical diagnosis or authorized programme decisions by medical officers.
+                <strong>Statutory Guardrail:</strong> In strict compliance with the challenge mandate, all AI screening outputs function as <em>decision support only</em> and do not replace clinical diagnosis or medical authority.
               </div>
             </div>
           )}
@@ -157,40 +155,36 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
           {activeStep === 2 && (
             <div className="space-y-4">
               <h3 className="text-sm font-bold text-slate-900 mb-1">
-                Role-Based Consoles (Switch using the top navigation bar):
+                Role-Based Consoles (Switch using top navigation bar):
               </h3>
-              <p className="text-slate-500">
-                The platform tailors features for four primary stakeholders in Assam’s health system:
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="flex items-center gap-2 font-bold text-slate-900 mb-2">
-                    <Shield className="w-4 h-4 text-teal-600" />
-                    State TB Officer (STO)
-                  </div>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
-                    Accesses statewide strategic dashboards, 35-district notification trajectories, mortality reduction trends vs 2015 baseline, and Nikshay Poshan DBT disbursement oversight.
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                    State Nodal (NHM)
+                  </span>
+                  <h4 className="font-bold text-slate-900">Executive Surveillance</h4>
+                  <p className="text-slate-600">
+                    Macro epidemiologic trends, 35-district anomaly heatmaps, state-wide 48h SLA metrics, and budget tracking.
                   </p>
                 </div>
 
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="flex items-center gap-2 font-bold text-slate-900 mb-2">
-                    <MapPin className="w-4 h-4 text-teal-600" />
-                    District TB Officer (DTO)
-                  </div>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
-                    Monitors diagnostic cartridge burn rates, receives 14-day stock-out early warnings, schedules automated Supervisory Priority Index (SPI) tours, and conducts death audits.
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800">
+                    DEIC Specialist
+                  </span>
+                  <h4 className="font-bold text-slate-900">Clinical Confirmation</h4>
+                  <p className="text-slate-600">
+                    Inspects raw and Grad-CAM images, confirms/refutes AI flags, schedules Ponseti serial casting, and links Snehasparsh funds.
                   </p>
                 </div>
 
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="flex items-center gap-2 font-bold text-slate-900 mb-2">
-                    <Stethoscope className="w-4 h-4 text-teal-600" />
-                    Medical Officer & STS
-                  </div>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
-                    Reviews clinical patient worklists, inspects SHAP explainability cards, approves inpatient bed triage for critical patients, and delivers high-protein food baskets.
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-800">
+                    ASHA / ANM Screener
+                  </span>
+                  <h4 className="font-bold text-slate-900">Frontline Edge Screener</h4>
+                  <p className="text-slate-600">
+                    100% offline edge AI image capture, CCHD pulse oximetry input, and instant DEIC e-referral generation.
                   </p>
                 </div>
               </div>
@@ -199,126 +193,136 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
 
           {/* STEP 3: Feature Tour */}
           {activeStep === 3 && (
-            <div className="space-y-3">
-              <h3 className="text-sm font-bold text-slate-900 mb-1">
-                How to Test Each Core Capability:
+            <div className="space-y-4">
+              <h3 className="text-sm font-bold text-slate-900 mb-2">
+                Core Capabilities Demonstrated in This Live Prototype:
               </h3>
-              
-              <div className="space-y-2.5">
-                {[
-                  {
-                    tab: 'worklist',
-                    title: '1. Risk Stratification & Differentiated Care',
-                    desc: 'Filter by Critical/High risk, click "Explain & CDSS" to view the SHAP biomarker breakdown (BMI < 14, smear 3+, MDR), and approve high-protein food baskets.',
-                    icon: HeartPulse
-                  },
-                  {
-                    tab: 'gis',
-                    title: '2. Geospatial Vulnerability & ACF Map',
-                    desc: 'Explore Assam tea estates, char areas, and slums on the Leaflet map. Click any cluster to inspect population yield and click "Dispatch AI-Xray Van".',
-                    icon: Layers
-                  },
-                  {
-                    tab: 'referrals',
-                    title: '3. Closed-Loop Referral Cascade',
-                    desc: 'Follow the 5-stage diagnostic pipeline from Ayushman Arogya Mandirs to NAAT testing. Click "Advance Step" or "Escalate" on SLA overdue samples.',
-                    icon: Clock
-                  },
-                  {
-                    tab: 'facilities',
-                    title: '4. Facility Supervision & Predictive Logistics',
-                    desc: 'Monitor Truenat/CBNAAT capacity utilization, view the 14-day cartridge stockout predictor, and schedule weekly Supervisory Priority Index (SPI) tours.',
-                    icon: Cpu
-                  },
-                  {
-                    tab: 'audit',
-                    title: '5. Audit & Algorithmic De-Duplication',
-                    desc: 'Test the Double Metaphone Assamese fuzzy record matcher to merge duplicate Nikshay IDs, and review 60-day early mortality verbal autopsies.',
-                    icon: FileText
-                  },
-                  {
-                    tab: 'admin',
-                    title: '6. Admin Console & Management System',
-                    desc: 'Dedicated governance cockpit: add patients, execute manual clinical triage overrides, dispatch emergency cartridge buffer stock, and adjust CDSS AI weights (Demo: admin@nhm.assam.gov.in / dispur2026).',
-                    icon: Shield
-                  }
-                ].map(feat => {
-                  const Icon = feat.icon;
-                  return (
-                    <div key={feat.tab} className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-start justify-between gap-3">
-                      <div className="flex items-start gap-2.5">
-                        <Icon className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
-                        <div>
-                          <h4 className="font-bold text-slate-900">{feat.title}</h4>
-                          <p className="text-slate-600 text-[11px] mt-0.5">{feat.desc}</p>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => {
-                          setActiveTab(feat.tab);
-                          onClose();
-                        }}
-                        className="px-2.5 py-1 bg-teal-600 hover:bg-teal-700 text-white rounded font-bold text-[10px] whitespace-nowrap shadow flex items-center gap-1"
-                      >
-                        Open Tab <ChevronRight className="w-3 h-3" />
-                      </button>
-                    </div>
-                  );
-                })}
+              <div className="space-y-3">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 flex items-start gap-3">
+                  <Baby className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900">1. Congenital Screening Worklist:</strong>
+                    <p className="text-slate-600 mt-0.5">
+                      Triage worklist with filterable categories (Cleft, Clubfoot, Polydactyly, Spina Bifida, CCHD) and interactive modal with Bounding Box & Grad-CAM toggles.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900">2. Geospatial Hotspots & RBSK Routes:</strong>
+                    <p className="text-slate-600 mt-0.5">
+                      Interactive Leaflet map showing high-prevalence pockets in tea gardens and chars, with travel time to nearest DEIC.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900">3. Closed-Loop DEIC Referral Cascade (48h SLA):</strong>
+                    <p className="text-slate-600 mt-0.5">
+                      5-stage finite state machine with automatic breach alerts if DEIC evaluation exceeds 48 hours.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 flex items-start gap-3">
+                  <Sparkles className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900">4. Explainable AI & SHA-256 Audit Trails:</strong>
+                    <p className="text-slate-600 mt-0.5">
+                      Objective landmark metrics (e.g. 8.4mm philtrum gap) and tamper-proof SHA-256 cryptographic logs for every specialist confirmation.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           )}
 
-          {/* STEP 4: Official Proposal Document */}
+          {/* STEP 4: Official Proposal Artifacts */}
           {activeStep === 4 && (
             <div className="space-y-4">
-              <div className="bg-slate-900 text-white p-5 rounded-xl border border-teal-800">
-                <h3 className="text-sm font-bold text-teal-300 flex items-center gap-2 mb-1">
-                  <FileText className="w-4 h-4 text-teal-400" />
-                  Official NESFIC-D-30 Solution Proposal
-                </h3>
-                <p className="text-slate-300 text-[11px] leading-relaxed">
-                  The complete official proposal submission document prepared for the National Health Mission (NHM) and State TB Cell, Government of Assam, formatted under the Uniform Solution Proposal Requirements (USPR).
-                </p>
-              </div>
+              <h3 className="text-sm font-bold text-slate-900 mb-1">
+                Official Submission Documents (NESFIC 2026):
+              </h3>
+              <p className="text-slate-600">
+                All artifacts strictly comply with the Assam Startup Uniform Solution Proposal Requirements (USPR).
+              </p>
 
-              {/* Official Proposal Download Card */}
-              <div className="p-5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h4 className="font-bold text-slate-900 text-sm">Official Solution Proposal Document (PDF)</h4>
-                  <p className="text-slate-500 text-[11px] mt-0.5">
-                    Includes all 5 submission fields, implementation roadmap, budget allocation, and embedded 16:9 widescreen technological framework infographics.
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200 space-y-3">
+                  <h4 className="font-bold text-emerald-950 flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-emerald-700" />
+                    Official Proposal Document
+                  </h4>
+                  <p className="text-[11px] text-emerald-900">
+                    Complete field-by-field responses for Field 1 to Field 5 with embedded 16:9 widescreen diagrams.
                   </p>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="/downloads/NESFIC_D27_Proposal_Ron_Hatibaruah.pdf"
+                      target="_blank"
+                      className="px-3 py-1.5 bg-emerald-600 text-white font-bold rounded text-xs flex items-center gap-1"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Download PDF
+                    </a>
+                    <button
+                      onClick={() => handleCopy('Proposal Text', '/downloads/NESFIC_D27_Proposal_Ron_Hatibaruah.txt')}
+                      className="px-3 py-1.5 bg-white border border-emerald-300 text-emerald-800 font-bold rounded text-xs flex items-center gap-1"
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                      Copy Text
+                    </button>
+                  </div>
                 </div>
-                <a
-                  href="/downloads/NESFIC_D30_Proposal_Ron_Hatibaruah.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  download="NESFIC_D30_Proposal_Ron_Hatibaruah.pdf"
-                  className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-lg shadow flex items-center gap-2 whitespace-nowrap self-start sm:self-center"
-                >
-                  <Download className="w-4 h-4" />
-                  Download Proposal (PDF)
-                </a>
+
+                <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200 space-y-3">
+                  <h4 className="font-bold text-emerald-950 flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-emerald-700" />
+                    Proof of Work (PoW) Dossier
+                  </h4>
+                  <p className="text-[11px] text-emerald-900">
+                    Empirical model benchmarks, edge latency results, CCHD triage protocol, and DPDP Act security enclave.
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="/downloads/NESFIC_D27_Proof_of_Work_Ron_Hatibaruah.pdf"
+                      target="_blank"
+                      className="px-3 py-1.5 bg-emerald-600 text-white font-bold rounded text-xs flex items-center gap-1"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Download PDF
+                    </a>
+                    <button
+                      onClick={() => handleCopy('PoW Text', '/downloads/NESFIC_D27_Proof_of_Work_Ron_Hatibaruah.txt')}
+                      className="px-3 py-1.5 bg-white border border-emerald-300 text-emerald-800 font-bold rounded text-xs flex items-center gap-1"
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                      Copy Text
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           )}
 
         </div>
 
-        {/* Footer */}
+        {/* Modal Footer */}
         <div className="bg-slate-50 p-4 border-t border-slate-200 flex items-center justify-between">
-          <div className="text-[11px] text-slate-500">
-            Principal Investigator: <strong>Ron Hatibaruah</strong> (ron.hatibaruah@gmail.com)
-          </div>
+          <span className="text-slate-400 text-[11px]">
+            Applicant: Ron Hatibaruah • NESFIC-D-27
+          </span>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-bold shadow"
+            className="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-lg transition-all"
           >
             Close Guide
           </button>
         </div>
-
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
-# Cloudflare Pages Deployment Guide: NikshayDrishti (Assam TB Sentinel)
+# Cloudflare Pages Deployment Guide: ShishuDrishti (Assam Congenital Sentinel)
 
-**Project Name:** `nikshay-drishti`  
-**Problem Statement:** NESFIC-D-30 (Stream 1 — Government Track: Health Sector)  
-**Target Domain:** `https://nikshay-drishti.pages.dev/`  
-**GitHub Repository:** `https://github.com/RonHatibaruah/nikshay-drishti-assam`  
+**Project Name:** `shishu-drishti`  
+**Problem Statement:** NESFIC-D-27 (Stream 1 — Government Track: Health Sector)  
+**Target Domain:** `https://shishu-drishti.pages.dev/`  
+**GitHub Repository:** `https://github.com/RonHatibaruah/shishu-drishti-assam`  
 
 ---
 
@@ -14,9 +14,9 @@
 1. Log into your [Cloudflare Dashboard](https://dash.cloudflare.com/).
 2. In the left navigation menu, navigate to **Workers & Pages** ➔ **Create application** ➔ select the **Pages** tab.
 3. Click **Connect to Git** and choose **GitHub**.
-4. Select the repository: `RonHatibaruah/nikshay-drishti-assam`.
+4. Select the repository: `RonHatibaruah/shishu-drishti-assam`.
 5. In **Set up builds and deployments**, configure:
-   - **Project name:** `nikshay-drishti`
+   - **Project name:** `shishu-drishti`
    - **Production branch:** `main`
    - **Framework preset:** `Vite`
    - **Build command:** `npm run build`
@@ -24,11 +24,11 @@
    - **Root directory:** *(leave blank / default)*
 6. In **Environment variables (advanced)**, configure:
    - `NODE_VERSION` = `20.18.0`
-7. Click **Save and Deploy**. Cloudflare Pages will build and deploy your application to `https://nikshay-drishti.pages.dev/`. Every future push to `main` will automatically trigger a zero-downtime deployment!
+7. Click **Save and Deploy**. Cloudflare Pages will build and deploy your application to `https://shishu-drishti.pages.dev/`. Every future push to `main` will automatically trigger a zero-downtime deployment!
 
 ---
 
-### Option 2: Command Line Deployment via Wrangler CLI
+## Option 2: Command Line Deployment via Wrangler CLI
 
 You can also deploy directly from your local terminal:
 
@@ -37,7 +37,7 @@ You can also deploy directly from your local terminal:
 npm run build
 
 # 2. Deploy directly to Cloudflare Pages
-npx wrangler pages deploy dist --project-name=nikshay-drishti
+npx wrangler pages deploy dist --project-name=shishu-drishti
 ```
 
 If prompted to log in:
@@ -47,13 +47,5 @@ npx wrangler login
 
 Or deploy non-interactively using your Cloudflare API token:
 ```bash
-CLOUDFLARE_API_TOKEN="your_token" CLOUDFLARE_ACCOUNT_ID="your_account_id" npx wrangler pages deploy dist --project-name=nikshay-drishti
+CLOUDFLARE_API_TOKEN="your_token" CLOUDFLARE_ACCOUNT_ID="your_account_id" npx wrangler pages deploy dist --project-name=shishu-drishti
 ```
-
----
-
-## ⚡ Edge Serverless Functions Included
-
-- `GET /api/health` — Edge health probe returning platform status, ML engine verification, and CDSS statutory disclaimer.
-- `/*` — Automatic client-side routing fallback to `/index.html` via `public/_redirects`.
-- Enterprise Security Headers configured via `public/_headers` (HSTS, CSP, X-Frame-Options, X-Content-Type-Options).

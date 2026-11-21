@@ -1,0 +1,200 @@
+================================================================================
+NESFIC 2026 - STREAM 1 (GOVERNMENT TRACK) - OFFICIAL PROPOSAL SUBMISSION
+Problem Statement ID: NESFIC-D-27: Earlier Identification of Congenital Deformities for Timely Care
+Sponsoring Department: National Health Mission & Health & Family Welfare Dept, Govt of Assam
+Applicant / Innovator: Ron Hatibaruah
+Proposed Solution: ShishuDrishti (শিশু দৃষ্টি) — Assam Congenital Sentinel & Early Care Network
+Live Working Prototype: https://shishu-drishti.pages.dev/
+GitHub Repository: https://github.com/RonHatibaruah/shishu-drishti-assam
+================================================================================
+
+INSTRUCTIONS FOR APPLICANT:
+Each section below corresponds exactly to an official online form field on the
+Assam Startup NESFIC application portal. Copy and paste the text block under each field header.
+
+--- GENERAL METADATA ---
+NESFIC-D-27 Official Proposal Submission Contents
+
+Problem Statement: NESFIC-D-27 (Stream 1 — Government Track: Health Sector) — Earlier Identification of Congenital Deformities for Timely Care  
+Challenge Owners: National Health Mission (NHM) Assam & Health & Family Welfare Department, Government of Assam  
+Applicant / Innovator: Ron Hatibaruah  
+Application Platform: Assam Startup Portal (NESFIC 2026)  
+Proposed Solution Name: ShishuDrishti (শিশু দৃষ্টি) — Assam Congenital Sentinel & Early Intervention Network  
+Live Working Prototype: https://shishu-drishti.pages.dev/ (Demo Admin: admin@nhm.assam.gov.in / dispur2026)  
+GitHub Repository: https://github.com/RonHatibaruah/shishu-drishti-assam  
+Geographic Coverage (SEO & GEO): Assam State (IN-AS, 26.1445° N, 91.7362° E, Dispur/Guwahati)
+
+================================================================================
+FIELD 1: PROBLEM UNDERSTANDING & USER WORKFLOW
+Portal Requirement Note: (Word Count: 432 words / Limit: 500 words)
+Actual Plain Text Word Count: 439 words
+================================================================================
+[BEGIN COPY-PASTE FOR THIS TEXTAREA]
+
+Operational Context & Clinical Reality in Assam
+Congenital anomalies account for 8–15% of neonatal deaths and constitute a major cause of lifelong childhood disability in Assam, where ~9.5 lakh births occur annually. While conditions such as cleft lip/palate, clubfoot (CTEV), neural tube defects (spina bifida), extra digits (polydactyly/syndactyly), and critical congenital heart diseases (CCHD) are surgically or medically remediable if treated early, current screening is predominantly manual, post-natal, and fragmented.
+
+Assam faces severe geographical and socio-economic vulnerabilities that compound diagnostic delays:
+1. Tea Garden Communities (Upper Assam): High maternal anemia (>65%), pesticide exposures, and poor dietary diversity contribute to elevated congenital defect rates. However, tea estate hospitals lack specialist pediatric screening.
+2. Riverine Sandbars (Char Areas in Lower Assam): In flood-prone chars of Barpeta, Dhubri, and South Salmara, home deliveries remain prevalent (up to 30%). Newborns receive zero standardized morphological screening at birth.
+3. Delayed Detection Cascade: Most structural deformities are identified only when physical deformities severely impede walking or feeding (often at 6–24 months). Internal defects like CCHD remain undetected until sudden cardiovascular collapse occurs.
+4. Referral Drop-Off to DEIC: When frontline workers identify a defect, referral pathways to District Early Intervention Centres (DEIC) or tertiary hospitals (GMCH, AMC, SMC) lack tracking, appointment scheduling, and transport coordination, resulting in >60% loss-to-follow-up.
+
+Current User Workflow & Structural Gaps
+Currently, delivery-point staff (ANMs, staff nurses) conduct hurried, unstructured visual checks without standardized digital photo-documentation. Frontline ASHAs on Home Based Newborn Care (HBNC) visits lack objective decision tools. Meanwhile, Rashtriya Bal Swasthya Karyakram (RBSK) mobile health teams primarily screen Anganwadi and school-going children (ages 3–18), routinely missing the crucial 0–6 week therapeutic window (e.g. the Ponseti casting window for clubfoot). Crucially, parental superstition, stigma, and financial anxiety prevent proactive hospital presentation.
+
+Intended Users & Operational Stakeholders
+• Newborns & Parents: Receive immediate at-birth identification, pre-booked DEIC slots, and full navigation under state schemes (Snehasparsh, RBSK, Smile Train).  
+• Frontline Health Workers (ASHAs, ANMs, Delivery Staff): Equipped with offline, smartphone-based AI-assisted image screening and guided CCHD pulse-oximetry protocols.  
+• RBSK Mobile Health Teams & Medical Officers: Gain verified suspect registries and streamlined digital referral triage.  
+• DEIC Specialists & Pediatric Surgeons: Access complete objective clinical evidence, pre-operative photos, and closed-loop follow-up tracking.  
+• State NHM Leadership: Command real-time district prevalence heatmaps, cluster alerts, and surgical backlog monitors.
+
+Specific Gap Addressed & Statutory Mandate
+ShishuDrishti bridges the chasm between birth-point screening and timely corrective intervention. In accordance with the department’s explicit statutory mandate, all AI-powered risk scoring and image recognition outputs operate strictly as Clinical Decision Support Systems (CDSS) that assist, rather than replace, clinical evaluation by qualified medical officers and pediatric specialists.
+
+[END COPY-PASTE FOR THIS TEXTAREA]
+
+
+================================================================================
+FIELD 2: PROPOSED SOLUTION & KEY FEATURES
+Portal Requirement Note: (Word Count: 442 words / Limit: 500 words)
+Actual Plain Text Word Count: 457 words
+================================================================================
+[BEGIN COPY-PASTE FOR THIS TEXTAREA]
+
+Proposed Solution Overview
+ShishuDrishti (শিশু দৃষ্টি) is an AI-powered congenital deformity screening, clinical decision support (CDSS), and closed-loop early intervention platform built specifically for the Government of Assam (NHM & Health & Family Welfare Department). Deployed within the secure Assam State Data Centre (ASDC), it equips frontline healthcare workers with edge AI screening on standard smartphones while providing DEIC teams with an end-to-end longitudinal care coordination engine.
+
+Main Modules & Core Capabilities
+
+1. Multi-Defect Mobile Computer Vision Screener (Edge AI):
+Runs lightweight, quantized on-device deep learning models (MobileNetV4/YOLOv8-nano) operating 100% offline in remote tea gardens and char areas. From standard smartphone photographs captured during birth checks or HBNC visits, the engine identifies and risk-flags visible structural anomalies:
+• Cleft Lip & Palate: Anatomical localization with severity classification (unilateral/bilateral).
+• Clubfoot (CTEV): Ankle angle assessment assisting Pirani scoring for early Ponseti casting.
+• Polydactyly & Syndactyly: Automated digit counting and limb extremity segmentation.
+• Neural Tube Defects: Meningocele, spina bifida, and encephalocele surface lesion recognition.
+• Craniofacial Anomalies: Microcephaly, hydrocephalus, and facial dysmorphism screening.
+
+2. Critical Congenital Heart Disease (CCHD) & Functional Triage Engine:
+Standardizes the recommended dual-site pulse oximetry protocol (pre-ductal right hand vs. post-ductal foot SpO2 gradient). Interprets readings (>3% difference or <95% saturation flags CCHD risk) and supports digital phonocardiography auscultation triage to identify critical cardiac defects before ductal closure.
+
+3. Closed-Loop DEIC Referral Cascade with 48-Hour SLA Tracking:
+Upon positive risk-flagging, ShishuDrishti generates an encrypted digital referral to the nearest District Early Intervention Centre (DEIC). It assigns a unique Child Tracking ID (linked with RCH/ABHA), pre-schedules a confirmatory clinical evaluation, and alerts the local RBSK team. The system enforces strict Service Level Agreements (48-hour DEIC confirmation SLA; 14-day corrective intervention SLA) with automated escalation alerts to District Nodal Officers.
+
+4. Explainable AI (XAI) Clinical Evidence Cards:
+Ensures clinician trust by rendering bounding-box overlays, Grad-CAM heatmaps, and anatomical landmark measurements on the Medical Officer’s review console, documenting transparent visual evidence supporting every flagged case.
+
+5. Culturally Resonant Parental Counseling (Assamese Voice/SMS):
+Delivers automated, stigma-reducing voice and text guidance in Assamese, Bengali, Bodo, and Hindi directly to parents’ phones. Dispels harmful superstitions, explains that conditions like clubfoot and cleft are 100% treatable, provides DEIC clinic details, and confirms free transport/treatment under Assam's Snehasparsh and RBSK programs.
+
+6. Administrative & DEIC Specialist Cockpit:
+Provides DEIC pediatricians and NHM administrators with an authorized command center (admin@nhm.assam.gov.in / dispur2026):
+• Clinical Confirmation & Triage Manager: Multi-specialist review workspace with mandatory clinical justification logs and immutable SHA-256 audit trails for every confirmed or refuted AI flag.
+• Surgical & Orthotic Care Coordinator: Tracks Ponseti casting schedules, cleft surgical queues (Smile Train), and cardiac referrals to AMC/GMCH.
+• Statewide Congenital Surveillance Heatmap: Real-time GIS cluster tracking across all 35 Assam districts.
+
+[END COPY-PASTE FOR THIS TEXTAREA]
+
+
+================================================================================
+FIELD 3: TECHNOLOGY ARCHITECTURE & FEASIBILITY
+Portal Requirement Note: (Word Count: 346 words / Limit: 400 words)
+Actual Plain Text Word Count: 337 words
+================================================================================
+[BEGIN COPY-PASTE FOR THIS TEXTAREA]
+
+System Architecture & Technical Flow
+ShishuDrishti is designed as an enterprise, cloud-native GovTech platform engineered for containerized on-premise deployment within the Assam State Data Centre (ASDC), ensuring complete data residency, zero-trust security, and DPDP Act 2023 compliance.
+
+`
+[Mobile Field App - ASHA/ANM] ──(Offline TFLite Inference)──► [Edge Risk Flagging]
+               │ (Sync on connectivity)
+               ▼
+   [ASDC Secure API Gateway / Zero-Trust TLS 1.3]
+               │
+   ┌───────────┼────────────────────────────────────────┐
+   ▼           ▼                                        ▼
+[Computer Vision    [DEIC Longitudinal Care   [ABDM / ABHA Gateway &
+ Pipeline & XAI]     Coordinator & 48h SLA]    RCH Portal Connector]
+   │           │                                        │
+   └───────────┼────────────────────────────────────────┘
+               ▼
+[PostgreSQL 16 + PostGIS Spatial Database & Redis Distributed Cache]
+               │
+               ▼
+[DEIC Specialist Cockpit & State NHM Surveillance Command Center]
+`
+
+1. Presentation & Action Layer: High-performance responsive web and Progressive Web App (PWA) built with React 18, TypeScript, and Tailwind CSS. Employs Leaflet 1.9.4 with TopoJSON/GeoJSON vector renderers for sub-second spatial cluster mapping. Features role-based consoles for Frontline Screener, DEIC Specialist, RBSK Coordinator, and State NHM Nodal Officer.
+2. Mobile Edge Inference Engine: On-device computer vision execution via TensorFlow Lite / ONNX Web Runtime. Operates without active internet connectivity on low-cost Android hardware (Android 8.0+, 2GB RAM), ensuring uninterrupted screening in riverine chars and tea garden interiors.
+3. ASDC Backend Microservices Layer: Containerized Python (FastAPI) and Node.js microservices running on Kubernetes (K8s) within ASDC:
+• Computer Vision Verification Pipeline: High-precision multi-task CNN/Transformer ensemble validating uploaded field images and calculating Grad-CAM explainability heatmaps.
+• CCHD Decision Engine: Deterministic guideline-based triage algorithm implementing AAP/AHA pulse-oximetry screening logic.
+• ABDM / ABHA & RCH Integration: Encrypts and links screening records with Ayushman Bharat Health Accounts (ABHA M1–M3) and RCH maternal-child IDs.
+4. Database & Audit Tier: PostgreSQL 16 with PostGIS 3.4 spatial extensions for spatial clustering and village-level anomaly surveillance. Implements SHA-256 cryptographic chaining for every clinical triage override, guaranteeing non-repudiation and medico-legal accountability under DPDPA 2023.
+
+Technology Stack Feasibility
+Constructed entirely on battle-tested open-source enterprise standards without proprietary software licensing fees, ensuring complete long-term sustainability and seamless integration with existing NHM Assam digital public infrastructure.
+
+[END COPY-PASTE FOR THIS TEXTAREA]
+
+
+================================================================================
+FIELD 4: PILOT PROPOSAL, KPIS, IMPLEMENTATION PLAN, AND BUDGET
+Portal Requirement Note: (Word Count: 368 words / Limit: 500 words)
+Actual Plain Text Word Count: 386 words
+================================================================================
+[BEGIN COPY-PASTE FOR THIS TEXTAREA]
+
+Pilot Context: High-Volume Demonstrator in Kamrup Metropolitan & Barpeta
+To validate the platform across diverse clinical environments—tertiary medical hubs, rural primary centers, and vulnerable riverine chars—a 6-month demonstrator pilot will be executed across two complementary districts:
+1. Kamrup Metropolitan District: Covering high-volume institutional deliveries at Gauhati Medical College & Hospital (GMCH) and urban maternity centers, validating tertiary DEIC specialist workflows and high-speed digital triage.
+2. Barpeta District: Covering flood-prone riverine char communities and high home-delivery pockets, validating offline edge AI performance among ASHAs/ANMs and rural DEIC referral closure.
+
+Phased 12-Month Implementation Roadmap
+• Months 1–2 (Baseline Integration & Model Calibration): Provision ASDC cloud staging; calibrate mobile edge vision models on pediatric ethical datasets; conduct STQC-aligned vulnerability assessment (VAPT); configure ABDM ABHA tokenization and RCH data connectors.  
+• Months 3–4 (District Pilot Launch & Frontline Training): Deploy ShishuDrishti across 30 delivery points in Kamrup Metro and Barpeta; equip and train 400 ASHAs, 120 ANMs, 12 RBSK Mobile Health Teams, and 2 DEIC clinical units; operationalize pulse-oximetry CCHD kits.  
+• Months 5–8 (Live Screening & Closed-Loop Referral Execution): Screen targeted cohort of 30,000 newborns; activate automated 48-hour DEIC e-referral workflows and Assamese parental counseling SMS/IVR; monitor 14-day surgical and Ponseti intervention milestones.  
+• Months 9–12 (Clinical Audit, Outcome Evaluation & Statewide Rollout): Conduct clinical concordance audit with DEIC pediatric heads; evaluate reduction in referral lag and treatment compliance; present findings to Health & Family Welfare Department; roll out statewide across all 35 districts under NHM Assam.
+
+Measurable Key Performance Indicators (KPIs)
+• ≥ 92% Sensitivity & ≥ 95% Specificity for target visible structural deformities (cleft, clubfoot, polydactyly, neural tube defects).  
+• Reduction in Mean Age at DEIC Evaluation: Reduced from 135 days (historical baseline) to < 7 days from birth.  
+• ≥ 85% Closed-Loop Referral Completion Rate: Drastic reduction in loss-to-follow-up through automated tracking and ASHA alerts.  
+• 100% CCHD Pulse Oximetry Screening Compliance across institutional pilot delivery points.
+
+Milestone-Based Grant Budget Utilization (Total: ₹40.00 Lakh)
+1. Edge AI Mobile Screener & Computer Vision Core Pipeline: ₹13.50 Lakh (33.75%)  
+2. Closed-Loop DEIC Referral Engine, SLA Tracking & WebGIS: ₹9.50 Lakh (23.75%)  
+3. Security Auditing, STQC VAPT, DPDP Act & ABDM Gateway: ₹5.50 Lakh (13.75%)  
+4. Two-District Field Pilot, Frontline Training & CCHD Screening Kits: ₹7.50 Lakh (18.75%)  
+5. Clinical Validation Contingency & Longitudinal Cohort Follow-up: ₹4.00 Lakh (10.00%)
+
+[END COPY-PASTE FOR THIS TEXTAREA]
+
+
+================================================================================
+FIELD 5: TEAM CAPABILITIES, COMMERCIALIZATION & SUSTAINABILITY
+Portal Requirement Note: (Word Count: 274 words / Limit: 300 words)
+Actual Plain Text Word Count: 254 words
+================================================================================
+[BEGIN COPY-PASTE FOR THIS TEXTAREA]
+
+Lead Applicant & Technical Capability: Ron Hatibaruah
+• Domain Expertise: Full-stack GovTech architect, machine learning engineer, and health informatics specialist with extensive experience in building secure clinical decision-support systems, on-device edge AI, and geospatial tracking platforms (PostGIS).  
+• Contextual Mastery: Deep understanding of the National Health Mission (NHM) Assam operational architecture, Rashtriya Bal Swasthya Karyakram (RBSK) 4Ds screening protocols, District Early Intervention Centre (DEIC) guidelines, and Assam’s unique geographical terrain (tea garden line bastis and riverine char communities).  
+• Execution Track Record: Proven track record in designing, benchmarking, and shipping production-grade health software adhering to statutory CDSS principles, DPDP Act 2023, and ABDM health data standards. Collaborates with experienced pediatricians, orthopedic surgeons, and state public health epidemiologists.
+
+Deployment Model & Financial Sustainability
+ShishuDrishti is designed as a sustainable Digital Public Good (DPG) for the Government of Assam:  
+1. Zero Recurring License Overhead: Engineered completely on open-source frameworks (React, Python, PyTorch/ONNX, PostgreSQL, PostGIS), eliminating proprietary vendor lock-in and per-seat license costs.  
+2. ASDC Infrastructure Synergy: Deployed directly within existing state computing infrastructure at the Assam State Data Centre, eliminating commercial cloud expenditures.  
+3. National Health Mission (NHM) Integration: Post-pilot operations, frontline worker training, and maintenance can be seamlessly institutionalized through standard National Health Mission (NHM) PIP (Program Implementation Plan) funding allocations under RBSK innovation and maternal-child health budget heads.
+
+Scalability Across North-East India
+While tailored to Assam’s 35 districts, the standardized RBSK/DEIC operational framework enables rapid horizontal adoption across all eight North-Eastern states, establishing Assam as the regional benchmark in AI-driven early childhood disability prevention.
+
+[END COPY-PASTE FOR THIS TEXTAREA]
+
+

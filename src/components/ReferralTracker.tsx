@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { REFERRAL_LOOPS } from '../data/assam_tb_data';
-import { ReferralLoop } from '../types/tb';
+import { ASSAM_CHILD_RECORDS } from '../data/assam_congenital_data';
+import { ChildRecord, ReferralStage } from '../types/congenital';
 import { 
   GitCommit, 
   Clock, 
@@ -13,272 +13,229 @@ import {
   FileCheck, 
   Truck,
   PhoneCall,
-  ShieldCheck
+  ShieldCheck,
+  Baby,
+  HeartPulse
 } from 'lucide-react';
 
 export const ReferralTracker: React.FC = () => {
-  const [referrals, setReferrals] = useState<ReferralLoop[]>(REFERRAL_LOOPS);
+  const [children, setChildren] = useState<ChildRecord[]>(ASSAM_CHILD_RECORDS);
   const [searchQuery, setSearchQuery] = useState('');
-  const [statusFilter, setStatusFilter] = useState('ALL');
+  const [stageFilter, setStageFilter] = useState('ALL');
   const [actionMessage, setActionMessage] = useState<string | null>(null);
 
-  const filteredReferrals = referrals.filter(ref => {
+  const filtered = children.filter(c => {
     const matchesSearch = 
-      ref.patientName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      ref.patientId.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      ref.originPHI.toLowerCase().includes(searchQuery.toLowerCase());
+      c.childName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.motherName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.deicCentre.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesStatus = statusFilter === 'ALL' || ref.transportStatus === statusFilter;
-    return matchesSearch && matchesStatus;
+    const matchesStage = stageFilter === 'ALL' || c.referralStage === stageFilter;
+    return matchesSearch && matchesStage;
   });
 
-  const triggerEscalation = (refId: string, patientName: string) => {
-    setActionMessage(`Urgent SLA escalation dispatched to Senior TB Lab Supervisor (STLS) for ${patientName}`);
-    setTimeout(() => setActionMessage(null), 4000);
+  const triggerEscalation = (childId: string, name: string) => {
+    setActionMessage(`Urgent 48h SLA breach alert sent to District Early Intervention Nodal Officer for ${name}`);
+    setTimeout(() => setActionMessage(null), 4500);
   };
 
-  const advanceStatus = (refId: string) => {
-    setReferrals(prev => prev.map(ref => {
-      if (ref.id === refId) {
-        if (ref.transportStatus === 'Sample in Transit') {
-          return { ...ref, transportStatus: 'Tested', elapsedDays: ref.elapsedDays + 1, isOverdue: false };
-        } else if (ref.transportStatus === 'Tested') {
-          return { ...ref, transportStatus: 'Report Released', elapsedDays: ref.elapsedDays + 1 };
-        } else if (ref.transportStatus === 'Report Released') {
-          return { ...ref, transportStatus: 'Treatment Initiated', elapsedDays: ref.elapsedDays + 1, actionPendingWith: 'Completed' };
-        } else if (ref.transportStatus === 'LOST_IN_TRANSIT_ALERT') {
-          return { ...ref, transportStatus: 'Sample in Transit', elapsedDays: 1, isOverdue: false, actionPendingWith: 'Sample Re-collected by ASHA' };
-        }
+  const advanceStage = (childId: string) => {
+    setChildren(prev => prev.map(c => {
+      if (c.id === childId) {
+        let nextStage: ReferralStage = c.referralStage;
+        if (c.referralStage === 'SCREENED_FLAGGED') nextStage = 'DEIC_SCHEDULED';
+        else if (c.referralStage === 'DEIC_SCHEDULED') nextStage = 'DEIC_CONFIRMED';
+        else if (c.referralStage === 'DEIC_CONFIRMED') nextStage = 'INTERVENTION_UNDERWAY';
+        else if (c.referralStage === 'INTERVENTION_UNDERWAY') nextStage = 'REHABILITATION_COMPLETE';
+
+        return {
+          ...c,
+          referralStage: nextStage,
+          elapsedHours: c.elapsedHours + 12,
+          slaBreached: false
+        };
       }
-      return ref;
+      return c;
     }));
-    setActionMessage(`Referral cycle advanced for record ${refId}`);
+    setActionMessage(`Care trajectory advanced to next milestone for ${childId}`);
     setTimeout(() => setActionMessage(null), 4000);
   };
 
   return (
     <div className="space-y-6">
-      {/* Action banner */}
+      {/* Toast Notification */}
       {actionMessage && (
-        <div className="bg-teal-900 border border-teal-500 text-teal-100 px-4 py-3 rounded-lg shadow-lg flex items-center justify-between animate-fadeIn">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-teal-300" />
-            <span className="text-sm font-medium">{actionMessage}</span>
-          </div>
-          <button onClick={() => setActionMessage(null)} className="text-teal-300 hover:text-white text-xs">Dismiss</button>
+        <div className="fixed bottom-4 right-4 z-50 bg-slate-900 text-emerald-300 px-4 py-3 rounded-xl shadow-2xl border border-emerald-500/50 flex items-center gap-2 animate-bounce">
+          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+          <span className="text-xs font-bold">{actionMessage}</span>
         </div>
       )}
 
-      {/* Top Banner */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* Header */}
+      <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-slate-900">
-              Closed-Loop Diagnostic & Treatment Referral Tracking
-            </h2>
-            <span className="bg-teal-100 text-teal-800 text-xs px-2.5 py-0.5 rounded-full font-semibold">
-              Zero Leakage Architecture
+            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 uppercase tracking-wider">
+              Zero-Leakage Care Cascade
             </span>
+            <span className="text-xs text-slate-500">48-Hour SLA Tracking Engine</span>
           </div>
-          <p className="text-sm text-slate-500 mt-1">
-            Tracking every presumptive sputum sample from Peripheral Health Institutions (PHIs) to NAAT labs, and closing the gap between diagnostic positive notifications and first-dose treatment initiation.
+          <h2 className="text-xl font-bold text-slate-900 mt-1">
+            Closed-Loop DEIC Early Intervention & Referral Tracker
+          </h2>
+          <p className="text-xs text-slate-500">
+            Monitoring patient pathways from birth detection to DEIC confirmation, surgical intervention, and post-op rehabilitation.
           </p>
         </div>
 
-        {/* Leakage Metrics */}
-        <div className="flex items-center gap-3">
-          <div className="bg-red-50 border border-red-200 p-2.5 rounded-lg text-center min-w-[100px]">
-            <div className="text-lg font-bold text-red-700">
-              {referrals.filter(r => r.isOverdue).length}
-            </div>
-            <div className="text-[11px] font-semibold text-red-600 uppercase tracking-tight">SLA Overdue</div>
+        {/* Filter Controls */}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="relative">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+            <input
+              type="text"
+              placeholder="Filter referrals..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 pr-3 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
           </div>
-          <div className="bg-teal-50 border border-teal-200 p-2.5 rounded-lg text-center min-w-[100px]">
-            <div className="text-lg font-bold text-teal-700">
-              {referrals.filter(r => r.transportStatus === 'Treatment Initiated').length}
-            </div>
-            <div className="text-[11px] font-semibold text-teal-600 uppercase tracking-tight">Loops Closed</div>
-          </div>
-        </div>
-      </div>
 
-      {/* 5-Stage Diagnostic Pipeline Diagram */}
-      <div className="bg-slate-900 text-white p-5 rounded-xl shadow-md border border-teal-800">
-        <h3 className="text-xs font-bold uppercase tracking-wider text-teal-400 mb-3 flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-teal-300" />
-          NTEP Assam 5-Stage Closed-Loop Pipeline SLA Standard
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs">
-          <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-            <div className="text-teal-400 font-bold mb-1">1. Sample Collection</div>
-            <div className="text-slate-300 text-[11px]">SC-HWC / ASHA cough screening. Sputum cup barcoded.</div>
-            <div className="text-[10px] text-teal-400 font-mono mt-1">Target SLA: 24h</div>
-          </div>
-          <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-            <div className="text-teal-400 font-bold mb-1">2. Cold-Chain Courier</div>
-            <div className="text-slate-300 text-[11px]">Transport to nearest Truenat / CBNAAT molecular lab.</div>
-            <div className="text-[10px] text-teal-400 font-mono mt-1">Target SLA: 48h</div>
-          </div>
-          <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-            <div className="text-teal-400 font-bold mb-1">3. NAAT Testing</div>
-            <div className="text-slate-300 text-[11px]">Cartridge run (MTB detection + Rifampicin resistance).</div>
-            <div className="text-[10px] text-teal-400 font-mono mt-1">Target SLA: 24h</div>
-          </div>
-          <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-            <div className="text-teal-400 font-bold mb-1">4. Nikshay Auto-Sync</div>
-            <div className="text-slate-300 text-[11px]">Lab result verified; SMS alert to patient & treating MO.</div>
-            <div className="text-[10px] text-teal-400 font-mono mt-1">Target SLA: Instant</div>
-          </div>
-          <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-            <div className="text-teal-400 font-bold mb-1">5. First-Dose Initiation</div>
-            <div className="text-slate-300 text-[11px]">4FDC regimen dispensed; differentiated care triage.</div>
-            <div className="text-[10px] text-teal-400 font-mono mt-1">Target SLA: &lt; 48h</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Filter and Table View */}
-      <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
-        <div className="relative flex-1 min-w-[280px]">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            placeholder="Search by Patient Name, ID, or Health Institution..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-          />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Filter className="w-3.5 h-3.5 text-slate-400" />
           <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="border border-slate-300 rounded-lg py-1.5 px-3 text-xs font-medium text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+            value={stageFilter}
+            onChange={(e) => setStageFilter(e.target.value)}
+            className="py-1.5 px-3 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
-            <option value="ALL">All Referral Statuses</option>
-            <option value="Sample in Transit">Sample in Transit</option>
-            <option value="Tested">Tested at Lab</option>
-            <option value="Report Released">Report Released</option>
-            <option value="Treatment Initiated">Treatment Initiated</option>
-            <option value="LOST_IN_TRANSIT_ALERT">Alert: Lost in Transit</option>
+            <option value="ALL">All Care Stages</option>
+            <option value="SCREENED_FLAGGED">1. Screened & Flagged</option>
+            <option value="DEIC_SCHEDULED">2. DEIC Scheduled</option>
+            <option value="DEIC_CONFIRMED">3. DEIC Confirmed (&lt;48h)</option>
+            <option value="INTERVENTION_UNDERWAY">4. Intervention Underway</option>
+            <option value="REHABILITATION_COMPLETE">5. Rehab Complete</option>
           </select>
         </div>
       </div>
 
-      {/* Referral Table */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
-            <thead className="bg-slate-50 text-slate-700 font-semibold text-xs uppercase tracking-wider">
-              <tr>
-                <th className="py-3 px-4">Referral ID & Patient</th>
-                <th className="py-3 px-4">Origin PHI & Destination</th>
-                <th className="py-3 px-4">Investigation Type</th>
-                <th className="py-3 px-4">Current Pipeline Stage</th>
-                <th className="py-3 px-4">Elapsed vs SLA</th>
-                <th className="py-3 px-4">Action Pending With</th>
-                <th className="py-3 px-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-200">
-              {filteredReferrals.map((ref) => {
-                const isLost = ref.transportStatus === 'LOST_IN_TRANSIT_ALERT';
-                const isClosed = ref.transportStatus === 'Treatment Initiated';
+      {/* 5-Stage Visual Workflow Card */}
+      <div className="bg-slate-900 text-white p-5 rounded-2xl border border-slate-800 shadow-xl overflow-x-auto">
+        <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">
+          Standardized 5-Stage Congenital Care Cascade (SLA &lt; 48h to Confirmation)
+        </div>
+        <div className="flex items-center justify-between min-w-[700px] text-xs">
+          {[
+            { step: '1', title: 'Birth Screening Flag', sub: 'Photo AI & Pulse Oximetry' },
+            { step: '2', title: 'e-Referral Dispatched', sub: 'Pre-booked DEIC Slot' },
+            { step: '3', title: 'DEIC Confirmation', sub: 'SLA < 48h Specialist Exam' },
+            { step: '4', title: 'Corrective Care Step', sub: 'Ponseti / Cleft / Surgery' },
+            { step: '5', title: 'Rehabilitation', sub: 'Milestone Tracking to Age 6' }
+          ].map((st, idx) => (
+            <React.Fragment key={st.step}>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full bg-emerald-700 text-emerald-100 flex items-center justify-center font-bold text-xs border border-emerald-400">
+                  {st.step}
+                </div>
+                <div>
+                  <div className="font-bold text-slate-100">{st.title}</div>
+                  <div className="text-[10px] text-slate-400">{st.sub}</div>
+                </div>
+              </div>
+              {idx < 4 && <ArrowRight className="w-4 h-4 text-emerald-500 flex-shrink-0" />}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      {/* Patient Referral Cards */}
+      <div className="space-y-4">
+        {filtered.map((child) => (
+          <div key={child.id} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-extrabold text-sm text-slate-900">{child.childName}</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                    {child.anomalyCategory}
+                  </span>
+                  <span className="text-xs text-slate-400">• ID: {child.id}</span>
+                </div>
+                <div className="text-xs text-slate-500 mt-0.5">
+                  Mother: {child.motherName} • District: {child.district} • Pocket: {child.villageOrPocket}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="text-right">
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1 justify-end">
+                    <Clock className="w-3.5 h-3.5 text-slate-400" />
+                    <span>{child.elapsedHours} Hours Elapsed</span>
+                  </div>
+                  <div className={`text-[11px] font-semibold ${child.slaBreached ? 'text-rose-600' : 'text-emerald-600'}`}>
+                    {child.slaBreached ? '⚠️ SLA BREACH (>48h)' : '✓ Within 48h SLA'}
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => advanceStage(child.id)}
+                  className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg shadow-sm transition-all flex items-center gap-1"
+                >
+                  <span>Advance Stage</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Stepper Progress Bar */}
+            <div className="grid grid-cols-5 gap-2 pt-1 text-center text-[11px]">
+              {[
+                { stage: 'SCREENED_FLAGGED', label: '1. Flagged' },
+                { stage: 'DEIC_SCHEDULED', label: '2. DEIC Booked' },
+                { stage: 'DEIC_CONFIRMED', label: '3. Confirmed' },
+                { stage: 'INTERVENTION_UNDERWAY', label: '4. In Care' },
+                { stage: 'REHABILITATION_COMPLETE', label: '5. Rehab' }
+              ].map((step, idx) => {
+                const stages = ['SCREENED_FLAGGED', 'DEIC_SCHEDULED', 'DEIC_CONFIRMED', 'INTERVENTION_UNDERWAY', 'REHABILITATION_COMPLETE'];
+                const currentIdx = stages.indexOf(child.referralStage);
+                const isPassed = currentIdx >= idx;
+                const isCurrent = currentIdx === idx;
 
                 return (
-                  <tr key={ref.id} className={`hover:bg-slate-50 transition-colors ${isLost ? 'bg-red-50/40' : ''}`}>
-                    {/* ID & Patient */}
-                    <td className="py-3.5 px-4">
-                      <div className="font-bold text-slate-900">{ref.patientName}</div>
-                      <div className="text-xs text-teal-700 font-mono font-medium">{ref.patientId}</div>
-                      <div className="text-[11px] text-slate-400">{ref.id}</div>
-                    </td>
-
-                    {/* Origin / Dest */}
-                    <td className="py-3.5 px-4 text-xs">
-                      <div className="font-medium text-slate-800">{ref.originPHI}</div>
-                      <div className="text-slate-400 flex items-center gap-1 my-0.5">
-                        <ArrowRight className="w-3 h-3 text-teal-600" />
-                        <span className="text-teal-800 font-semibold">{ref.destinationFacility}</span>
-                      </div>
-                      <div className="text-[10px] text-slate-400">Referred: {ref.referredDate}</div>
-                    </td>
-
-                    {/* Investigation Type */}
-                    <td className="py-3.5 px-4 text-xs">
-                      <span className="inline-block px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium border border-slate-200">
-                        {ref.referralType}
-                      </span>
-                    </td>
-
-                    {/* Status */}
-                    <td className="py-3.5 px-4 text-xs">
-                      {isLost ? (
-                        <span className="bg-red-100 text-red-800 border border-red-300 px-2 py-0.5 rounded font-bold inline-flex items-center gap-1">
-                          <AlertTriangle className="w-3.5 h-3.5 text-red-600" />
-                          LOST IN TRANSIT
-                        </span>
-                      ) : isClosed ? (
-                        <span className="bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded font-bold inline-flex items-center gap-1">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                          Closed (Initiated)
-                        </span>
-                      ) : (
-                        <span className="bg-teal-100 text-teal-800 border border-teal-300 px-2 py-0.5 rounded font-bold inline-flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-teal-600" />
-                          {ref.transportStatus}
-                        </span>
-                      )}
-                    </td>
-
-                    {/* Elapsed vs SLA */}
-                    <td className="py-3.5 px-4 text-xs font-mono">
-                      <div className={`font-bold ${ref.isOverdue ? 'text-red-600' : 'text-slate-700'}`}>
-                        {ref.elapsedDays}d / {ref.slaDays}d SLA
-                      </div>
-                      {ref.isOverdue && (
-                        <span className="text-[10px] text-red-600 font-bold block uppercase">
-                          Exceeded SLA
-                        </span>
-                      )}
-                    </td>
-
-                    {/* Action Pending */}
-                    <td className="py-3.5 px-4 text-xs text-slate-700">
-                      <div className="font-medium">{ref.actionPendingWith}</div>
-                      <div className="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1">
-                        <PhoneCall className="w-3 h-3 text-slate-400" />
-                        {ref.patientPhone}
-                      </div>
-                    </td>
-
-                    {/* Actions */}
-                    <td className="py-3.5 px-4 text-right space-x-1.5 whitespace-nowrap">
-                      {ref.isOverdue && (
-                        <button
-                          onClick={() => triggerEscalation(ref.id, ref.patientName)}
-                          className="px-2.5 py-1 rounded bg-red-100 hover:bg-red-200 text-red-800 text-xs font-semibold border border-red-200"
-                        >
-                          Escalate
-                        </button>
-                      )}
-                      {!isClosed && (
-                        <button
-                          onClick={() => advanceStatus(ref.id)}
-                          className="px-2.5 py-1 rounded bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold shadow"
-                        >
-                          Advance Step
-                        </button>
-                      )}
-                    </td>
-                  </tr>
+                  <div
+                    key={step.stage}
+                    className={`p-2 rounded-lg font-bold border transition-all ${
+                      isCurrent
+                        ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm'
+                        : isPassed
+                        ? 'bg-emerald-50/70 border-emerald-200 text-emerald-800'
+                        : 'bg-slate-50 border-slate-200 text-slate-400'
+                    }`}
+                  >
+                    {step.label}
+                  </div>
                 );
               })}
-            </tbody>
-          </table>
-        </div>
+            </div>
+
+            {/* Footer Details */}
+            <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100 gap-2">
+              <div className="flex items-center gap-4">
+                <span>Nodal Centre: <strong>{child.deicCentre}</strong></span>
+                <span>Doctor: <strong>{child.assignedPediatrician}</strong></span>
+                <span>Scheme: <strong className="text-emerald-700">{child.welfareScheme}</strong></span>
+              </div>
+
+              {child.slaBreached && (
+                <button
+                  onClick={() => triggerEscalation(child.id, child.childName)}
+                  className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 font-bold rounded text-[11px] transition-all flex items-center gap-1"
+                >
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-600" />
+                  <span>Escalate to District Nodal Officer</span>
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

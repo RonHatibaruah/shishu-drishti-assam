@@ -11,7 +11,7 @@ import { TutorialModal } from './components/TutorialModal';
 import { AdminLogin, AdminUser } from './components/AdminLogin';
 import { AdminConsole } from './components/AdminConsole';
 import { 
-  Activity, 
+  Baby, 
   MapPin, 
   GitCommit, 
   Building2, 
@@ -29,43 +29,42 @@ import {
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('executive');
-  const [selectedRole, setSelectedRole] = useState<string>('STO');
+  const [selectedRole, setSelectedRole] = useState<string>('STATE_NODAL');
   const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
   const [isAdminLoginOpen, setIsAdminLoginOpen] = useState<boolean>(false);
   const [adminUser, setAdminUser] = useState<AdminUser | null>(null);
 
   // Restore previous admin session if exists
   useEffect(() => {
-    const saved = localStorage.getItem('nikshay_admin_session');
+    const saved = localStorage.getItem('shishudrishti_admin_session');
     if (saved) {
       try {
         setAdminUser(JSON.parse(saved));
       } catch (e) {
-        localStorage.removeItem('nikshay_admin_session');
+        localStorage.removeItem('shishudrishti_admin_session');
       }
     }
   }, []);
 
   const handleLoginSuccess = (user: AdminUser) => {
     setAdminUser(user);
-    localStorage.setItem('nikshay_admin_session', JSON.stringify(user));
+    localStorage.setItem('shishudrishti_admin_session', JSON.stringify(user));
     setActiveTab('admin');
   };
 
   const handleLogout = () => {
     setAdminUser(null);
-    localStorage.removeItem('nikshay_admin_session');
+    localStorage.removeItem('shishudrishti_admin_session');
     setActiveTab('executive');
   };
 
-  // When role changes, switch to relevant default tab
   const handleRoleChange = (role: string) => {
     setSelectedRole(role);
-    if (role === 'STO') {
+    if (role === 'STATE_NODAL') {
       setActiveTab('executive');
-    } else if (role === 'DTO') {
-      setActiveTab('facilities');
-    } else if (role === 'MO_STS') {
+    } else if (role === 'DEIC_SPECIALIST') {
+      setActiveTab('worklist');
+    } else if (role === 'FRONTLINE') {
       setActiveTab('worklist');
     }
   };
@@ -92,21 +91,20 @@ export const App: React.FC = () => {
               <>
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
                 <span className="text-amber-800">
-                  NikshayDrishti Management Console (Super Admin & Governance)
+                  ShishuDrishti Governance & Admin Cockpit
                 </span>
               </>
-            ) : selectedRole === 'STO' ? (
-              'State TB Officer (Statewide Elimination Cockpit & Policy)' 
-            ) : selectedRole === 'DTO' ? (
-              'District TB Officer (Supervision SPI Tours & Predictive Logistics)' 
+            ) : selectedRole === 'STATE_NODAL' ? (
+              'State Nodal Officer (Statewide Surveillance & RBSK Mission)' 
+            ) : selectedRole === 'DEIC_SPECIALIST' ? (
+              'DEIC Pediatric Specialist (Clinical Confirmation & Care Management)' 
             ) : (
-              'Medical Officer / STS (Patient Triage & Differentiated Care)'
+              'Frontline Screener (ASHA / ANM Edge AI Capture & Field Triage)'
             )}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Admin Login Quick Pill if not logged in */}
           {!adminUser && (
             <button
               onClick={() => setIsAdminLoginOpen(true)}
@@ -117,12 +115,11 @@ export const App: React.FC = () => {
             </button>
           )}
 
-          {/* Tutorial / Guide Pill */}
           <button
             onClick={() => setIsTutorialOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1 bg-teal-50 hover:bg-teal-100 border border-teal-300 text-teal-900 rounded-lg text-xs font-bold shadow-sm transition-all"
+            className="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-900 rounded-lg text-xs font-bold shadow-sm transition-all"
           >
-            <HelpCircle className="w-3.5 h-3.5 text-teal-700" />
+            <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
             <span>How to Use & Test</span>
           </button>
         </div>
@@ -152,11 +149,11 @@ export const App: React.FC = () => {
               </div>
               <h2 className="text-xl font-bold text-slate-900">Admin Authentication Required</h2>
               <p className="text-xs text-slate-500 leading-relaxed">
-                The NikshayDrishti Management Console is restricted to authorized State TB Officers, District TB Officers, and System Administrators. Please sign in using the provided demo credentials to explore the admin capabilities.
+                The ShishuDrishti Management Console is restricted to authorized State Nodal Officers, DEIC Pediatricians, and Health Administrators. Please sign in using the provided demo credentials to explore the admin capabilities.
               </p>
               <button
                 onClick={() => setIsAdminLoginOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs shadow-md transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition-all"
               >
                 <Lock className="w-4 h-4" />
                 <span>Open Admin Login (Demo Credentials)</span>
