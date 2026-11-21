@@ -51,6 +51,14 @@ def clean_text_for_textarea(text):
     # Standardize bullet points
     t = re.sub(r'^[ \t]*[-*]\s+', '• ', t, flags=re.MULTILINE)
     
+    # Convert comparison symbols to plain English words for textarea safety
+    t = re.sub(r'≥', 'greater than or equal to ', t)
+    t = re.sub(r'≤', 'smaller than or equal to ', t)
+    t = re.sub(r'>=', 'greater than or equal to ', t)
+    t = re.sub(r'<=', 'smaller than or equal to ', t)
+    t = re.sub(r'>\s*', 'greater than ', t)
+    t = re.sub(r'<\s*', 'smaller than ', t)
+    
     # Clean excessive empty lines
     t = re.sub(r'\n{3,}', '\n\n', t)
     return t.strip()

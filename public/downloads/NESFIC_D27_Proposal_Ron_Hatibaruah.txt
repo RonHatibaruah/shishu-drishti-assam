@@ -27,7 +27,7 @@ Geographic Coverage (SEO & GEO): Assam State (IN-AS, 26.1445° N, 91.7362° E, D
 ================================================================================
 FIELD 1: PROBLEM UNDERSTANDING & USER WORKFLOW
 Portal Requirement Note: (Word Count: 432 words / Limit: 500 words)
-Actual Plain Text Word Count: 439 words
+Actual Plain Text Word Count: 443 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
@@ -35,10 +35,10 @@ Operational Context & Clinical Reality in Assam
 Congenital anomalies account for 8–15% of neonatal deaths and constitute a major cause of lifelong childhood disability in Assam, where ~9.5 lakh births occur annually. While conditions such as cleft lip/palate, clubfoot (CTEV), neural tube defects (spina bifida), extra digits (polydactyly/syndactyly), and critical congenital heart diseases (CCHD) are surgically or medically remediable if treated early, current screening is predominantly manual, post-natal, and fragmented.
 
 Assam faces severe geographical and socio-economic vulnerabilities that compound diagnostic delays:
-1. Tea Garden Communities (Upper Assam): High maternal anemia (>65%), pesticide exposures, and poor dietary diversity contribute to elevated congenital defect rates. However, tea estate hospitals lack specialist pediatric screening.
+1. Tea Garden Communities (Upper Assam): High maternal anemia (greater than 65%), pesticide exposures, and poor dietary diversity contribute to elevated congenital defect rates. However, tea estate hospitals lack specialist pediatric screening.
 2. Riverine Sandbars (Char Areas in Lower Assam): In flood-prone chars of Barpeta, Dhubri, and South Salmara, home deliveries remain prevalent (up to 30%). Newborns receive zero standardized morphological screening at birth.
 3. Delayed Detection Cascade: Most structural deformities are identified only when physical deformities severely impede walking or feeding (often at 6–24 months). Internal defects like CCHD remain undetected until sudden cardiovascular collapse occurs.
-4. Referral Drop-Off to DEIC: When frontline workers identify a defect, referral pathways to District Early Intervention Centres (DEIC) or tertiary hospitals (GMCH, AMC, SMC) lack tracking, appointment scheduling, and transport coordination, resulting in >60% loss-to-follow-up.
+4. Referral Drop-Off to DEIC: When frontline workers identify a defect, referral pathways to District Early Intervention Centres (DEIC) or tertiary hospitals (GMCH, AMC, SMC) lack tracking, appointment scheduling, and transport coordination, resulting in greater than 60% loss-to-follow-up.
 
 Current User Workflow & Structural Gaps
 Currently, delivery-point staff (ANMs, staff nurses) conduct hurried, unstructured visual checks without standardized digital photo-documentation. Frontline ASHAs on Home Based Newborn Care (HBNC) visits lack objective decision tools. Meanwhile, Rashtriya Bal Swasthya Karyakram (RBSK) mobile health teams primarily screen Anganwadi and school-going children (ages 3–18), routinely missing the crucial 0–6 week therapeutic window (e.g. the Ponseti casting window for clubfoot). Crucially, parental superstition, stigma, and financial anxiety prevent proactive hospital presentation.
@@ -59,7 +59,7 @@ ShishuDrishti bridges the chasm between birth-point screening and timely correct
 ================================================================================
 FIELD 2: PROPOSED SOLUTION & KEY FEATURES
 Portal Requirement Note: (Word Count: 442 words / Limit: 500 words)
-Actual Plain Text Word Count: 457 words
+Actual Plain Text Word Count: 461 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
@@ -77,7 +77,7 @@ Runs lightweight, quantized on-device deep learning models (MobileNetV4/YOLOv8-n
 • Craniofacial Anomalies: Microcephaly, hydrocephalus, and facial dysmorphism screening.
 
 2. Critical Congenital Heart Disease (CCHD) & Functional Triage Engine:
-Standardizes the recommended dual-site pulse oximetry protocol (pre-ductal right hand vs. post-ductal foot SpO2 gradient). Interprets readings (>3% difference or <95% saturation flags CCHD risk) and supports digital phonocardiography auscultation triage to identify critical cardiac defects before ductal closure.
+Standardizes the recommended dual-site pulse oximetry protocol (pre-ductal right hand vs. post-ductal foot SpO2 gradient). Interprets readings (greater than 3% difference or smaller than 95% saturation flags CCHD risk) and supports digital phonocardiography auscultation triage to identify critical cardiac defects before ductal closure.
 
 3. Closed-Loop DEIC Referral Cascade with 48-Hour SLA Tracking:
 Upon positive risk-flagging, ShishuDrishti generates an encrypted digital referral to the nearest District Early Intervention Centre (DEIC). It assigns a unique Child Tracking ID (linked with RCH/ABHA), pre-schedules a confirmatory clinical evaluation, and alerts the local RBSK team. The system enforces strict Service Level Agreements (48-hour DEIC confirmation SLA; 14-day corrective intervention SLA) with automated escalation alerts to District Nodal Officers.
@@ -143,7 +143,7 @@ Constructed entirely on battle-tested open-source enterprise standards without p
 ================================================================================
 FIELD 4: PILOT PROPOSAL, KPIS, IMPLEMENTATION PLAN, AND BUDGET
 Portal Requirement Note: (Word Count: 368 words / Limit: 500 words)
-Actual Plain Text Word Count: 386 words
+Actual Plain Text Word Count: 390 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
@@ -159,9 +159,9 @@ Phased 12-Month Implementation Roadmap
 • Months 9–12 (Clinical Audit, Outcome Evaluation & Statewide Rollout): Conduct clinical concordance audit with DEIC pediatric heads; evaluate reduction in referral lag and treatment compliance; present findings to Health & Family Welfare Department; roll out statewide across all 35 districts under NHM Assam.
 
 Measurable Key Performance Indicators (KPIs)
-• ≥ 92% Sensitivity & ≥ 95% Specificity for target visible structural deformities (cleft, clubfoot, polydactyly, neural tube defects).  
-• Reduction in Mean Age at DEIC Evaluation: Reduced from 135 days (historical baseline) to < 7 days from birth.  
-• ≥ 85% Closed-Loop Referral Completion Rate: Drastic reduction in loss-to-follow-up through automated tracking and ASHA alerts.  
+• At least 92% Sensitivity and at least 95% Specificity for target visible structural deformities (cleft, clubfoot, polydactyly, neural tube defects).  
+• Reduction in Mean Age at DEIC Evaluation: Reduced from 135 days (historical baseline) to smaller than 7 days from birth.  
+• At least 85% Closed-Loop Referral Completion Rate: Drastic reduction in loss-to-follow-up through automated tracking and ASHA alerts.  
 • 100% CCHD Pulse Oximetry Screening Compliance across institutional pilot delivery points.
 
 Milestone-Based Grant Budget Utilization (Total: ₹40.00 Lakh)

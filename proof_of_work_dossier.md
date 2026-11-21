@@ -67,26 +67,26 @@ To guarantee feasibility on low-cost mobile devices in rural Assam without netwo
 Critical Congenital Heart Disease accounts for significant early neonatal mortality when ductus arteriosus closure precipitates acute cyanosis or shock. ShishuDrishti digitalizes the standard dual-site pulse oximetry protocol:
 
 ```
-[Newborn Age >= 24 Hours or Prior to Discharge]
+[Newborn Age at least 24 Hours or Prior to Discharge]
                       │
                       ▼
 [Apply Pulse Oximeter Sensor: Pre-ductal (Right Hand) & Post-ductal (Either Foot)]
                       │
                       ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│ ShishuDrishti CCHD Decision Logic:                                      │
-│ • SpO2 < 90% in either limb? ──► IMMEDIATE FAIL (Urgent Cardiac Alert) │
-│ • SpO2 90–94% in both OR >3% difference? ──► RE-TEST in 1 Hour        │
-│   (If repeat test still 90-94% or >3% difference ──► FAIL / Escalate)  │
-│ • SpO2 >= 95% in both AND <=3% difference? ──► PASS (Normal Discharge) │
-└────────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│ ShishuDrishti CCHD Decision Logic:                                                     │
+│ • SpO2 smaller than 90% in either limb? ──► IMMEDIATE FAIL (Urgent Cardiac Alert)     │
+│ • SpO2 90–94% in both OR greater than 3% difference? ──► RE-TEST in 1 Hour            │
+│   (If repeat test still 90-94% or greater than 3% difference ──► FAIL / Escalate)      │
+│ • SpO2 at least 95% in both AND at most 3% difference? ──► PASS (Normal Discharge)    │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Empirical Validation on Neonatal Telemetry Records:
 • **Total Test Cohorts Evaluated:** 3,200 simulated neonatal cardio-respiratory profiles  
 • **True Critical CCHD Cases Detected:** 38 / 39 (Sensitivity = 97.4%)  
 • **Specificity:** 99.1%  
-• **False Alarm Rate:** < 0.9%  
+• **False Alarm Rate:** smaller than 0.9%  
 • **Average Protocol Completion Time:** 4.2 minutes per newborn  
 
 ---
@@ -108,7 +108,7 @@ The referral engine enforces an auditable finite state machine (FSM) governing a
           └───────────────────┬───────────────────┘
                               │
                ┌──────────────┴──────────────┐
-               │ DEIC Elapsed Time <= 48h ?  │
+               │ DEIC Elapsed Time within 48h ?
                ├──────────────┬──────────────┤
                │ YES          │ NO (Breach)  │
                ▼              ▼              ▼
@@ -122,7 +122,7 @@ The referral engine enforces an auditable finite state machine (FSM) governing a
     │ 4. Corrective Care │  (e.g., Ponseti Casting Week 1-6;
     │    Initiated       │   Cleft Repair at 3-6 Mo under Smile Train;
     └──────────┬─────────┘   Snehasparsh Cardiac Surgery)
-               │ Elapsed <= 14 Days to 1st Care Step
+               │ Elapsed within 14 Days to 1st Care Step
                ▼
     ┌────────────────────────────────────────┐
     │ 5. Longitudinal Rehabilitation & MCTS  │
@@ -138,14 +138,14 @@ The live web application and API microservices were benchmarked using headless b
 
 | Transaction / Endpoint | Target Requirement | Measured Production Performance |
 | :--- | :---: | :---: |
-| **First Contentful Paint (FCP)** | < 1.5 seconds | **0.78 seconds** |
-| **Time to Interactive (TTI)** | < 3.0 seconds | **1.35 seconds** |
-| **Full Dashboard Load (Assam 35 Districts Data)** | < 4.0 seconds | **1.62 seconds** |
-| **Leaflet GIS Spatial Cluster Rendering** | < 300 ms | **42 ms** |
-| **On-Device Vision Model Inference (INT8 TFLite)** | < 100 ms | **38.4 ms** |
-| **Pulse Oximetry Decision Calculation** | < 10 ms | **1.2 ms** |
-| **Production Bundle Size (Gzip Compressed)** | < 200 KB | **124.6 KB** |
-| **Edge Serverless Health Check API** | < 100 ms | **21 ms** |
+| **First Contentful Paint (FCP)** | smaller than 1.5 seconds | **0.78 seconds** |
+| **Time to Interactive (TTI)** | smaller than 3.0 seconds | **1.35 seconds** |
+| **Full Dashboard Load (Assam 35 Districts Data)** | smaller than 4.0 seconds | **1.62 seconds** |
+| **Leaflet GIS Spatial Cluster Rendering** | smaller than 300 ms | **42 ms** |
+| **On-Device Vision Model Inference (INT8 TFLite)** | smaller than 100 ms | **38.4 ms** |
+| **Pulse Oximetry Decision Calculation** | smaller than 10 ms | **1.2 ms** |
+| **Production Bundle Size (Gzip Compressed)** | smaller than 200 KB | **124.6 KB** |
+| **Edge Serverless Health Check API** | smaller than 100 ms | **21 ms** |
 
 ---
 
