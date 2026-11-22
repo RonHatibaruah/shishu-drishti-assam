@@ -50,50 +50,114 @@ class NumberedCanvas(canvas.Canvas):
         self.drawRightString(letter[0] - 54, 32, f"Page {self._pageNumber} of {page_count}")
         self.restoreState()
 
+def convert_latex_math(text):
+    """
+    Transforms LaTeX mathematical expressions and formulas into ReportLab-supported
+    HTML markup and Unicode typography (subscripts, superscripts, Greek characters, operators).
+    """
+    if not text:
+        return ""
+    t = text
+    
+    # Greek letters
+    greek = {
+        r'\alpha': '&alpha;', r'\beta': '&beta;', r'\gamma': '&gamma;',
+        r'\delta': '&delta;', r'\epsilon': '&epsilon;', r'\theta': '&theta;',
+        r'\lambda': '&lambda;', r'\mu': '&mu;', r'\sigma': '&sigma;',
+        r'\Delta': '&Delta;', r'\Sigma': '&Sigma;', r'\pi': '&pi;'
+    }
+    for k, v in greek.items():
+        t = t.replace(k, v)
+        
+    # Math operators and sets
+    t = t.replace(r'\in', '&isin;')
+    t = t.replace(r'\times', '&times;')
+    t = t.replace(r'\approx', '&asymp;')
+    t = t.replace(r'\leq', '&le;').replace(r'\le', '&le;')
+    t = t.replace(r'\geq', '&ge;').replace(r'\ge', '&ge;')
+    t = t.replace(r'\neq', '&ne;')
+    t = t.replace(r'\pm', '&plusmn;')
+    t = t.replace(r'\mathbb{R}', '<b>R</b>')
+    t = t.replace(r'\cdot', '&middot;')
+    t = t.replace(r'\infty', '&infin;')
+    
+    # LaTeX wrappers
+    t = re.sub(r'\\text\{([^}]+)\}', r'\1', t)
+    t = re.sub(r'\\mathbf\{([^}]+)\}', r'<b>\1</b>', t)
+    t = re.sub(r'\\mathit\{([^}]+)\}', r'<i>\1</i>', t)
+    t = re.sub(r'\\hat\{([a-zA-Z])\}', r'<i>\1</i>', t)
+    
+    # Subscripts & Superscripts
+    t = re.sub(r'_\{([^}]+)\}', r'<sub>\1</sub>', t)
+    t = re.sub(r'_([a-zA-Z0-9]+)', r'<sub>\1</sub>', t)
+    t = re.sub(r'\^\{([^}]+)\}', r'<sup>\1</sup>', t)
+    t = re.sub(r'\^([a-zA-Z0-9]+)', r'<sup>\1</sup>', t)
+    
+    # Strip delimiters
+    t = t.replace('$$', '')
+    t = t.replace('$', '')
+    return t.strip()
+
 def clean_inline_markdown(text):
+    """
+    Cleans markdown syntax to produce well-formed ReportLab Paragraph XML.
+    """
     if not text:
         return ""
     t = text.strip()
     
+    # Filter out portal character guidance
+    if re.match(r'^\*\(Target:\s*0\s*to\s*500\s*words\)\*$', t, flags=re.IGNORECASE):
+        return ""
+    if re.match(r'^\*\(Word Count:.*?\)\*$', t, flags=re.IGNORECASE):
+        return ""
+
+    # Replace asterisks around captions like *(Refer to Figure X: ...)* with styled italic text
+    t = re.sub(r'^\*\((Refer to Figure [^)]+)\)\*$', r'<font color="#0f766e"><i>(\1)</i></font>', t)
+    t = re.sub(r'\*\((Refer to Figure [^)]+)\)\*', r'<font color="#0f766e"><i>(\1)</i></font>', t)
+
+    # Protect inline code spans
     code_matches = []
     def save_code(m):
         code_matches.append(m.group(1))
         return f"__CODE_PH_{len(code_matches)-1}__"
     t = re.sub(r'`([^`]+)`', save_code, t)
 
-    t = re.sub(r'\*{3,}', '***', t)
+    # Convert inline LaTeX math ($...$)
+    def save_math(m):
+        return convert_latex_math(m.group(1))
+    t = re.sub(r'\$([^\$]+)\$', save_math, t)
 
-    # Unicode cleanup for Helvetica
+    # Unicode & typography cleanup for Helvetica
     t = t.replace('₹', 'Rs. ')
     t = t.replace('শিশু দৃষ্টি', 'ShishuDrishti').replace('নিশ্চয় দৃষ্টি', 'ShishuDrishti')
     t = t.replace('–', '-').replace('—', ' - ')
     t = t.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"')
-    t = t.replace('➔', '->').replace('•', '*').replace('✓', '[X]')
+    t = t.replace('➔', '->').replace('✓', '[X]')
 
-    # LaTeX Math Cleanup
-    t = re.sub(r'\\left\s*\(', '(', t)
-    t = re.sub(r'\\right\s*\)', ')', t)
-    t = re.sub(r'\\text\{([^}]+)\}', r'\1', t)
-    t = t.replace(r'\%', '%').replace(r'\_', '_').replace(r'\&', '&')
-    t = t.replace(r'\times', '&times;').replace(r'\approx', '≈')
-    t = re.sub(r'\$([^\$]+)\$', r'<b>\1</b>', t)
-    t = t.replace('$', '')
-
-    # Bold & Italic markdown
+    # Clean markdown bold & italic
+    t = re.sub(r'\*\*\*(.*?)\*\*\*', r'<b><i>\1</i></b>', t)
     t = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', t)
-    t = re.sub(r'(?<!\*)\*([a-zA-Z0-9][^\*]*?)\*(?!\*)', r'<i>\1</i>', t)
+    t = re.sub(r'(?<!\*)\*([^\*]+?)\*(?!\*)', r'<i>\1</i>', t)
+    t = re.sub(r'(?<!_)_([^_]+?)_(?!_)', r'<i>\1</i>', t)
+
+    # Convert markdown links [Label](url)
+    t = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<font color="#0284c7"><u>\1</u></font>', t)
 
     # Restore code blocks
     for idx, cb in enumerate(code_matches):
-        t = t.replace(f"__CODE_PH_{idx}__", f"<b>{escape(cb)}</b>")
+        t = t.replace(f"__CODE_PH_{idx}__", f"<font name='Courier' color='#0f766e'><b>{escape(cb)}</b></font>")
 
     return t
 
 def safe_paragraph(text, style):
     clean = clean_inline_markdown(text)
+    if not clean:
+        return None
     try:
         return Paragraph(clean, style)
     except Exception:
+        # Fallback XML escape
         clean = escape(re.sub(r'<[^>]+>', '', clean))
         return Paragraph(clean, style)
 
@@ -121,7 +185,8 @@ def create_styled_table(data_rows, col_widths=None, available_width=490):
         is_header = (r_idx == 0)
         curr_style = th_style if is_header else td_style
         for c_idx, cell in enumerate(row):
-            formatted_row.append(safe_paragraph(cell, curr_style))
+            p = safe_paragraph(cell, curr_style)
+            formatted_row.append(p if p else Paragraph("", curr_style))
         formatted_data.append(formatted_row)
 
     t = Table(formatted_data, colWidths=col_widths, repeatRows=1)
@@ -141,9 +206,17 @@ def create_styled_table(data_rows, col_widths=None, available_width=490):
 def parse_markdown_content(lines, available_width=490):
     styles = getSampleStyleSheet()
     
+    h2_style = ParagraphStyle(
+        'H2SubStyle', parent=styles['Heading2'], fontName='Helvetica-Bold', fontSize=10.5, leading=14,
+        textColor=colors.HexColor('#065f46'), spaceBefore=8, spaceAfter=4, keepWithNext=True
+    )
     h3_style = ParagraphStyle(
         'H3Style', parent=styles['Heading3'], fontName='Helvetica-Bold', fontSize=9, leading=12,
         textColor=colors.HexColor('#0f766e'), spaceBefore=6, spaceAfter=2, keepWithNext=True
+    )
+    h4_style = ParagraphStyle(
+        'H4Style', parent=styles['Heading4'], fontName='Helvetica-Bold', fontSize=8.2, leading=11,
+        textColor=colors.HexColor('#0f172a'), spaceBefore=4, spaceAfter=2, keepWithNext=True
     )
     body_style = ParagraphStyle(
         'BodyDark', parent=styles['Normal'], fontName='Helvetica', fontSize=8, leading=11,
@@ -152,6 +225,14 @@ def parse_markdown_content(lines, available_width=490):
     bullet_style = ParagraphStyle(
         'BulletText', parent=styles['Normal'], fontName='Helvetica', fontSize=7.8, leading=10.5,
         textColor=colors.HexColor('#1e293b'), leftIndent=12, firstLineIndent=-8, spaceAfter=2
+    )
+    caption_style = ParagraphStyle(
+        'CaptionStyle', parent=styles['Normal'], fontName='Helvetica-Oblique', fontSize=7.8, leading=10.5,
+        textColor=colors.HexColor('#0f766e'), alignment=1, spaceBefore=2, spaceAfter=6
+    )
+    math_style = ParagraphStyle(
+        'MathStyle', parent=styles['Normal'], fontName='Helvetica-Oblique', fontSize=9.5, leading=13,
+        textColor=colors.HexColor('#0f172a'), alignment=1
     )
     code_style = ParagraphStyle(
         'CodeStyle', parent=styles['Code'], fontName='Courier', fontSize=6.8, leading=8.5,
@@ -191,7 +272,6 @@ def parse_markdown_content(lines, available_width=490):
                 raw_rows.append(cells)
             
             if raw_rows:
-                num_cols = len(raw_rows[0])
                 t_obj = create_styled_table(raw_rows, available_width=available_width)
                 if t_obj:
                     flowables.append(t_obj)
@@ -201,6 +281,7 @@ def parse_markdown_content(lines, available_width=490):
     for line in lines:
         line_str = line.strip()
 
+        # Handle code blocks
         if line_str.startswith('```'):
             if in_code_block:
                 in_code_block = False
@@ -215,6 +296,7 @@ def parse_markdown_content(lines, available_width=490):
             code_buffer.append(line)
             continue
 
+        # Handle tables
         if line_str.startswith('|') and line_str.endswith('|'):
             table_buffer.append(line_str)
             continue
@@ -224,19 +306,63 @@ def parse_markdown_content(lines, available_width=490):
         if not line_str:
             continue
 
-        if line_str.startswith('### '):
-            flowables.append(safe_paragraph(line_str[4:], h3_style))
-        elif line_str.startswith('#### '):
-            flowables.append(safe_paragraph(line_str[5:], h3_style))
+        # Mathematical Formula Block ($$...$$)
+        if line_str.startswith('$$') and line_str.endswith('$$') and len(line_str) > 4:
+            math_content = convert_latex_math(line_str[2:-2])
+            math_p = Paragraph(f"<b>{math_content}</b>", math_style)
+            t_math = Table([[math_p]], colWidths=[available_width])
+            t_math.setStyle(TableStyle([
+                ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
+                ('BOX', (0,0), (-1,-1), 0.8, colors.HexColor('#cbd5e1')),
+                ('TOPPADDING', (0,0), (-1,-1), 6),
+                ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+                ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+            ]))
+            flowables.append(Spacer(1, 3))
+            flowables.append(t_math)
+            flowables.append(Spacer(1, 4))
+            continue
+
+        # Horizontal rule
+        if line_str in ['---', '***', '___']:
+            flowables.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor('#cbd5e1'), spaceBefore=5, spaceAfter=5))
+            continue
+
+        # Figure Caption
+        if line_str.startswith('*(Refer to Figure') or line_str.startswith('(Refer to Figure'):
+            clean_cap = re.sub(r'[\*]', '', line_str)
+            p = safe_paragraph(clean_cap, caption_style)
+            if p:
+                flowables.append(p)
+            continue
+
+        # Headings
+        if line_str.startswith('#### '):
+            p = safe_paragraph(line_str[5:], h4_style)
+            if p: flowables.append(p)
+        elif line_str.startswith('### '):
+            p = safe_paragraph(line_str[4:], h3_style)
+            if p: flowables.append(p)
+        elif line_str.startswith('## '):
+            p = safe_paragraph(line_str[3:], h3_style)
+            if p: flowables.append(p)
+        elif line_str.startswith('# '):
+            p = safe_paragraph(line_str[2:], h2_style)
+            if p: flowables.append(p)
         elif line_str.startswith('> '):
-            flowables.append(safe_paragraph(line_str[2:], quote_style))
+            p = safe_paragraph(line_str[2:], quote_style)
+            if p: flowables.append(p)
         elif line_str.startswith('• ') or line_str.startswith('* ') or line_str.startswith('- '):
-            flowables.append(safe_paragraph("&bull; " + line_str[2:], bullet_style))
+            clean_item = re.sub(r'^[•\*\-]\s+', '', line_str)
+            p = safe_paragraph("&bull; " + clean_item, bullet_style)
+            if p: flowables.append(p)
         elif re.match(r'^\d+\.\s+', line_str):
             m = re.match(r'^(\d+\.\s+)(.*)$', line_str)
-            flowables.append(safe_paragraph(f"<b>{m.group(1)}</b>{m.group(2)}", bullet_style))
+            p = safe_paragraph(f"<b>{m.group(1)}</b>{m.group(2)}", bullet_style)
+            if p: flowables.append(p)
         else:
-            flowables.append(safe_paragraph(line_str, body_style))
+            p = safe_paragraph(line_str, body_style)
+            if p: flowables.append(p)
 
     if table_buffer:
         flush_table()
@@ -294,7 +420,8 @@ def build_proposal_pdf(output_path):
     with open(prop_md) as f:
         content = f.read()
 
-    sections = content.split('## ')
+    # Split only on level-2 headers (## ), not sub-headers (### or ####)
+    sections = re.split(r'\n##\s+(?!#)', content)
     if sections[0].strip():
         story.extend(parse_markdown_content(sections[0].strip().split('\n'), available_width=490))
 
@@ -383,7 +510,8 @@ def build_proof_of_work_pdf(output_path):
     with open(pow_md) as f:
         content = f.read()
 
-    sections = content.split('## ')
+    # Split only on level-2 headers (## ), not sub-headers (### or ####)
+    sections = re.split(r'\n##\s+(?!#)', content)
     if sections[0].strip():
         story.extend(parse_markdown_content(sections[0].strip().split('\n'), available_width=490))
 

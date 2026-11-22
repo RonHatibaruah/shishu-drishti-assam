@@ -12,7 +12,6 @@
 ---
 
 ## Field 1: Problem understanding & user workflow
-*(Target: 0 to 500 words)*
 
 ### Operational Context & Clinical Reality in Assam
 Congenital anomalies account for 8 to 15 percent of neonatal deaths and constitute a major cause of lifelong childhood disability in Assam, where approximately 9.5 lakh births occur annually. While conditions such as cleft lip and palate, clubfoot (CTEV), neural tube defects (spina bifida), extra digits (polydactyly and syndactyly), and critical congenital heart diseases (CCHD) are surgically or medically remediable if identified early, current screening is predominantly manual, post-natal, and fragmented.
@@ -39,7 +38,6 @@ ShishuDrishti bridges the chasm between birth-point screening and timely correct
 ---
 
 ## Field 2: Proposed solution & key features
-*(Target: 0 to 500 words)*
 
 ### Proposed Solution Overview
 **ShishuDrishti (শিশু দৃষ্টি)** is an AI-powered congenital deformity screening, clinical decision support (CDSS), and closed-loop early intervention platform built specifically for the Government of Assam (NHM and Health & Family Welfare Department). Deployed within the secure Assam State Data Centre (ASDC), it equips frontline healthcare workers with edge AI screening on standard smartphones while providing DEIC teams with an end-to-end longitudinal care coordination engine.
@@ -75,7 +73,6 @@ Provides DEIC pediatricians and NHM administrators with an authorized command ce
 ---
 
 ## Field 3: Describe User Journey, Wireframes, Prototype & Proof of Work
-*(Target: 0 to 500 words)*
 
 ### Operational User Journeys Across Three Key Personas
 
@@ -105,7 +102,6 @@ A complete production-ready prototype has been developed, benchmarked, and deplo
 ---
 
 ## Field 4: Technology & solution architecture
-*(Target: 0 to 500 words)*
 
 ### Multi-Tier Enterprise GovTech Architecture
 ShishuDrishti is engineered as a cloud-native, zero-trust digital public good specifically architected for containerized deployment inside the **Assam State Data Centre (ASDC)** in Dispur, ensuring full data sovereignty and adherence to the Digital Personal Data Protection (DPDP) Act 2023.
@@ -138,7 +134,6 @@ Containerized microservices orchestrated via Kubernetes on ASDC infrastructure:
 ---
 
 ## Field 5: Development methodology & intermediate steps
-*(Target: 0 to 500 words)*
 
 ### Clinical Safety-First Agile Engineering Lifecycle
 The development of ShishuDrishti follows an iterative, clinical safety-first GovTech engineering methodology. Because public health clinical decision-support systems directly influence neonatal morbidity, development progresses through six rigorously audited stages, each with measurable intermediate outputs.
@@ -208,7 +203,6 @@ The development, validation, and pilot rollout of ShishuDrishti spans four seque
 ---
 
 ## Field 7: Data & information requirements
-*(Target: 0 to 500 words)*
 
 ### Transparent Data Governance & Realistic Information Dependencies
 In strict accordance with the challenge requirements, **ShishuDrishti does not assume unconfirmed, privileged access to confidential live government databases.** The system is designed to function with minimal external dependencies during development, utilizing validated open medical datasets, synthetic clinical telemetry, and standardized public health taxonomies before secure pilot integration.
@@ -242,7 +236,6 @@ In strict accordance with the challenge requirements, **ShishuDrishti does not a
 ---
 
 ## Field 8: Team, manpower & expertise
-*(Target: 0 to 500 words)*
 
 ### Lead Applicant & Technical Profile: Ron Hatibaruah
 • **Role:** Lead GovTech Architect, Full-Stack Machine Learning Engineer & Project Director.  
@@ -277,7 +270,6 @@ Stationed in pilot districts (Kamrup Metro and Barpeta) to conduct hands-on trai
 ---
 
 ## Field 9: Testing, validation & evidence
-*(Target: 0 to 500 words)*
 
 ### Rigorous Multi-Tier Validation Framework
 To verify diagnostic reliability, clinical safety, and software robustness in resource-constrained environments, ShishuDrishti has undergone extensive empirical benchmarking across algorithmic accuracy, mobile edge performance, and clinical decision reliability.
@@ -317,7 +309,6 @@ Benchmarked using headless browser testing and network throttling simulating rur
 ---
 
 ## Field 10: Security, privacy, safety & compliance
-*(Target: 0 to 500 words)*
 
 ### Enterprise Security & DPDP Act 2023 Enclave
 Because ShishuDrishti processes sensitive pediatric health information, the platform is engineered in strict compliance with the **Digital Personal Data Protection (DPDP) Act 2023**, the **Ayushman Bharat Digital Mission (ABDM)** health data standards, and Ministry of Electronics & IT guidelines.
@@ -351,7 +342,6 @@ All software interfaces enforce prominent, un-dismissible clinical disclaimers. 
 ---
 
 ## Field 11: Innovation & differentiation
-*(Target: 0 to 500 words)*
 
 ### Paradigm Shift in Neonatal Congenital Care
 Current public health approaches to congenital deformities in India rely on passive, delayed detection: children are identified only when physical impairment becomes severe (often between 6 and 24 months of age), or when acute cyanosis precipitates cardiovascular collapse. Existing commercial software solutions either require high-cost proprietary hospital hardware (such as dedicated imaging suites) or function as simple administrative data portals without intelligent edge triage.
@@ -380,7 +370,6 @@ Built entirely on open-source frameworks (React, Python, PostgreSQL, PostGIS, Te
 ---
 
 ## Field 12: Resources, risks & pilot validation
-*(Target: 0 to 500 words)*
 
 ### Grant Budget Allocation (Total: ₹40.00 Lakh)
 The requested ₹40.00 Lakh grant under NESFIC 2026 Stream 1 will be strictly utilized across five milestone-driven expenditure heads:

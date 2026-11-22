@@ -41,9 +41,9 @@ Key Capabilities Demonstrated in the Live Prototype:
 2.1 Target Clinical Conditions & Computer Vision Formulation
 The vision pipeline models multi-task object detection, localization, and classification across five priority neonatal structural deformity categories:
 
-$\hat{y}_{class}, \hat{B}_{box} = f_{\theta}(\mathbf{I}_{newborn})
+$y_{\text{pred}}, B_{\text{box}} = f_{\theta}(\mathbf{I}_{\text{newborn}})
 
-Where \mathbf{I}_{newborn} \in \mathbb{R}^{H \times W \times 3} is a standard smartphone photograph captured under variable illumination in rural delivery rooms or home visits, and \hat{B}_{box} = [x, y, w, h]$ localizes the anatomical anomaly.
+Where \mathbf{I}_{\text{newborn}} \in \mathbf{R}^{H \times W \times 3} is a standard smartphone photograph captured under variable illumination in rural delivery rooms or home visits, and B_{\text{box}} = [x, y, w, h]$ localizes the anatomical anomaly.
 
 2.2 Deep Learning Model Benchmarks
 To guarantee feasibility on low-cost mobile devices in rural Assam without network connectivity, quantized edge models were evaluated against high-capacity cloud models using 5-fold stratified cross-validation on an ethically curated, clinically annotated multi-center pediatric congenital dataset (N = 8,420 annotated images across South Asian neonatal phenotypes):

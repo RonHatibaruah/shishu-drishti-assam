@@ -26,7 +26,7 @@ Geographic Coverage (SEO & GEO): Assam State (IN-AS, 26.1445° N, 91.7362° E, D
 
 ================================================================================
 FIELD 1: PROBLEM UNDERSTANDING & USER WORKFLOW
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 460 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -58,7 +58,7 @@ ShishuDrishti bridges the chasm between birth-point screening and timely correct
 
 ================================================================================
 FIELD 2: PROPOSED SOLUTION & KEY FEATURES
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 472 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -99,7 +99,7 @@ Provides DEIC pediatricians and NHM administrators with an authorized command ce
 
 ================================================================================
 FIELD 3: DESCRIBE USER JOURNEY, WIREFRAMES, PROTOTYPE & PROOF OF WORK
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 427 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -134,7 +134,7 @@ A complete production-ready prototype has been developed, benchmarked, and deplo
 
 ================================================================================
 FIELD 4: TECHNOLOGY & SOLUTION ARCHITECTURE
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 334 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -172,7 +172,7 @@ Containerized microservices orchestrated via Kubernetes on ASDC infrastructure:
 
 ================================================================================
 FIELD 5: DEVELOPMENT METHODOLOGY & INTERMEDIATE STEPS
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 425 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -254,7 +254,7 @@ Quarter 4 (Months 10 to 12): Independent Clinical Audit & Statewide Rollout
 
 ================================================================================
 FIELD 7: DATA & INFORMATION REQUIREMENTS
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 415 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -293,7 +293,7 @@ Data Preprocessing & Privacy Safeguards
 
 ================================================================================
 FIELD 8: TEAM, MANPOWER & EXPERTISE
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 354 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -333,7 +333,7 @@ Stationed in pilot districts (Kamrup Metro and Barpeta) to conduct hands-on trai
 
 ================================================================================
 FIELD 9: TESTING, VALIDATION & EVIDENCE
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 411 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -377,7 +377,7 @@ Benchmarked using headless browser testing and network throttling simulating rur
 
 ================================================================================
 FIELD 10: SECURITY, PRIVACY, SAFETY & COMPLIANCE
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 371 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -416,7 +416,7 @@ All software interfaces enforce prominent, un-dismissible clinical disclaimers. 
 
 ================================================================================
 FIELD 11: INNOVATION & DIFFERENTIATION
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: Target: 0 to 500 words
 Actual Plain Text Word Count: 384 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
@@ -450,7 +450,7 @@ Built entirely on open-source frameworks (React, Python, PostgreSQL, PostGIS, Te
 
 ================================================================================
 FIELD 12: RESOURCES, RISKS & PILOT VALIDATION
-Portal Requirement Note: (Target: 0 to 500 words)
+Portal Requirement Note: *Target Cohort:
 Actual Plain Text Word Count: 355 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
