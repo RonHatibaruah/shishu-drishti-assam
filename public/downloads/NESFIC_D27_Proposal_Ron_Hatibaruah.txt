@@ -135,31 +135,14 @@ A complete production-ready prototype has been developed, benchmarked, and deplo
 ================================================================================
 FIELD 4: TECHNOLOGY & SOLUTION ARCHITECTURE
 Portal Requirement Note: (Target: 0 to 500 words)
-Actual Plain Text Word Count: 403 words
+Actual Plain Text Word Count: 334 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
 Multi-Tier Enterprise GovTech Architecture
 ShishuDrishti is engineered as a cloud-native, zero-trust digital public good specifically architected for containerized deployment inside the Assam State Data Centre (ASDC) in Dispur, ensuring full data sovereignty and adherence to the Digital Personal Data Protection (DPDP) Act 2023.
 
-`
-[Mobile Edge App (ASHA/ANM)] ──(Offline TFLite Inference)──► [Instant Edge Risk Flag]
-               │ (Encrypted Sync upon 2G/3G/4G/Wi-Fi link)
-               ▼
-   [ASDC Zero-Trust API Gateway • Mutual TLS 1.3 Encryption]
-               │
-   ┌───────────┼────────────────────────────────────────┐
-   ▼           ▼                                        ▼
-[Computer Vision    [DEIC Longitudinal Care   [ABDM / ABHA Gateway &
- Pipeline & XAI]     Coordinator & 48h SLA]    RCH Portal Connector]
-   │           │                                        │
-   └───────────┼────────────────────────────────────────┘
-               ▼
-[PostgreSQL 16 + PostGIS Spatial Database & Redis Distributed Cache]
-               │
-               ▼
-[DEIC Specialist Cockpit & State NHM Surveillance Command Center]
-`
+(Refer to Figure 4: Zero-Trust Enterprise System Architecture & Data Enclave)
 
 Architectural Tiers & Technology Components
 
@@ -190,22 +173,14 @@ Containerized microservices orchestrated via Kubernetes on ASDC infrastructure:
 ================================================================================
 FIELD 5: DEVELOPMENT METHODOLOGY & INTERMEDIATE STEPS
 Portal Requirement Note: (Target: 0 to 500 words)
-Actual Plain Text Word Count: 464 words
+Actual Plain Text Word Count: 425 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
 Clinical Safety-First Agile Engineering Lifecycle
 The development of ShishuDrishti follows an iterative, clinical safety-first GovTech engineering methodology. Because public health clinical decision-support systems directly influence neonatal morbidity, development progresses through six rigorously audited stages, each with measurable intermediate outputs.
 
-`
-[Phase 1: Discovery & Clinical Scoping] ──► [Phase 2: Dataset Curation & Labeling]
-                     │                                         │
-                     ▼                                         ▼
-[Phase 4: FSM Referral & Pilot MVP]     ◄── [Phase 3: Model Training & Edge Quantization]
-                     │
-                     ▼
-[Phase 5: Usability & Clinical Simulation] ──► [Phase 6: ASDC Staging & STQC VAPT]
-`
+(Refer to Figure 5: Six-Phase Agile Development & Clinical Governance Lifecycle)
 
 Sequence of Development Stages & Key Deliverables
 
@@ -239,19 +214,14 @@ Stage 6: Security Hardening, ABDM Certification & ASDC Deployment (Weeks 27 to 3
 ================================================================================
 FIELD 6: DEVELOPMENT TIMELINE & MILESTONES
 Portal Requirement Note: Target: 0 to 500 words
-Actual Plain Text Word Count: 449 words
+Actual Plain Text Word Count: 405 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
 Phased 12-Month Implementation Schedule
 The development, validation, and pilot rollout of ShishuDrishti spans four sequential quarters with defined milestones, dependencies, and validation gates.
 
-`
-Months 1-3: Architecture, Model Quantization & ASDC Staging (Gate 1: Tech Feasibility)
-Months 4-6: Two-District Field Deployment & Frontline Training (Gate 2: Operational Readiness)
-Months 7-9: Live 30,000 Newborn Cohort Screening & DEIC 48h SLA Tracking (Gate 3: Clinical Validation)
-Months 10-12: Independent Clinical Concordance Audit & Statewide Expansion (Gate 4: Scale Sign-Off)
-`
+(Refer to Figure 6: 12-Month Phased Implementation Roadmap & Validation Gates)
 
 Detailed Quarterly Milestones & Deliverables
 
@@ -324,7 +294,7 @@ Data Preprocessing & Privacy Safeguards
 ================================================================================
 FIELD 8: TEAM, MANPOWER & EXPERTISE
 Portal Requirement Note: (Target: 0 to 500 words)
-Actual Plain Text Word Count: 408 words
+Actual Plain Text Word Count: 354 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
@@ -336,12 +306,7 @@ Lead Applicant & Technical Profile: Ron Hatibaruah
 Multidisciplinary Manpower Allocation Across Development Phases
 To ensure seamless execution, the project incorporates specialized technical and clinical advisory manpower across the four project phases:
 
-`
-[Phase 1: Foundation (Months 1-3)] ──► 1 Lead Architect, 1 Edge AI Engineer, 1 Pediatric Advisor
-[Phase 2: Pilot Deployment (Months 4-6)] ──► +1 Mobile PWA Dev, +1 Field Coordinator, +1 Security Lead
-[Phase 3: Live Screening (Months 7-9)] ──► Full Team + 2 District Field Support Trainers
-[Phase 4: Audit & Expansion (Months 10-12)] ──► Core Team + Independent Clinical Concordance Auditors
-`
+(Refer to Figure 7: Project Governance, Team Organogram & Resource Allocation)
 
 Key Technical & Specialist Roles
 
@@ -413,19 +378,14 @@ Benchmarked using headless browser testing and network throttling simulating rur
 ================================================================================
 FIELD 10: SECURITY, PRIVACY, SAFETY & COMPLIANCE
 Portal Requirement Note: (Target: 0 to 500 words)
-Actual Plain Text Word Count: 381 words
+Actual Plain Text Word Count: 371 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
 Enterprise Security & DPDP Act 2023 Enclave
 Because ShishuDrishti processes sensitive pediatric health information, the platform is engineered in strict compliance with the Digital Personal Data Protection (DPDP) Act 2023, the Ayushman Bharat Digital Mission (ABDM) health data standards, and Ministry of Electronics & IT guidelines.
 
-`
-[Edge Device Capture] ──(Automated Facial Blurring)──► [AES-256 Storage]
-                                                               │
-                                                               ▼
-[SHA-256 Audit Chaining] ◄── [RBAC 4-Tier Access] ◄── [ABHA Pseudonymization]
-`
+(Refer to Figure 8: Defense-in-Depth Security, Privacy & DPDP Act 2023 Compliance)
 
 Core Security & Privacy Pillars
 
@@ -457,7 +417,7 @@ All software interfaces enforce prominent, un-dismissible clinical disclaimers. 
 ================================================================================
 FIELD 11: INNOVATION & DIFFERENTIATION
 Portal Requirement Note: (Target: 0 to 500 words)
-Actual Plain Text Word Count: 398 words
+Actual Plain Text Word Count: 384 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
@@ -466,10 +426,7 @@ Current public health approaches to congenital deformities in India rely on pass
 
 ShishuDrishti introduces five foundational technological and operational innovations tailored to the North-Eastern healthcare context:
 
-`
-Traditional Approach: Manual Screening ──► Late Detection (6-24 Mo) ──► 60%+ DEIC Drop-off
-ShishuDrishti: On-Device Edge AI ──► Day 1 Identification ──► 48h Closed-Loop DEIC Care
-`
+(Refer to Figure 9: Clinical Transformation: Day 1 Ponseti Cure vs. 135-Day Delayed Surgery)
 
 Key Differentiating Pillars
 
@@ -494,20 +451,14 @@ Built entirely on open-source frameworks (React, Python, PostgreSQL, PostGIS, Te
 ================================================================================
 FIELD 12: RESOURCES, RISKS & PILOT VALIDATION
 Portal Requirement Note: (Target: 0 to 500 words)
-Actual Plain Text Word Count: 404 words
+Actual Plain Text Word Count: 355 words
 ================================================================================
 [BEGIN COPY-PASTE FOR THIS TEXTAREA]
 
 Grant Budget Allocation (Total: ₹40.00 Lakh)
 The requested ₹40.00 Lakh grant under NESFIC 2026 Stream 1 will be strictly utilized across five milestone-driven expenditure heads:
 
-`
-1. Core AI Edge Model Compression & ASDC Staging: ₹13.50 Lakh (33.75%)
-2. Closed-Loop DEIC Referral Cascade, SLA Engine & WebGIS: ₹9.50 Lakh (23.75%)
-3. Security Auditing, STQC VAPT, DPDP Act & ABDM Gateway: ₹5.50 Lakh (13.75%)
-4. Two-District Field Pilot, Frontline Training & Pulse Oximeters: ₹7.50 Lakh (18.75%)
-5. Clinical Validation Contingency & Longitudinal Cohort Follow-up: ₹4.00 Lakh (10.00%)
-`
+(Refer to Figure 10: ₹40.00 Lakh Grant Budget Allocation & Milestone Cash Flow)
 
 Comprehensive Risk Matrix & Mitigation Strategies
 

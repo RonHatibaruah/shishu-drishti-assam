@@ -304,48 +304,27 @@ def build_proposal_pdf(output_path):
         story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#0f766e'), spaceBefore=8, spaceAfter=5))
         story.append(safe_paragraph(sec_title, h2_style))
 
-        if 'Field 1:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_1_before_after_workflow.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif 'Field 2:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_3_cadastral_anomaly_catalog.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif 'Field 3:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_5_lat_mandal_mobile_app.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif 'Field 4:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_7_enterprise_system_architecture.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif 'Field 6:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_4_land_health_score_hierarchy.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif 'Field 10:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_2_dual_system_reconciliation.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif 'Field 11:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_6_citizen_land_health_certificate.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
+        # Map new professional 16:9 figures to proposal fields
+        fig_map = {
+            'Field 1:': 'fig1_assam_burden_map.jpg',
+            'Field 2:': 'fig2_anomaly_detection_matrix.jpg',
+            'Field 3:': 'fig3_frontline_mobile_ux.jpg',
+            'Field 4:': 'fig4_zero_trust_architecture.jpg',
+            'Field 5:': 'fig5_six_phase_development.jpg',
+            'Field 6:': 'fig6_implementation_roadmap_gantt.jpg',
+            'Field 8:': 'fig7_team_governance_matrix.jpg',
+            'Field 10:': 'fig8_security_dpdp_enclave.jpg',
+            'Field 11:': 'fig9_clinical_transformation_curve.jpg',
+            'Field 12:': 'fig10_grant_budget_breakdown.jpg',
+        }
+        for prefix, img_name in fig_map.items():
+            if prefix in sec_title:
+                img_path = os.path.join(img_dir, img_name)
+                if os.path.exists(img_path):
+                    story.append(Spacer(1, 4))
+                    story.append(Image(img_path, width=490, height=275.6))
+                    story.append(Spacer(1, 6))
+                break
 
         body_flowables = parse_markdown_content(lines[1:], available_width=490)
         story.extend(body_flowables)
@@ -414,42 +393,22 @@ def build_proof_of_work_pdf(output_path):
         story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#0f766e'), spaceBefore=8, spaceAfter=5))
         story.append(safe_paragraph(sec_title, h2_style))
 
-        if '1. Executive Summary' in sec_title:
-            img = os.path.join(img_dir, 'diagram_1_before_after_workflow.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif '2. Machine Learning Model Architecture' in sec_title:
-            img = os.path.join(img_dir, 'diagram_3_cadastral_anomaly_catalog.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif '3. Critical Congenital Heart Disease' in sec_title:
-            img = os.path.join(img_dir, 'diagram_2_dual_system_reconciliation.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif '4. Closed-Loop DEIC Referral' in sec_title:
-            img = os.path.join(img_dir, 'diagram_5_lat_mandal_mobile_app.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif '5. System Latency' in sec_title:
-            img = os.path.join(img_dir, 'diagram_6_citizen_land_health_certificate.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
-        elif '6. Security, ABDM' in sec_title:
-            img = os.path.join(img_dir, 'diagram_7_enterprise_system_architecture.jpg')
-            if os.path.exists(img):
-                story.append(Spacer(1, 4))
-                story.append(Image(img, width=490, height=275.6))
-                story.append(Spacer(1, 5))
+        pow_fig_map = {
+            '1. Executive Summary': 'fig1_assam_burden_map.jpg',
+            '2. Machine Learning Model Architecture': 'fig2_anomaly_detection_matrix.jpg',
+            '3. Critical Congenital Heart Disease': 'fig11_cchd_clinical_protocol.jpg',
+            '4. Closed-Loop DEIC Referral': 'fig12_closed_loop_cascade.jpg',
+            '5. System Latency': 'fig3_frontline_mobile_ux.jpg',
+            '6. Security, ABDM': 'fig8_security_dpdp_enclave.jpg',
+        }
+        for prefix, img_name in pow_fig_map.items():
+            if prefix in sec_title:
+                img_path = os.path.join(img_dir, img_name)
+                if os.path.exists(img_path):
+                    story.append(Spacer(1, 4))
+                    story.append(Image(img_path, width=490, height=275.6))
+                    story.append(Spacer(1, 6))
+                break
 
         body_flowables = parse_markdown_content(lines[1:], available_width=490)
         story.extend(body_flowables)

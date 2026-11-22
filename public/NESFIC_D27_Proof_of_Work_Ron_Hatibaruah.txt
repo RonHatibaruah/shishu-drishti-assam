@@ -68,21 +68,7 @@ greater than Key Finding: The quantized ShishuDrishti Edge model delivers 91.8% 
 
 Critical Congenital Heart Disease accounts for significant early neonatal mortality when ductus arteriosus closure precipitates acute cyanosis or shock. ShishuDrishti digitalizes the standard dual-site pulse oximetry protocol:
 
-`
-[Newborn Age at least 24 Hours or Prior to Discharge]
-                      │
-                      ▼
-[Apply Pulse Oximeter Sensor: Pre-ductal (Right Hand) & Post-ductal (Either Foot)]
-                      │
-                      ▼
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│ ShishuDrishti CCHD Decision Logic:                                                     │
-│ • SpO2 smaller than 90% in either limb? ──► IMMEDIATE FAIL (Urgent Cardiac Alert)     │
-│ • SpO2 90–94% in both OR greater than 3% difference? ──► RE-TEST in 1 Hour            │
-│   (If repeat test still 90-94% or greater than 3% difference ──► FAIL / Escalate)      │
-│ • SpO2 at least 95% in both AND at most 3% difference? ──► PASS (Normal Discharge)    │
-└────────────────────────────────────────────────────────────────────────────────────────┘
-`
+(Refer to Figure 11: AAP / IAP Neonatal CCHD Dual-Site Pulse Oximetry Protocol)
 
 Empirical Validation on Neonatal Telemetry Records:
 • Total Test Cohorts Evaluated: 3,200 simulated neonatal cardio-respiratory profiles  
@@ -95,40 +81,7 @@ Empirical Validation on Neonatal Telemetry Records:
 
 The referral engine enforces an auditable finite state machine (FSM) governing all flagged children from birth detection through rehabilitation:
 
-`
-          ┌───────────────────────────────────────┐
-          │  1. Birth / Field Screening Flag      │
-          │     (Delivery Point / HBNC ASHA Visit)│
-          └───────────────────┬───────────────────┘
-                              │ Automated e-Referral Generated
-                              ▼
-          ┌───────────────────────────────────────┐
-          │  2. DEIC Confirmatory Evaluation      │
-          │     (Pediatrician / Specialist Exam) │
-          └───────────────────┬───────────────────┘
-                              │
-               ┌──────────────┴──────────────┐
-               │ DEIC Elapsed Time within 48h ?
-               ├──────────────┬──────────────┤
-               │ YES          │ NO (Breach)  │
-               ▼              ▼              ▼
-    ┌────────────────────┐   ┌───────────────────────────────┐
-    │ 3. Clinical Conf.  │   │  DEIC_SLA_BREACH_ESCALATION   │
-    │    & Care Plan     │   │  (District Nodal Officer Push)│
-    └──────────┬─────────┘   └───────────────────────────────┘
-               │ Surgery / Ponseti Scheduled
-               ▼
-    ┌────────────────────┐
-    │ 4. Corrective Care │  (e.g., Ponseti Casting Week 1-6;
-    │    Initiated       │   Cleft Repair at 3-6 Mo under Smile Train;
-    └──────────┬─────────┘   Snehasparsh Cardiac Surgery)
-               │ Elapsed within 14 Days to 1st Care Step
-               ▼
-    ┌────────────────────────────────────────┐
-    │ 5. Longitudinal Rehabilitation & MCTS  │
-    │    (Closed-Loop Complete / ABHA Synced)│
-    └────────────────────────────────────────┘
-`
+(Refer to Figure 12: 5-Stage Closed-Loop DEIC Referral Cascade with 48h SLA Tracking)
 
 5. System Latency & Edge Performance Benchmarks
 
