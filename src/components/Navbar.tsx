@@ -52,8 +52,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           </span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="hidden md:inline text-emerald-300/80">
-            Rashtriya Bal Swasthya Karyakram (RBSK) • DEIC Network
+          {/* Prominent Tutorial Header Link */}
+          <button
+            onClick={onOpenTutorial}
+            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-2.5 py-0.5 rounded text-[11px] flex items-center gap-1 shadow-sm transition-all animate-bounce"
+            title="Interactive Walkthrough: What the application does & how to use it"
+          >
+            <BookOpen className="w-3 h-3 text-slate-950" />
+            <span>📖 How It Works / User Tutorial</span>
+          </button>
+          <span className="hidden lg:inline text-emerald-300/80">
+            RBSK • DEIC Network
           </span>
           <span className="bg-emerald-900/80 border border-emerald-500/40 text-emerald-300 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1">
             <CheckCircle2 className="w-3 h-3 text-emerald-400" />

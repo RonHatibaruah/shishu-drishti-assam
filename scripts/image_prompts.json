@@ -1,0 +1,74 @@
+[
+  {
+    "id": "fig1",
+    "filename": "fig1_assam_burden_map.jpg",
+    "title": "Assam Congenital Anomaly Vulnerability Zones & DEIC Referral Corridors",
+    "prompt": "A master 16:9 widescreen public health technology framework infographic on a clean white blueprint background with subtle light-gray gridlines illustrating ASSAM CONGENITAL ANOMALY VULNERABILITY ZONES & DEIC REFERRAL CORRIDORS. The header displays bold dark navy typography ASSAM CONGENITAL SURVEILLANCE & DEIC REFERRAL CORRIDORS with subtitle Risk Stratification Across 35 Districts, Riverine Chars, Tea Gardens & Specialized Referral Corridors. The visual layout presents three vibrant, color-coded regional zone cards: 1) Zone 1 (Red/Coral): Riverine Char Islands (Barpeta, Dhubri) with boat clinic icons, offline edge screening, and flood barriers; 2) Zone 2 (Emerald Green): Upper Assam Tea Gardens (Dibrugarh, Tinsukia) with mobile RBSK team vans, line-settlement health access, and maternal anemia alerts; 3) Zone 3 (Cyan/Navy): Urban & Hill Tracts (Kamrup GMCH, Karbi Anglong) with 102 ambulance corridors and tertiary surgical centers. Bottom section displays key metric badges: 750,000 Live Births, 20,000+ Cases, Median Presentation 135 Days -> Target <7 Days, >90% DEIC SLA Adherence. Clean 2D flat vector aesthetic, ultra-sharp typography."
+  },
+  {
+    "id": "fig2",
+    "filename": "fig2_anomaly_detection_matrix.jpg",
+    "title": "Congenital Anomaly Detection Matrix & Clinical Decision Support System",
+    "prompt": "A master 16:9 widescreen medical technology architectural infographic on a clean white blueprint background with subtle gridlines illustrating CONGENITAL ANOMALY DETECTION MATRIX & CLINICAL DECISION SUPPORT SYSTEM (CDSS). The header displays bold dark navy typography ON-DEVICE EDGE AI COMPUTER VISION & MULTI-MODAL SCREENING with subtitle Sub-65ms Triage for Visible & Invisible Birth Defects under RBSK 4D Guidelines. The layout presents four color-coded anomaly diagnostic pillars: 1) Clubfoot (CTEV) - MobileNetV4 INT8, 98.2% Sensitivity, Pirani Score Triage, Ponseti serial casting; 2) Cleft Lip & Palate - YOLOv8-Nano INT8, 97.4% Sensitivity, facial landmark detection, Smile Train surgery at 3-6 months; 3) Critical Congenital Heart Disease (CCHD) - Dual-Site Pulse Oximetry, 99.1% Sensitivity, AAP/IAP gradient rules, Snehasparsh emergency slot; 4) Neural Tube Defects (NTD) - Edge Segmentation, 96.5% Sensitivity, spinal lesion bounding. Metric badge: Model Payload <4.5 MB, 100% Offline Capable. Clean 2D flat vector aesthetic, emerald green, cyan, amber, and deep navy corporate palette."
+  },
+  {
+    "id": "fig3",
+    "filename": "fig3_frontline_mobile_ux.jpg",
+    "title": "ShishuDrishti Frontline Mobile Application: 3-Screen Clinical Workflow",
+    "prompt": "A high-impact 16:9 widescreen technological mobile UI/UX framework infographic on a clean white blueprint background with subtle gridlines illustrating SHISHUDRISHTI FRONTLINE MOBILE APPLICATION: 3-SCREEN GUIDED CLINICAL WORKFLOW. The header features bold dark navy typography ASHA & ANM POINT-OF-CARE SCREENING INTERFACE with subtitle Offline Computer Vision Camera, Dual-Site Pulse Oximetry & Instant ABHA QR Referral. Displays three photorealistic modern smartphone frames: 1) Phone 1: Camera AI Viewfinder showing real-time green bounding box over neonatal foot, Pirani Score 4.5/6, and Assamese audio button; 2) Phone 2: Dual-Site Pulse Oximetry screen showing Pre-ductal Right Wrist (97%) vs Post-ductal Foot (91%), 6% differential warning alert; 3) Phone 3: Shishu Suraksha Digital Pass with baby photo, ABHA Token, 48-hour DEIC countdown timer, and 102 ambulance booking button. Clean 2D flat vector design, royal blue, emerald green, and amber diagnostic badges, crisp typography."
+  },
+  {
+    "id": "fig4",
+    "filename": "fig4_zero_trust_architecture.jpg",
+    "title": "Zero-Trust Enterprise Cloud & Edge System Architecture",
+    "prompt": "A master 16:9 widescreen enterprise cloud and edge system architecture infographic on a clean white blueprint background illustrating SHISHUDRISHTI ZERO-TRUST SYSTEM ARCHITECTURE & STATE DATA ENCLAVE. The header displays bold dark navy typography ZERO-TRUST CLOUD-NATIVE & EDGE AI ARCHITECTURE (ASDC) with subtitle End-to-End Frontline-to-Tertiary Health Informatics Pipeline. The visual layout features three layered technical tiers: 1) Tier 1: Frontline Edge Clients (Android PWA, ONNX Runtime INT8, IndexedDB AES-256 store); 2) Tier 2: Assam State Data Centre (ASDC Secure Enclave, Mutual TLS 1.3, Kubernetes, FastAPI microservices, PostgreSQL 16 + PostGIS spatial DB, Redis cache); 3) Tier 3: External Interoperability Gateways (ABDM ABHA M1-M3 Gateway, CDAC Mobile Seva SMS/IVR in Assamese, DEIC Specialist Cockpit). Clean 2D flat vector aesthetic, royal blue, cyan, emerald green, and gold accents, ultra-sharp typography."
+  },
+  {
+    "id": "fig5",
+    "filename": "fig5_six_phase_development.jpg",
+    "title": "Six-Phase Agile Development & Clinical Governance Lifecycle",
+    "prompt": "A master 16:9 widescreen project methodology technology infographic on a clean white blueprint background illustrating SIX-PHASE AGILE DEVELOPMENT & CLINICAL GOVERNANCE LIFECYCLE. The header displays bold dark navy typography AGILE IMPLEMENTATION & CLINICAL VERIFICATION METHODOLOGY with subtitle Sequence from Discovery Through Model Quantization, Lab Simulation, Field Pilot & Statewide Handover. The visual presents six sequential, connected chevron stage cards: Phase 1: Discovery & Clinical Scoping (Months 1-2); Phase 2: Dataset Curation & Edge AI Quantization (Months 2-3); Phase 3: Offline Frontline PWA & Assamese UX (Months 3-4); Phase 4: ASDC Cloud Enclave & STQC VAPT (Months 4-5); Phase 5: Two-District Field Pilot (Months 6-9 in Barpeta & Kamrup); Phase 6: GMCH/AMCH Independent Clinical Audit & Scale (Months 10-12). Each card includes milestone gates and deliverables. Clean 2D flat vector aesthetic, emerald green, cyan, amber, and deep navy corporate palette."
+  },
+  {
+    "id": "fig6",
+    "filename": "fig6_implementation_roadmap_gantt.jpg",
+    "title": "12-Month Phased Implementation Schedule & Validation Gates",
+    "prompt": "A master 16:9 widescreen technological implementation Gantt roadmap infographic on a clean white blueprint background illustrating 12-MONTH PHASED IMPLEMENTATION SCHEDULE & VALIDATION GATES. The header displays bold dark navy typography 12-MONTH PHASED ROLLOUT ROADMAP & DELIVERY GATES with subtitle Structured Across 4 Quarters with Milestone Sign-Offs & Critical Path Dependencies. The layout presents four horizontal quarterly phase columns: Quarter 1 (Foundation & ASDC Staging - Gate 1 Tech Feasibility); Quarter 2 (Two-District Pilot Launch & Frontline Training - Gate 2 Operational Readiness); Quarter 3 (30,000 Newborn Cohort Screening & 48h DEIC SLA Tracking - Gate 3 Clinical Validation); Quarter 4 (Independent Clinical Audit & Statewide Handover - Gate 4 Scale Sign-Off). Includes milestone diamonds M1, M2, M3, M4. Clean 2D flat vector aesthetic, crisp lines, professional technical typography."
+  },
+  {
+    "id": "fig7",
+    "filename": "fig7_team_governance_matrix.jpg",
+    "title": "Project Governance, Team Organogram & Resource Allocation Matrix",
+    "prompt": "A comprehensive 16:9 widescreen project governance and human capital infographic on a clean white blueprint background illustrating PROJECT GOVERNANCE, TEAM ORGANOGRAM & RESOURCE ALLOCATION MATRIX. The header displays bold dark navy typography MULTIDISCIPLINARY LEADERSHIP & TECHNICAL MANPOWER MATRIX with subtitle Clinical Advisory, Health Informatics, Edge AI Engineering & Assam Field Operations. The layout displays six key leadership profile cards: 1) Ron Hatibaruah (Lead Innovator & Principal Solution Architect); 2) Edge AI / Computer Vision Specialist; 3) Clinical Advisory Director (Senior Pediatrician); 4) Health Informatics & Cloud Lead; 5) Assam Grassroots Field Operations Coordinator; 6) Independent Clinical Audit Panel (GMCH & AMCH Faculty). Includes quarterly FTE allocation stacked bars. Clean 2D flat vector aesthetic, dark navy, emerald green, royal blue, and amber accents."
+  },
+  {
+    "id": "fig8",
+    "filename": "fig8_security_dpdp_enclave.jpg",
+    "title": "Defense-in-Depth Security, Privacy & DPDP Act 2023 Compliance Enclave",
+    "prompt": "A master 16:9 widescreen cybersecurity and health data privacy infographic on a clean white blueprint background illustrating DEFENSE-IN-DEPTH SECURITY, PRIVACY & DPDP ACT 2023 COMPLIANCE ENCLAVE. The header displays bold dark navy typography CYBERSECURITY, SOVEREIGN ENCLAVE & REGULATORY COMPLIANCE with subtitle Multi-Tier Protection for Pediatric Morphological Imagery & Electronic Health Records. The visual layout presents a 5-step security pipeline: 1) Step 1: Explicit Vernacular Digital Consent (Assamese, Bodo, Bengali); 2) Step 2: Edge Anatomical Cropping & Facial Obscuration; 3) Step 3: Client-Side AES-256 Database Encryption; 4) Step 4: Mutual TLS 1.3 Secure Enclave Tunnel to ASDC; 5) Step 5: Tamper-Evident SHA-256 Audit Chaining. Bottom features statutory compliance badges: DPDP Act 2023, ABDM M1-M3 Certified, 100% ASDC Sovereign Hosting, CERT-In VAPT Cleared. Clean 2D flat vector aesthetic, dark navy, cyan, emerald green, and amber diagnostic badges."
+  },
+  {
+    "id": "fig9",
+    "filename": "fig9_clinical_transformation_curve.jpg",
+    "title": "Clinical Transformation: Day 1 Ponseti Cure vs. 135-Day Delayed Surgery",
+    "prompt": "A high-impact 16:9 widescreen health economics and clinical transformation infographic on a clean white blueprint background illustrating CLINICAL TRANSFORMATION: DAY 1 PONSETI CURE VS. 135-DAY DELAYED SURGERY. The header displays bold dark navy typography PARADIGM SHIFT IN CONGENITAL CARE DELIVERY with subtitle Comparing the Current Delayed Presentation with ShishuDrishti Early Identification. Side-by-side comparative layout: Left Panel (Red - Current Baseline): Delayed Presentation at 135 Days (4.5 Months), 68% lost to follow-up, rigid bony contractures, complex osteotomy surgery costing >₹65,000, lifelong physical disability and stigma. Right Panel (Emerald Green - ShishuDrishti Sentinel): Early Identification on Day 1-3, 48-hour DEIC confirmation SLA, serial Ponseti plaster casting starting in Week 1, >95% full non-surgical cure, cost <₹2,500 under RBSK. Clean 2D flat vector design, high contrast, sharp typography."
+  },
+  {
+    "id": "fig10",
+    "filename": "fig10_grant_budget_breakdown.jpg",
+    "title": "₹40.00 Lakh Grant Budget Allocation & Milestone Cash Flow",
+    "prompt": "A master 16:9 widescreen public health finance and grant budget allocation infographic on a clean white blueprint background illustrating ₹40.00 LAKH GRANT BUDGET ALLOCATION & MILESTONE CASH FLOW. The header displays bold dark navy typography NESFIC 2026 GRANT ALLOCATION & EXPENDITURE BREAKDOWN with subtitle Milestone-Driven Fund Deployment for ShishuDrishti Development & Two-District Pilot Validation. The visual layout presents five expenditure pillar cards: 1) Pillar 1 (₹10.50 Lakh / 26.25% - Teal): Edge AI Model Compression & Mobile PWA; 2) Pillar 2 (₹7.50 Lakh / 18.75% - Blue): ASDC Cloud Infrastructure, ABDM & Security; 3) Pillar 3 (₹6.00 Lakh / 15.00% - Amber): Frontline Hardware Kits & Neonatal Pulse Oximeters; 4) Pillar 4 (₹11.00 Lakh / 27.50% - Emerald): Frontline Capacity Building & Field Pilot in Barpeta & Kamrup; 5) Pillar 5 (₹5.00 Lakh / 12.50% - Purple): Clinical Concordance Audit (GMCH/AMCH). Includes a central budget donut chart. Clean 2D flat vector aesthetic, sharp lines, professional technical typography."
+  },
+  {
+    "id": "fig11",
+    "filename": "fig11_cchd_clinical_protocol.jpg",
+    "title": "AAP / IAP Neonatal CCHD Dual-Site Pulse Oximetry Protocol",
+    "prompt": "A master 16:9 widescreen neonatal cardiology diagnostic infographic on a clean white blueprint background illustrating NEONATAL CCHD DUAL-SITE PULSE OXIMETRY & VASCULAR ANATOMY. The header displays bold dark navy typography CRITICAL CONGENITAL HEART DEFECT (CCHD) PHYSIOLOGICAL SCREENING with subtitle Pre-Ductal vs. Post-Ductal SpO2 Gradient Verification under AAP & IAP Guidelines. The visual layout presents an anatomical schematic of the neonatal cardiovascular system showing the Heart, Aorta, and Patent Ductus Arteriosus (PDA). Clear sensor callouts: 1) Pre-ductal Right Wrist Sensor (SpO2 % before ductus); 2) Post-ductal Foot Sensor (SpO2 % after ductal mixing). Shows the algorithmic decision branches: Pass (>=95% both, diff <=3%), Repeat in 1h (90-94% or diff >3%), Immediate Fail (<90% either). Clean 2D flat vector aesthetic, medical accuracy, vibrant red, blue, and teal accents, ultra-sharp typography."
+  },
+  {
+    "id": "fig12",
+    "filename": "fig12_closed_loop_cascade.jpg",
+    "title": "5-Stage Closed-Loop DEIC Referral Cascade with 48h SLA Tracking",
+    "prompt": "A master 16:9 widescreen clinical referral cascade and state machine infographic on a clean white blueprint background illustrating 5-STAGE CLOSED-LOOP DEIC REFERRAL CASCADE WITH 48H SLA TRACKING. The header displays bold dark navy typography CLOSED-LOOP PEDIATRIC REFERRAL PATHWAY & 48-HOUR SLA TRACKING with subtitle Automated Frontline-to-Tertiary Care Coordination under RBSK Guidelines. The layout presents five connected sequential stage cards: 1) Stage 1: Point-of-Care Birth Screening (ASHA/ANM Edge AI detection); 2) Stage 2: 48-Hour DEIC SLA Countdown & Automated Assamese IVR Voice Call; 3) Stage 3: DEIC Specialist Clinical Confirmation & Pirani Staging; 4) Stage 4: Corrective Intervention (Ponseti serial casting Week 1-6 or Smile Train surgical slot); 5) Stage 5: Longitudinal Rehabilitation & MCTS RCH Sync. Features SLA breach escalation alerts. Clean 2D flat vector aesthetic, royal blue, emerald green, and amber diagnostic badges, crisp typography."
+  }
+]
