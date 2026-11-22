@@ -317,13 +317,31 @@ def build_proposal_pdf(output_path):
                 story.append(Image(img, width=490, height=275.6))
                 story.append(Spacer(1, 5))
         elif 'Field 3:' in sec_title:
-            img = os.path.join(img_dir, 'diagram_2_dual_system_reconciliation.jpg')
+            img = os.path.join(img_dir, 'diagram_5_lat_mandal_mobile_app.jpg')
             if os.path.exists(img):
                 story.append(Spacer(1, 4))
                 story.append(Image(img, width=490, height=275.6))
                 story.append(Spacer(1, 5))
         elif 'Field 4:' in sec_title:
+            img = os.path.join(img_dir, 'diagram_7_enterprise_system_architecture.jpg')
+            if os.path.exists(img):
+                story.append(Spacer(1, 4))
+                story.append(Image(img, width=490, height=275.6))
+                story.append(Spacer(1, 5))
+        elif 'Field 6:' in sec_title:
             img = os.path.join(img_dir, 'diagram_4_land_health_score_hierarchy.jpg')
+            if os.path.exists(img):
+                story.append(Spacer(1, 4))
+                story.append(Image(img, width=490, height=275.6))
+                story.append(Spacer(1, 5))
+        elif 'Field 10:' in sec_title:
+            img = os.path.join(img_dir, 'diagram_2_dual_system_reconciliation.jpg')
+            if os.path.exists(img):
+                story.append(Spacer(1, 4))
+                story.append(Image(img, width=490, height=275.6))
+                story.append(Spacer(1, 5))
+        elif 'Field 11:' in sec_title:
+            img = os.path.join(img_dir, 'diagram_6_citizen_land_health_certificate.jpg')
             if os.path.exists(img):
                 story.append(Spacer(1, 4))
                 story.append(Image(img, width=490, height=275.6))

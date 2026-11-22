@@ -93,24 +93,31 @@ def generate_proposal_text():
     
     # Loop over fields
     i = 1
+    section_03_text = ""
     while i < len(parts):
         field_num = parts[i]
         field_title = parts[i+1].strip()
         field_content = parts[i+2]
         
+        # Check if Section 03 is embedded at the end of this field
+        if '## Section 03' in field_content:
+            parts_split = field_content.split('## Section 03', 1)
+            field_content = parts_split[0]
+            section_03_text = '## Section 03' + parts_split[1]
+        
         # Extract word count notice if present
-        wc_match = re.search(r'\*(.*?Word Count.*?)\*', field_content)
-        wc_note = wc_match.group(1) if wc_match else ""
+        wc_match = re.search(r'\*(.*?Target.*?)\*', field_content)
+        wc_note = wc_match.group(1) if wc_match else "Target: 0 to 500 words"
         
         cleaned_content = clean_text_for_textarea(field_content)
-        cleaned_content = re.sub(r'\(Word Count:.*?\)', '', cleaned_content).strip()
+        cleaned_content = re.sub(r'\(Target:.*?\)', '', cleaned_content)
+        cleaned_content = re.sub(r'\*\(Target:.*?\)\*', '', cleaned_content).strip()
         
         words = len(cleaned_content.split())
         
         body += "=" * 80 + "\n"
         body += f"FIELD {field_num}: {field_title.upper()}\n"
-        if wc_note:
-            body += f"Portal Requirement Note: {wc_note}\n"
+        body += f"Portal Requirement Note: {wc_note}\n"
         body += f"Actual Plain Text Word Count: {words} words\n"
         body += "=" * 80 + "\n"
         body += "[BEGIN COPY-PASTE FOR THIS TEXTAREA]\n\n"
@@ -118,6 +125,15 @@ def generate_proposal_text():
         body += "[END COPY-PASTE FOR THIS TEXTAREA]\n\n\n"
         
         i += 3
+        
+    if section_03_text:
+        cleaned_sec03 = clean_text_for_textarea(section_03_text)
+        body += "=" * 80 + "\n"
+        body += "SECTION 03: SUPPORTING MATERIAL & PORTAL URLS\n"
+        body += "=" * 80 + "\n"
+        body += "[BEGIN COPY-PASTE FOR SUPPORTING MATERIAL FIELDS]\n\n"
+        body += cleaned_sec03 + "\n\n"
+        body += "[END COPY-PASTE FOR SUPPORTING MATERIAL FIELDS]\n\n"
         
     full_output = header + body
     with open(out_file, 'w', encoding='utf-8') as f:
