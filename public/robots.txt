@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bhumi-binimoy.pages.dev/sitemap.xml
+# Canonical XML Sitemap for ShishuDrishti (NHM Assam - NESFIC-D-27)
+Sitemap: https://shishu-drishti.pages.dev/sitemap.xml

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO Title & Description -->
+    <title>ShishuDrishti Tutorial & System Guide | Earlier Identification of Congenital Deformities for Timely Care — NHM Assam (NESFIC-D-27)</title>
+    <meta name="title" content="ShishuDrishti Tutorial & System Guide | Earlier Identification of Congenital Deformities for Timely Care — NHM Assam (NESFIC-D-27)" />
+    <meta name="description" content="Official user guide and tutorial for ShishuDrishti (শিশু দৃষ্টি), an AI-powered congenital deformity screening and closed-loop early intervention platform built for the National Health Mission (NHM), Government of Assam under NESFIC-D-27. Learn how to screen for cleft lip/palate, clubfoot, CCHD, and track 48-hour DEIC referrals." />
+    <meta name="keywords" content="ShishuDrishti Tutorial, ShishuDrishti User Guide, NESFIC-D-27, Congenital Deformities Screening Tutorial, NHM Assam, DEIC Assam, RBSK Assam, CCHD Pulse Oximetry, Clubfoot Ponseti, Cleft Lip, Ron Hatibaruah, Assam Health Department" />
+    <meta name="author" content="Ron Hatibaruah" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://shishu-drishti.pages.dev/tutorial" />
+
+    <!-- GEO Friendly Meta Tags (Assam Geographic Targeting) -->
+    <meta name="geo.region" content="IN-AS" />
+    <meta name="geo.placename" content="Guwahati, Kamrup Metropolitan, Dispur, Assam, India" />
+    <meta name="geo.position" content="26.1445;91.7362" />
+    <meta name="ICBM" content="26.1445, 91.7362" />
+    <meta name="DC.title" content="ShishuDrishti User Tutorial - Assam Congenital Sentinel" />
+    <meta name="DC.creator" content="Ron Hatibaruah" />
+    <meta name="DC.subject" content="User Guide & Tutorial for Congenital Deformities Early Identification in Assam" />
+    <meta name="DC.coverage" content="Assam, Northeast India" />
+    <meta name="DC.language" content="en, as" />
+
+    <!-- Open Graph (OG) Social Meta Tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://shishu-drishti.pages.dev/tutorial" />
+    <meta property="og:title" content="ShishuDrishti Tutorial & System Guide — NESFIC-D-27" />
+    <meta property="og:description" content="Comprehensive step-by-step guide on using ShishuDrishti for early congenital deformity identification and closed-loop DEIC referral management in Assam." />
+    <meta property="og:image" content="https://shishu-drishti.pages.dev/og-image.jpg" />
+    <meta property="og:site_name" content="ShishuDrishti (শিশু দৃষ্টি)" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://shishu-drishti.pages.dev/tutorial" />
+    <meta name="twitter:title" content="ShishuDrishti Tutorial & System Guide — NESFIC-D-27" />
+    <meta name="twitter:description" content="Step-by-step tutorial on using ShishuDrishti AI screening and DEIC care network for NHM Assam." />
+    <meta name="twitter:image" content="https://shishu-drishti.pages.dev/og-image.jpg" />
+
+    <!-- Tailwind CSS via CDN for Standalone Rendering -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Structured Data (JSON-LD) for HowTo Tutorial -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Use ShishuDrishti for Early Congenital Deformities Screening and DEIC Care in Assam",
+      "description": "Step-by-step user guide for frontline ASHAs, ANMs, DEIC pediatric specialists, and State Nodal Officers on utilizing the ShishuDrishti AI screening and care referral platform.",
+      "url": "https://shishu-drishti.pages.dev/tutorial",
+      "image": "https://shishu-drishti.pages.dev/og-image.jpg",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Step 1: Understand the Public Health Challenge in Assam",
+          "text": "Review congenital anomaly burdens across tea garden lines and riverine char areas (cleft lip/palate, clubfoot, neural tube defects, polydactyly, CCHD).",
+          "url": "https://shishu-drishti.pages.dev/#tutorial"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Step 2: Select Your Clinical Persona",
+          "text": "Choose your role: State Nodal Officer (surveillance & executive command), DEIC Pediatric Specialist (tele-triage & clinical confirmation), or Frontline Worker (offline edge AI mobile screening).",
+          "url": "https://shishu-drishti.pages.dev/#worklist"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Step 3: Execute On-Device AI Screening & CCHD Protocol",
+          "text": "Run edge computer vision model simulation on newborn photographs and evaluate dual-site pre-ductal vs. post-ductal pulse oximetry saturation gradients.",
+          "url": "https://shishu-drishti.pages.dev/#worklist"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Step 4: Track 48-Hour DEIC Closed-Loop Care Cascade",
+          "text": "Monitor automated DEIC slot booking, 102 ambulance dispatch, parental multilingual SMS notifications, and 48-hour SLA escalation finite state machine.",
+          "url": "https://shishu-drishti.pages.dev/#referrals"
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased font-sans">
+    
+    <!-- Top Government Strip -->
+    <header class="bg-emerald-950 text-emerald-200 text-xs px-4 py-2 border-b border-emerald-800 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-bold text-white tracking-wide">GOVERNMENT OF ASSAM</span>
+        <span class="text-emerald-500">•</span>
+        <span>National Health Mission (NHM) & Health & Family Welfare Dept</span>
+        <span class="text-emerald-500">•</span>
+        <span class="bg-emerald-900 text-emerald-300 px-2 py-0.5 rounded font-mono text-[11px]">NESFIC-D-27</span>
+      </div>
+      <div>
+        <a href="https://shishu-drishti.pages.dev/#tutorial" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3 py-1 rounded text-xs transition-all shadow">
+          🚀 Open Live Interactive App
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+      <!-- Hero Title Banner -->
+      <div class="bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-emerald-800">
+        <div class="inline-block bg-emerald-800 text-emerald-200 px-3 py-1 rounded-full text-xs font-mono font-bold mb-3 border border-emerald-600/50">
+          OFFICIAL SYSTEM TUTORIAL & USER GUIDE
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          ShishuDrishti (শিশু দৃষ্টি): User Tutorial & Verification Guide
+        </h1>
+        <p class="text-emerald-200/90 text-sm sm:text-base mt-2 leading-relaxed">
+          Comprehensive step-by-step walkthrough for evaluating the AI-powered Congenital Deformity Screening and Closed-Loop Early Intervention Platform built for Assam.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://shishu-drishti.pages.dev/#tutorial" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl shadow-lg transition-all text-sm">
+            <span>✨ Launch Interactive App Walkthrough</span>
+          </a>
+          <a href="https://shishu-drishti.pages.dev/downloads/NESFIC_D27_Proposal_Ron_Hatibaruah.pdf" class="inline-flex items-center gap-2 bg-emerald-900/80 hover:bg-emerald-800 text-white font-medium px-4 py-2.5 rounded-xl border border-emerald-700/60 transition-all text-sm">
+            <span>📥 Download Official Proposal PDF (2.8 MB)</span>
+          </a>
+          <a href="https://shishu-drishti.pages.dev/downloads/NESFIC_D27_Proof_of_Work_Ron_Hatibaruah.pdf" class="inline-flex items-center gap-2 bg-teal-900/80 hover:bg-teal-800 text-white font-medium px-4 py-2.5 rounded-xl border border-teal-700/60 transition-all text-sm">
+            <span>🔬 Download Proof of Work PDF (1.7 MB)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Step 1: What the Application Is -->
+      <section class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-sm">1</div>
+          <h2 class="text-lg font-bold text-slate-900">What ShishuDrishti Is & The Problem It Solves</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          In Assam, 9.5 lakh births occur annually. Congenital anomalies account for 8 to 15 percent of neonatal deaths. In remote tea garden bastis and riverine sandbars (char areas), physical deformities like clubfoot and cleft lip are identified late (at 6 to 24 months), while internal defects like Critical Congenital Heart Disease (CCHD) remain completely undetected until sudden collapse.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 bg-red-50 border border-red-200 rounded-xl">
+            <span class="font-bold text-red-800 block mb-1">Current Manual Workflow (The Gap):</span>
+            <ul class="list-disc pl-4 space-y-1 text-slate-700">
+              <li>Hurried visual checks with zero photo-documentation.</li>
+              <li>Paper referral slips with greater than 60 percent loss-to-follow-up.</li>
+              <li>Median intervention age of 135 days (requiring complex bone surgeries).</li>
+            </ul>
+          </div>
+          <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
+            <span class="font-bold text-emerald-800 block mb-1">With ShishuDrishti (The Transformation):</span>
+            <ul class="list-disc pl-4 space-y-1 text-slate-700">
+              <li>100 percent offline smartphone edge AI screening on birth photos.</li>
+              <li>Automated pre-booked DEIC appointment and 102 transport.</li>
+              <li>Median intervention age reduced to smaller than 21 days (Ponseti casting cure).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: User Roles & Personas -->
+      <section class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-sm">2</div>
+          <h2 class="text-lg font-bold text-slate-900">How to Navigate by User Persona</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          The top navigation bar contains a role selector allowing you to test the platform through three distinct operational perspectives:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <span class="font-bold text-slate-900 block">1. State Nodal Officer</span>
+            <p class="text-slate-600">Access statewide surveillance, tea garden vs. char risk disparity metrics, and executive KPIs.</p>
+            <a href="https://shishu-drishti.pages.dev/#executive" class="text-emerald-700 font-bold hover:underline block text-[11px]">View Executive Command →</a>
+          </div>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <span class="font-bold text-slate-900 block">2. DEIC Specialist</span>
+            <p class="text-slate-600">Review clinical photos, confirm AI suspect tags, pre-authorize surgical care under Snehasparsh.</p>
+            <a href="https://shishu-drishti.pages.dev/#worklist" class="text-emerald-700 font-bold hover:underline block text-[11px]">Open Clinical Worklist →</a>
+          </div>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <span class="font-bold text-slate-900 block">3. Frontline Screener (ASHA/ANM)</span>
+            <p class="text-slate-600">Simulate offline mobile capture of newborn photos and dual-site CCHD pulse-oximetry recording.</p>
+            <a href="https://shishu-drishti.pages.dev/#worklist" class="text-emerald-700 font-bold hover:underline block text-[11px]">Test AI Simulator →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Key Functional Modules -->
+      <section class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-sm">3</div>
+          <h2 class="text-lg font-bold text-slate-900">Key Functional Modules to Test in the Live Demo</h2>
+        </div>
+        <div class="space-y-3 text-xs sm:text-sm">
+          <div class="p-3 border border-slate-200 rounded-xl flex items-start gap-3">
+            <span class="text-lg">🤖</span>
+            <div>
+              <a href="https://shishu-drishti.pages.dev/#worklist" class="font-bold text-slate-900 hover:text-emerald-700">AI Screening Simulator (Clinical Worklist):</a>
+              <p class="text-slate-600 mt-0.5">Select from 5 sample clinical cases (Cleft Lip, Clubfoot, Spina Bifida, Polydactyly, CCHD). Click "Run Edge AI Screening" to view bounding boxes, confidence scores, and dual-site pulse oximetry gradients.</p>
+            </div>
+          </div>
+          <div class="p-3 border border-slate-200 rounded-xl flex items-start gap-3">
+            <span class="text-lg">🗺️</span>
+            <div>
+              <a href="https://shishu-drishti.pages.dev/#gis" class="font-bold text-slate-900 hover:text-emerald-700">GIS Vulnerability Map:</a>
+              <p class="text-slate-600 mt-0.5">Explore anomaly prevalence across all 35 districts of Assam with geospatial heatmaps, Tea Garden lines, and riverine char corridor overlays.</p>
+            </div>
+          </div>
+          <div class="p-3 border border-slate-200 rounded-xl flex items-start gap-3">
+            <span class="text-lg">⏱️</span>
+            <div>
+              <a href="https://shishu-drishti.pages.dev/#referrals" class="font-bold text-slate-900 hover:text-emerald-700">48-Hour DEIC Closed-Loop Referral Tracker:</a>
+              <p class="text-slate-600 mt-0.5">Test the 5-stage referral finite state machine. Observe automated DEIC appointment pre-booking, 102 ambulance dispatch, and automated escalation to the District Nodal Officer if unaddressed after 48 hours.</p>
+            </div>
+          </div>
+          <div class="p-3 border border-slate-200 rounded-xl flex items-start gap-3">
+            <span class="text-lg">🔒</span>
+            <div>
+              <a href="https://shishu-drishti.pages.dev/#admin" class="font-bold text-slate-900 hover:text-emerald-700">Governance & Admin Cockpit:</a>
+              <p class="text-slate-600 mt-0.5">Sign in with demo credentials (<code class="bg-slate-100 px-1 py-0.5 rounded font-mono text-emerald-800">admin@nhm.assam.gov.in / dispur2026</code>) to inspect system health, ASDC node latency, ABHA bridge logs, and model quantization metrics.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 4: Proposal Evidence & Downloads -->
+      <section class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-sm">4</div>
+          <h2 class="text-lg font-bold text-slate-900">Official Proposal Evidence & Copy-Paste Submissions</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Access the full official documentation prepared for NESFIC 2026 Stream 1 (Government Track: Health Sector, NHM Assam):
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <a href="https://shishu-drishti.pages.dev/downloads/NESFIC_D27_Proposal_Ron_Hatibaruah.pdf" class="p-4 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 rounded-xl block space-y-1 transition-all">
+            <span class="font-bold text-emerald-900 block text-sm">📄 Official Proposal PDF (2.8 MB)</span>
+            <span class="text-slate-600 block">Contains all 12 fields and high-resolution 16:9 widescreen technological architecture infographics.</span>
+          </a>
+          <a href="https://shishu-drishti.pages.dev/downloads/NESFIC_D27_Proof_of_Work_Ron_Hatibaruah.pdf" class="p-4 bg-teal-50 hover:bg-teal-100 border border-teal-300 rounded-xl block space-y-1 transition-all">
+            <span class="font-bold text-teal-900 block text-sm">🔬 Proof of Work Evidence PDF (1.7 MB)</span>
+            <span class="text-slate-600 block">Empirical test benchmarks, INT8 edge latency curves, CCHD protocol validation, and DPDP compliance.</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Footer Call to Action -->
+      <div class="text-center py-6 border-t border-slate-200">
+        <a href="https://shishu-drishti.pages.dev/#tutorial" class="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition-all text-sm">
+          <span>🚀 Click Here to Open Interactive Tutorial Inside the App</span>
+        </a>
+        <p class="text-xs text-slate-400 mt-2">
+          ShishuDrishti (শিশু দৃষ্টি) • Designed & Developed by Ron Hatibaruah for NHM & Health & Family Welfare Dept, Government of Assam
+        </p>
+      </div>
+
+    </main>
+  </body>
+</html>

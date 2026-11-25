@@ -46,6 +46,53 @@ export const App: React.FC = () => {
     }
   }, []);
 
+  // Handle URL deep-linking for SEO, GEO and Direct Navigation (#tutorial, /tutorial, #gis, #worklist, etc.)
+  useEffect(() => {
+    const handleNavigationFromUrl = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const pathname = window.location.pathname.toLowerCase();
+      const search = window.location.search.toLowerCase();
+
+      // Check tutorial trigger from URL
+      if (hash === 'tutorial' || pathname === '/tutorial' || search.includes('tutorial=true') || search.includes('tutorial')) {
+        setIsTutorialOpen(true);
+      }
+
+      // Check valid functional tabs
+      const validTabs = ['executive', 'worklist', 'gis', 'referrals', 'facilities', 'audit', 'admin'];
+      if (validTabs.includes(hash)) {
+        setActiveTab(hash);
+      } else if (validTabs.includes(pathname.replace('/', ''))) {
+        setActiveTab(pathname.replace('/', ''));
+      }
+    };
+
+    handleNavigationFromUrl();
+    window.addEventListener('hashchange', handleNavigationFromUrl);
+    window.addEventListener('popstate', handleNavigationFromUrl);
+    return () => {
+      window.removeEventListener('hashchange', handleNavigationFromUrl);
+      window.removeEventListener('popstate', handleNavigationFromUrl);
+    };
+  }, []);
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    window.location.hash = tab;
+  };
+
+  const handleOpenTutorial = () => {
+    setIsTutorialOpen(true);
+    window.location.hash = 'tutorial';
+  };
+
+  const handleCloseTutorial = () => {
+    setIsTutorialOpen(false);
+    if (window.location.hash.toLowerCase() === '#tutorial') {
+      window.history.replaceState(null, '', window.location.pathname + (activeTab ? `#${activeTab}` : ''));
+    }
+  };
+
   const handleLoginSuccess = (user: AdminUser) => {
     setAdminUser(user);
     localStorage.setItem('shishudrishti_admin_session', JSON.stringify(user));
@@ -74,10 +121,10 @@ export const App: React.FC = () => {
       {/* Top Navigation */}
       <Navbar
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
         selectedRole={selectedRole}
         setSelectedRole={handleRoleChange}
-        onOpenTutorial={() => setIsTutorialOpen(true)}
+        onOpenTutorial={handleOpenTutorial}
         adminUser={adminUser}
         onOpenAdminLogin={() => setIsAdminLoginOpen(true)}
       />
@@ -116,7 +163,7 @@ export const App: React.FC = () => {
           )}
 
           <button
-            onClick={() => setIsTutorialOpen(true)}
+            onClick={handleOpenTutorial}
             className="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-900 rounded-lg text-xs font-bold shadow-sm transition-all"
           >
             <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
@@ -173,8 +220,8 @@ export const App: React.FC = () => {
       {/* Comprehensive Tutorial & Guide Modal */}
       <TutorialModal
         isOpen={isTutorialOpen}
-        onClose={() => setIsTutorialOpen(false)}
-        setActiveTab={setActiveTab}
+        onClose={handleCloseTutorial}
+        setActiveTab={handleTabChange}
       />
 
       {/* Footer */}
