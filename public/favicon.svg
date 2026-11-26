@@ -1,44 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
   <defs>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f766e" />
+    <!-- Background Gradient: Deep Assam Emerald to Dark Teal -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46" />
+      <stop offset="50%" stop-color="#0f766e" />
       <stop offset="100%" stop-color="#042f2e" />
     </linearGradient>
+
+    <!-- Outer Protective Ring Gradient (Assam Muga Silk Gold) -->
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="45%" stop-color="#fbbf24" />
       <stop offset="100%" stop-color="#d97706" />
     </linearGradient>
+
+    <!-- Swaddle & Vital Glow -->
+    <linearGradient id="swaddleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ccfbf1" />
+    </linearGradient>
+
+    <!-- Vital Pulse Gradient -->
+    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="50%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </linearGradient>
+
+    <!-- Drop Shadows for 3D Depth -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#021c1a" flood-opacity="0.5" />
+    </filter>
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.35" />
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
-  <!-- Protective Health Sentinel Shield -->
-  <path d="M50 6 L88 22 C88 60 50 94 50 94 C50 94 12 60 12 22 Z" 
-        fill="url(#shieldGrad)" stroke="#14b8a6" stroke-width="3" filter="url(#glow)" />
+  <!-- Base Squircle Container with Soft Bevel Border -->
+  <rect x="4" y="4" width="120" height="120" rx="32" 
+        fill="url(#bgGrad)" stroke="#10b981" stroke-width="2.5" filter="url(#shadow)" />
 
-  <!-- Inner Gold Accent Border -->
-  <path d="M50 13 L81 26 C81 56 50 85 50 85 C50 85 19 56 19 26 Z" 
-        fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.8" />
+  <!-- Inner Concentric Golden Orbit (The Sentinel "Drishti" Vision Ring) -->
+  <circle cx="64" cy="64" r="54" 
+          fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="6 3" opacity="0.65" />
 
-  <!-- Stylized Pulmonary Lungs / Cross Symbol -->
-  <!-- Left Lung Lobe -->
-  <path d="M46 36 C42 32 32 34 32 46 C32 58 40 68 46 72 Z" 
-        fill="#2dd4bf" opacity="0.9" />
-  
-  <!-- Right Lung Lobe -->
-  <path d="M54 36 C58 32 68 34 68 46 C68 58 60 68 54 72 Z" 
-        fill="#2dd4bf" opacity="0.9" />
+  <!-- Stylized Protective Iris / Maternal Shield Arc -->
+  <path d="M 20 64 C 36 28 92 28 108 64 C 92 100 36 100 20 64 Z" 
+        fill="#083344" fill-opacity="0.45" stroke="#2dd4bf" stroke-width="2" />
 
-  <!-- Trachea / Central Vertical Stem -->
-  <line x1="50" y1="28" x2="50" y2="60" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
-  <line x1="50" y1="44" x2="43" y2="52" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
-  <line x1="50" y1="44" x2="57" y2="52" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  <!-- Early Sentinel Optical Reticle Crosshairs (Subtle AI Framing) -->
+  <path d="M 24 64 L 32 64 M 96 64 L 104 64 M 64 24 L 64 32 M 64 96 L 64 104" 
+        stroke="#5eead4" stroke-width="2" stroke-linecap="round" opacity="0.6" />
 
-  <!-- Dynamic ECG / Pulse Wave of Life -->
-  <path d="M26 50 L36 50 L41 42 L47 58 L53 45 L58 54 L64 50 L74 50" 
-        fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Cradled Newborn ("Shishu" শিশু) Central Motif -->
+  <!-- Outer Swaddle Wings / Protective Hands -->
+  <path d="M 36 78 C 36 58 48 50 64 50 C 80 50 92 58 92 78 C 92 92 78 98 64 98 C 50 98 36 92 36 78 Z" 
+        fill="url(#swaddleGrad)" filter="url(#shadow)" />
 
-  <!-- Central Telemetry Radar Node -->
-  <circle cx="50" cy="28" r="3.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+  <!-- Swaddle Fold Accents in Soft Mint -->
+  <path d="M 44 76 Q 64 88 84 76" 
+        fill="none" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" opacity="0.5" />
+  <path d="M 48 84 Q 64 92 80 84" 
+        fill="none" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" opacity="0.4" />
+
+  <!-- Baby Head (Peaceful Resting Infant) -->
+  <circle cx="64" cy="46" r="18" fill="#ffffff" filter="url(#shadow)" />
+
+  <!-- Gentle Golden Hair Curl of Newborn -->
+  <path d="M 64 26 C 60 21 55 24 56 28 C 57 32 63 33 64 28" 
+        fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Peaceful Closed Eyes (Sleep of Health & Protection) -->
+  <path d="M 54 45 Q 57 48 60 45" 
+        fill="none" stroke="#065f46" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M 68 45 Q 71 48 74 45" 
+        fill="none" stroke="#065f46" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Rosy Cheeks -->
+  <circle cx="52" cy="49" r="2" fill="#fda4af" opacity="0.75" />
+  <circle cx="76" cy="49" r="2" fill="#fda4af" opacity="0.75" />
+
+  <!-- Gentle Smile -->
+  <path d="M 61 52 Q 64 55 67 52" 
+        fill="none" stroke="#047857" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- Vital Life Pulse / Heartbeat (CCHD Pulse-Ox & Pediatric Life Care) -->
+  <!-- Floating Golden-Rose Heart Badge at Swaddle Base -->
+  <path d="M 64 68 
+           C 64 64, 58 60, 54 64 
+           C 49 69, 52 75, 64 83 
+           C 76 75, 79 69, 74 64 
+           C 70 60, 64 64, 64 68 Z" 
+        fill="url(#pulseGrad)" filter="url(#glow)" stroke="#ffffff" stroke-width="1" />
+
+  <!-- Active Pulse Beat Line Running Across Heart -->
+  <path d="M 50 71 L 56 71 L 60 66 L 64 77 L 68 69 L 71 71 L 78 71" 
+        fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Golden Beacon Sparkle (Early Detection / Cure Within 21 Days) -->
+  <polygon points="98,34 100,28 102,34 108,36 102,38 100,44 98,38 92,36" 
+           fill="#fef08a" opacity="0.95" />
 </svg>
