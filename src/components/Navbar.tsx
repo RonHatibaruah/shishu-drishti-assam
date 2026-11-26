@@ -12,7 +12,8 @@ import {
   Lock,
   ShieldCheck,
   UserCheck,
-  HeartPulse
+  HeartPulse,
+  Cpu
 } from 'lucide-react';
 import { AdminUser } from './AdminLogin';
 
@@ -22,6 +23,7 @@ interface NavbarProps {
   selectedRole: string;
   setSelectedRole: (role: string) => void;
   onOpenTutorial: () => void;
+  onOpenTechnical: () => void;
   adminUser: AdminUser | null;
   onOpenAdminLogin: () => void;
 }
@@ -32,6 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   selectedRole,
   setSelectedRole,
   onOpenTutorial,
+  onOpenTechnical,
   adminUser,
   onOpenAdminLogin
 }) => {
@@ -51,17 +54,28 @@ export const Navbar: React.FC<NavbarProps> = ({
             NESFIC-D-27: Govt Track
           </span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
           {/* Prominent Tutorial Header Link */}
           <button
             onClick={onOpenTutorial}
-            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-2.5 py-0.5 rounded text-[11px] flex items-center gap-1 shadow-sm transition-all animate-bounce"
+            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-2.5 py-0.5 rounded text-[11px] flex items-center gap-1 shadow-sm transition-all animate-pulse"
             title="Interactive Walkthrough: What the application does & how to use it"
           >
             <BookOpen className="w-3 h-3 text-slate-950" />
-            <span>📖 How It Works / User Tutorial</span>
+            <span>📖 User Tutorial</span>
           </button>
-          <span className="hidden lg:inline text-emerald-300/80">
+
+          {/* Prominent Technical & Medical Guide Link */}
+          <button
+            onClick={onOpenTechnical}
+            className="bg-gradient-to-r from-teal-400 to-emerald-400 hover:from-teal-300 hover:to-emerald-300 text-slate-950 font-bold px-2.5 py-0.5 rounded text-[11px] flex items-center gap-1 shadow-sm transition-all"
+            title="Tech stack, medical science, formulas & glossary explained for laymen"
+          >
+            <Cpu className="w-3 h-3 text-slate-950" />
+            <span>🔬 Tech & Medical Knowledge (Layman Guide)</span>
+          </button>
+
+          <span className="hidden xl:inline text-emerald-300/80">
             RBSK • DEIC Network
           </span>
           <span className="bg-emerald-900/80 border border-emerald-500/40 text-emerald-300 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1">
@@ -102,7 +116,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             title="What the application is and how to use it"
           >
             <BookOpen className="w-3.5 h-3.5" />
-            <span>Tutorial & Guide</span>
+            <span>User Tutorial</span>
+          </button>
+
+          {/* Technical & Medical Blueprint Link */}
+          <button
+            onClick={onOpenTechnical}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-teal-700 hover:bg-teal-600 text-white shadow-md transition-all border border-teal-500/50"
+            title="Technical stack, medical science, clinical formulas & glossary for non-technical users"
+          >
+            <Cpu className="w-3.5 h-3.5 text-teal-200" />
+            <span>Tech & Medical Guide</span>
           </button>
 
           {/* Admin Login / Console Access Button */}

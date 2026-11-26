@@ -8,6 +8,7 @@ import { FacilitySupervision } from './components/FacilitySupervision';
 import { AuditAndDeduplication } from './components/AuditAndDeduplication';
 import { ExecutiveCommand } from './components/ExecutiveCommand';
 import { TutorialModal } from './components/TutorialModal';
+import { TechnicalModal } from './components/TechnicalModal';
 import { AdminLogin, AdminUser } from './components/AdminLogin';
 import { AdminConsole } from './components/AdminConsole';
 import { 
@@ -24,13 +25,15 @@ import {
   Download,
   Lock,
   ShieldCheck,
-  UserCheck
+  UserCheck,
+  Cpu
 } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('executive');
   const [selectedRole, setSelectedRole] = useState<string>('STATE_NODAL');
   const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
+  const [isTechnicalOpen, setIsTechnicalOpen] = useState<boolean>(false);
   const [isAdminLoginOpen, setIsAdminLoginOpen] = useState<boolean>(false);
   const [adminUser, setAdminUser] = useState<AdminUser | null>(null);
 
@@ -46,7 +49,7 @@ export const App: React.FC = () => {
     }
   }, []);
 
-  // Handle URL deep-linking for SEO, GEO and Direct Navigation (#tutorial, /tutorial, #gis, #worklist, etc.)
+  // Handle URL deep-linking for SEO, GEO and Direct Navigation (#tutorial, #technical, /tutorial, /technical, #gis, etc.)
   useEffect(() => {
     const handleNavigationFromUrl = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
@@ -56,6 +59,11 @@ export const App: React.FC = () => {
       // Check tutorial trigger from URL
       if (hash === 'tutorial' || pathname === '/tutorial' || search.includes('tutorial=true') || search.includes('tutorial')) {
         setIsTutorialOpen(true);
+      }
+
+      // Check technical & medical guide trigger from URL
+      if (hash === 'technical' || hash === 'tech' || hash === 'tech-guide' || pathname === '/technical' || search.includes('technical')) {
+        setIsTechnicalOpen(true);
       }
 
       // Check valid functional tabs
@@ -93,6 +101,18 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleOpenTechnical = () => {
+    setIsTechnicalOpen(true);
+    window.location.hash = 'technical';
+  };
+
+  const handleCloseTechnical = () => {
+    setIsTechnicalOpen(false);
+    if (window.location.hash.toLowerCase() === '#technical' || window.location.hash.toLowerCase() === '#tech') {
+      window.history.replaceState(null, '', window.location.pathname + (activeTab ? `#${activeTab}` : ''));
+    }
+  };
+
   const handleLoginSuccess = (user: AdminUser) => {
     setAdminUser(user);
     localStorage.setItem('shishudrishti_admin_session', JSON.stringify(user));
@@ -125,6 +145,7 @@ export const App: React.FC = () => {
         selectedRole={selectedRole}
         setSelectedRole={handleRoleChange}
         onOpenTutorial={handleOpenTutorial}
+        onOpenTechnical={handleOpenTechnical}
         adminUser={adminUser}
         onOpenAdminLogin={() => setIsAdminLoginOpen(true)}
       />
@@ -168,6 +189,14 @@ export const App: React.FC = () => {
           >
             <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
             <span>How to Use & Test</span>
+          </button>
+
+          <button
+            onClick={handleOpenTechnical}
+            className="flex items-center gap-1.5 px-3 py-1 bg-teal-50 hover:bg-teal-100 border border-teal-300 text-teal-900 rounded-lg text-xs font-bold shadow-sm transition-all"
+          >
+            <Cpu className="w-3.5 h-3.5 text-teal-700" />
+            <span>Tech & Medical Blueprint</span>
           </button>
         </div>
       </div>
@@ -222,6 +251,14 @@ export const App: React.FC = () => {
         isOpen={isTutorialOpen}
         onClose={handleCloseTutorial}
         setActiveTab={handleTabChange}
+        onOpenTechnical={handleOpenTechnical}
+      />
+
+      {/* Technical & Medical Blueprint Modal */}
+      <TechnicalModal
+        isOpen={isTechnicalOpen}
+        onClose={handleCloseTechnical}
+        onOpenTutorial={handleOpenTutorial}
       />
 
       {/* Footer */}

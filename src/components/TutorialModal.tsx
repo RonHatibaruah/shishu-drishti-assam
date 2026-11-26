@@ -23,12 +23,14 @@ interface TutorialModalProps {
   isOpen: boolean;
   onClose: () => void;
   setActiveTab: (tab: string) => void;
+  onOpenTechnical?: () => void;
 }
 
 export const TutorialModal: React.FC<TutorialModalProps> = ({
   isOpen,
   onClose,
-  setActiveTab
+  setActiveTab,
+  onOpenTechnical
 }) => {
   const [activeStep, setActiveStep] = useState<number>(1);
   const [copiedNotice, setCopiedNotice] = useState<string | null>(null);
@@ -148,6 +150,26 @@ export const TutorialModal: React.FC<TutorialModalProps> = ({
               <div className="p-3 bg-amber-50 rounded-xl border border-amber-300 text-amber-900">
                 <strong>Statutory Guardrail:</strong> In strict compliance with the challenge mandate, all AI screening outputs function as <em>decision support only</em> and do not replace clinical diagnosis or medical authority.
               </div>
+
+              {onOpenTechnical && (
+                <div className="p-4 bg-teal-50 rounded-xl border border-teal-200 flex items-center justify-between gap-3">
+                  <div>
+                    <h5 className="font-bold text-teal-950 text-xs">Looking for the Technical & Medical Blueprint?</h5>
+                    <p className="text-[11px] text-teal-800">
+                      Explore the tech stack, medical conditions explained simply, formulas, and layman glossary.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      onClose();
+                      onOpenTechnical();
+                    }}
+                    className="px-3 py-1.5 bg-teal-700 hover:bg-teal-600 text-white rounded-lg font-bold text-xs shadow-sm transition-all whitespace-nowrap"
+                  >
+                    Open Tech Blueprint →
+                  </button>
+                </div>
+              )}
             </div>
           )}
 

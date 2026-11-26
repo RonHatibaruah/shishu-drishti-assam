@@ -12,13 +12,27 @@
   <!-- Interactive System Tutorial & User Guide -->
   <url>
     <loc>https://shishu-drishti.pages.dev/#tutorial</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://shishu-drishti.pages.dev/tutorial</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Technical Stack & Medical Knowledge Blueprint (Layman Guide) -->
+  <url>
+    <loc>https://shishu-drishti.pages.dev/#technical</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://shishu-drishti.pages.dev/technical</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
